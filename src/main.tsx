@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import { createRoot } from 'react-dom/client';
 import ReactDOM from 'react-dom/client';
 import { Auth0Provider } from '@auth0/auth0-react';
-import App from './components/App'; // Updated import path to match new structure
+import App from './pages/App'; // Updated import path to match new structure
 import './index.css';
 
 // Get root element with error handling
