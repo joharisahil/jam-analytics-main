@@ -1,52 +1,46 @@
 import React from "react";
 import NavBar from "../components/NavBar"; // Import the NavBar
-import FeatureCard from "../components/FeatureCard.jsx";
+import FeatureCard from "../components/FeatureCard";
 import StepCard from "../components/StepCard";
 import PricingCard from "../components/PricingCard";
 import { features } from "../data/features";
 import { steps } from "../data/steps";
 import { plans } from "../data/plans";
-import FooterDown from "../components/FooterDown.jsx";
-import NavDown from "../components/NavDown.jsx";
-import {createBrowserRouter} from 'react-router-dom'
+import {Routes,Route} from 'react-router-dom'
+import FooterDown from "../components/FooterDown";
+import NavDown from "../components/NavDown";
+
 
 
 
 
 function Home() {
-
-  const router=createBrowserRouter([
-
-    {
-      path:"/Home",
-      element:<NavDown/>
-    },
-    {
-      path:"/",
-      element:<FeatureCard/>
-    },
-    // {
-    //   path:"/",
-    //   element:<PricingCard/>
-    // },
-    // {
-    //   path:"/",
-    //   element:<PricingCard/>
-    // },
-    // {
-    //   path:"/",
-    //   element:<PricingCard/>
-    // },
-
-  ])
   return (
+    <>
     <div className=" bg-gradient-to-b from-white to-gray-50">
       {/* Navigation */}
       <NavBar />
-      <NavDown />
+      <NavDown/>
+      
+
+    {/* <Routes>
+      <Route path="/" element={<NavDown/>}/>
+      <Route path="/feature" element={<FeatureCard/>}/>
+      <Route path="/pricing" element={<PricingCard/>}/>
+      <Route path="/about" element={<FooterDown/>}/>
+    </Routes> */}
+
+
+
+
+
+
+
+
+    
 
       {/* Features */}
-      <section className="bg-white py-20">
+      <section id="feature" className="bg-white py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-16">Powerful Features</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -58,7 +52,7 @@ function Home() {
       </section>
 
       {/* Steps (New Section) */}
-      <section className="bg-gray-50 py-20">
+      <section  className="bg-gray-50 py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-16">How It Works</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -70,7 +64,7 @@ function Home() {
       </section>
 
       {/* Pricing */}
-      <section className="py-20">
+      <section id="pricing" className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-16">Simple, Transparent Pricing</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -84,6 +78,7 @@ function Home() {
       {/* Footer */}
       <FooterDown />
     </div>
+    </>
   );
 }
 

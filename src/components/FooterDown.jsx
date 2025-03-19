@@ -14,7 +14,7 @@ const FooterDown = () => {
       </div>
 
       {/* Footer Section */}
-      <footer className="bg-white text-gray-700 py-10">
+      <footer  className="bg-white text-gray-700 py-10">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4">
           
           {/* Product */}
