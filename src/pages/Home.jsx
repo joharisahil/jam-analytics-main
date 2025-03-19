@@ -16,7 +16,6 @@ function Home() {
       <div className=" bg-gradient-to-b from-white to-gray-50">
         {/* Navigation */}
         <NavBar />
-        <NavDown />
 
         <section id="home" className="bg-white py-20">
           <NavDown />
