@@ -2,6 +2,7 @@ import React from 'react'
 
 const FooterDown = () => {
   return (
+    <section id="FooterDown">
     <div className="flex flex-col h-fit">
       {/* CTA Section */}
       <div className="bg-gradient-to-r from-blue-500 to-blue-700 text-white text-center py-16">
@@ -69,6 +70,7 @@ const FooterDown = () => {
         </div>
       </footer>
     </div>
+    </section>
   )
 }
 

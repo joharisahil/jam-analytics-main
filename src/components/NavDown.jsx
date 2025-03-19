@@ -3,7 +3,7 @@ import { ArrowRight, Play } from "lucide-react";
 
 const NavDown = () => {
   return (
-    <section className="container mx-auto px-6 pt-20 pb-32 text-center">
+    <section id="Home" className="container mx-auto px-6 pt-20 pb-32 text-center">
       <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-transparent bg-clip-text">
         Transform Your Business Operations with AI-Powered Management
       </h1>

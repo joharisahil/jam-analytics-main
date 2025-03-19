@@ -8,8 +8,37 @@ import { steps } from "../data/steps";
 import { plans } from "../data/plans";
 import FooterDown from "../components/FooterDown.jsx";
 import NavDown from "../components/NavDown.jsx";
+import {createBrowserRouter} from 'react-router-dom'
+
+
+
 
 function Home() {
+
+  const router=createBrowserRouter([
+
+    {
+      path:"/Home",
+      element:<NavDown/>
+    },
+    {
+      path:"/",
+      element:<FeatureCard/>
+    },
+    // {
+    //   path:"/",
+    //   element:<PricingCard/>
+    // },
+    // {
+    //   path:"/",
+    //   element:<PricingCard/>
+    // },
+    // {
+    //   path:"/",
+    //   element:<PricingCard/>
+    // },
+
+  ])
   return (
     <div className=" bg-gradient-to-b from-white to-gray-50">
       {/* Navigation */}
