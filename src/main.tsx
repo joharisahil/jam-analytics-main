@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter } from "react-router-dom";
+import { createRoot } from 'react-dom/client';
 import ReactDOM from 'react-dom/client';
 import { Auth0Provider } from '@auth0/auth0-react';
 import App from './components/App'; // Updated import path to match new structure
@@ -6,13 +8,17 @@ import './index.css';
 
 // Get root element with error handling
 const rootElement = document.getElementById('root');
+// Log application startup in development mode
+if (import.meta.env.DEV) {
+  console.log(`Jam Analytics app started`);
+}
 if (!rootElement) {
   console.error("Failed to find the root element");
   throw new Error("Root element with id 'root' not found in the DOM");
 }
 
 ReactDOM.createRoot(rootElement).render(
-  <React.StrictMode>
+  <BrowserRouter>
     <Auth0Provider
       domain="dev-xob5q2qx8z60cn13.us.auth0.com"
       clientId="TorvOF9ld8WDmVy4fev0gcof4PTUmJ4E"
@@ -23,10 +29,6 @@ ReactDOM.createRoot(rootElement).render(
     >
       <App />
     </Auth0Provider>
-  </React.StrictMode>
-);
+  </BrowserRouter>
 
-// Log application startup in development mode
-if (import.meta.env.DEV) {
-  console.log(`Jam Analytics app started`);
-}
+    )
