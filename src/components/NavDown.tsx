@@ -3,19 +3,33 @@ import { ArrowRight, Play } from "lucide-react";
 
 const NavDown = () => {
   return (
-    <section id="Home" className="container mx-auto px-6 pt-28 pb-32 text-center  ">
-      <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-transparent bg-clip-text">
-        Transform Your Business Operations with AI-Powered Management
+    <section className="container mx-auto px-6 pt-20 pb-32 text-center">
+      {/* Heading with Exact Font, Gradient, and Size */}
+      <h1
+        className="text-[78px] font-[695] leading-[110%] text-center mx-auto
+        bg-gradient-to-b from-white to-[#A084CA] text-transparent bg-clip-text pb-3"
+      >
+        Transform Your Business <br />
+        Operations with AI- <br />
+        Powered Management
       </h1>
-      <p className="text-xl text-gray-600 mb-8">
-        Automate workflows, boost productivity, and scale your business with intelligent solutions
+
+      {/* Subheading with Correct Color and Spacing */}
+      <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto p-10 leading-relaxed ">
+        Automate workflows, boost productivity, and scale your business with
+        intelligent solutions.
       </p>
-      <div className="flex justify-center gap-4">
-        <button className="px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-colors flex items-center">
-          Launching Soon <ArrowRight className="ml-2 w-4 h-4" />
+
+      {/* Buttons Styled Exactly Like Image */}
+      <div className="flex justify-center gap-36 mt-1">
+        <button className="px-4 py-2 bg-white text-gray-900 rounded-lg text-[20px] font-medium 
+          hover:bg-gray-200 transition-all flex items-center shadow-md">
+          Get Started
         </button>
-        <button className="px-8 py-3 bg-white text-gray-800 rounded-full font-medium border border-gray-200 hover:border-blue-600 transition-colors flex items-center">
-          Watch Demo <Play className="ml-2 w-4 h-4" />
+
+        <button className="px-4 py-2 bg-white text-black rounded-lg text-[20px] font-medium
+          border border-gray-400 hover:border-white transition-all flex items-center shadow">
+          View Demo
         </button>
       </div>
     </section>

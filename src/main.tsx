@@ -8,6 +8,8 @@ import './index.css';
 
 // Get root element with error handling
 const rootElement = document.getElementById('root');
+
+
 // Log application startup in development mode
 if (import.meta.env.DEV) {
   console.log(`Jam Analytics app started`);
