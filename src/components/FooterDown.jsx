@@ -3,7 +3,7 @@ import React from "react";
 const FooterDown = () => {
   return (
     <section id="FooterDown">
-    <div className="flex flex-col h-fit">
+    <div className="flex flex-col h-fit bg-[#131313f3] text-white">
       {/* CTA Section */}
       <div className="bg-gradient-to-r from-blue-500 to-blue-700 text-white text-center py-16">
         <h1 className="text-3xl font-bold mb-2">Ready to Transform Your Business?</h1>
@@ -14,8 +14,8 @@ const FooterDown = () => {
       </div>
 
       {/* Footer Section */}
-      <footer  className="bg-white text-gray-700 py-10">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4">
+      <footer  className="bg-gray text-white-700 py-10">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4 text-white">
           
           {/* Product */}
           <div>
