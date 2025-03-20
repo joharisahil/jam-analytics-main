@@ -1,9 +1,9 @@
-import React from "react";
-import Home from "./Home";
+
+import Home from "./Home"; 
 
 
 function App() {
-  return <Home />;
+  return <Home/>;
 }
 
 export default App;

@@ -11,13 +11,13 @@ import NavDown from "../components/NavDown.jsx";
 
 function Home() {
   return (
-    <div className=" bg-gradient-to-b from-white to-gray-50">
+    <div className="bg-white.py-20">
       {/* Navigation */}
       <NavBar />
       <NavDown />
 
       {/* Features */}
-      <section className="bg-white py-20">
+      <section className="bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-16">Powerful Features</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
