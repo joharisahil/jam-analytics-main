@@ -4,13 +4,7 @@ import React from "react";
 const NavDown = () => {
   return (
     <div className="min-h-screen bg-[#0a060f] flex items-center justify-center relative overflow-hidden">
-      <div
-        className="absolute w-[2800px] h-[2800px] md:w-[3500px] md:h-[3500px] rounded-full bottom-[-1100px] md:bottom-[-900px] opacity-100 border-8 border-black shadow-[0_0_150px_#000000]"
-        style={{
-          background:
-            "radial-gradient(circle,  #090909 70%, #ffffff 100%, #0A020F 100%)",
-        }}
-      ></div>
+     
       {/* Largest Circle  */}
       <div
         className="absolute w-[2800px] h-[2800px] md:w-[2000px] md:h-[2000px] rounded-full bottom-[-1100px] md:bottom-[-900px] opacity-100 border-8 border-black shadow-[0_0_150px_#000000]"
@@ -40,7 +34,7 @@ const NavDown = () => {
 
       {/* Smallest Circle  */}
       <div
-        className="absolute w-[1400px] h-[1400px] md:w-[900px] md:h-[850px] rounded-full bottom-[-600px] md:bottom-[-450px] opacity-85 border-8 border-black shadow-[0_0_80px_#000000]"
+        className="absolute w-[1400px] h-[1400px] md:w-[600px] md:h-[650px] rounded-full bottom-[-600px] md:bottom-[-450px] opacity-85 border-8 border-black shadow-[0_0_80px_#000000]"
         style={{
           background:
             "radial-gradient(circle, #1E0935 35%, #0C0318 50%, #000000 80%)",
@@ -48,7 +42,7 @@ const NavDown = () => {
       ></div>
 
       {/* Content Section */}
-      <div className="container mx-auto px-6 pt-20 md:pt-28 pb-32 relative z-10">
+      <div className="container mx-auto px-6 pt-8 md:pt-28 pb-32 relative z-10">
         <div className="text-center">
         <h1
         className="text-[78px] font-[695] leading-[110%] text-center mx-auto
