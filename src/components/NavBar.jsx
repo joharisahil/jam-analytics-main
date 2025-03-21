@@ -73,91 +73,121 @@ const Navbar = () => {
       <UserProfileModal />
 
       <nav className="fixed top-0 left-0 w-full bg-[#0a0014] text-white py-4 px-10 flex items-center justify-between z-50 shadow-md">
-      {/* Logo & Branding */}
-      <div className="flex items-center left-14 px-20">
-        <img src="/logo.png" alt="Logo" className="w-10 h-10" />
-        <span className="text-2xl font-semibold tracking-wide hover:text-purple-400 transition">
-          <a href="#home">Jam Analytics</a>
-        </span>
-      </div>
+        {/* Logo & Branding */}
+        <div className="flex items-center left-14 px-20">
+          <img src="/logo.png" alt="Logo" className="w-10 h-10" />
+          <span className="text-2xl font-semibold tracking-wide hover:text-purple-400 transition">
+            <a href="#home">Jam Analytics</a>
+          </span>
+        </div>
 
-      {/* Desktop Navigation */}
-      <ul className="hidden md:flex space-x-14 text-gray-300 text-lg pr-64">
-        <li>
-          <a href="#home" className="hover:text-white transition">Home</a>
-        </li>
-        <li>
-          <a href="#pricing" className="hover:text-white transition">Pricing</a>
-        </li>
-        <li>
-          <a href="#feature" className="hover:text-white transition">Features</a>
-        </li>
-        <li>
-          <a href="#about" className="hover:text-white transition">About</a>
-        </li>
-      </ul>
+        {/* Desktop Navigation */}
+        <ul className="hidden md:flex space-x-14 text-gray-300 text-lg pr-64">
+          <li>
+            <a href="#home" className="hover:text-white transition">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#pricing" className="hover:text-white transition">
+              Pricing
+            </a>
+          </li>
+          <li>
+            <a href="#feature" className="hover:text-white transition">
+              Features
+            </a>
+          </li>
+          <li>
+            <a href="#about" className="hover:text-white transition">
+              About
+            </a>
+          </li>
+        </ul>
 
-      {/* Authentication Section */}
-      <div className="hidden md:flex items-center space-x-4">
-        {!isAuthenticated ? (
-          <>
-    
+        {/* Authentication Section */}
+        <div className="hidden md:flex items-center space-x-4">
+          {!isAuthenticated ? (
+            <>
+              <button
+                onClick={() => loginWithRedirect()}
+                className="bg-gradient-to-br from-[#43295ebf] to-[#220b29] text-white text-lg font-medium px-2 py-0  
+  rounded-[8px] border border-[#9174a7]  
+  transition-all duration-300 ease-in-out 
+  hover:bg-[#1a0122
+  flex items-center gap-2 text-[15px]"
+              >
+                Try now
+              </button>
+            </>
+          ) : (
+            <button
+              onClick={() => logout()}
+              className="text-gray-300 hover:text-white"
+            >
+              Logout
+            </button>
+          )}
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+        </button>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="md:hidden fixed top-16 left-0 w-full bg-[#0a0014] text-white p-6 space-y-4 z-40 shadow-lg">
+            <ul className="space-y-4 text-left text-lg">
+              <li>
+                <a
+                  href="#home"
+                  className="block hover:text-purple-400 transition"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#pricing"
+                  className="block hover:text-purple-400 transition"
+                >
+                  Pricing
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#feature"
+                  className="block hover:text-purple-400 transition"
+                >
+                  Features
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  className="block hover:text-purple-400 transition"
+                >
+                  About
+                </a>
+              </li>
+            </ul>
+            {/* <button className="text-gray-300 hover:text-white transition">
+              Sign In
+            </button> */}
             <button
               onClick={() => loginWithRedirect()}
-              className="bg-gradient-to-br from-[#43295ebf] to-[#220b29] text-white text-lg font-medium px-2 py-0  
+              className="bg-gradient-to-br from-[#43295ebf] to-[#220b29] text-white text-lg font-medium px-2 py-1
   rounded-[8px] border border-[#9174a7]  
   transition-all duration-300 ease-in-out 
   hover:bg-[#1a0122
   flex items-center gap-2 text-[15px]"
             >
-              Try now
+              Sign Up →
             </button>
-          </>
-        ) : (
-          <button onClick={() => logout()} className="text-gray-300 hover:text-white">
-            Logout
-          </button>
+          </div>
         )}
-      </div>
-
-      {/* Mobile Menu Button */}
-      <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
-        {menuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
-      </button>
-
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden fixed top-16 left-0 w-full bg-[#0a0014] text-white p-6 space-y-4 z-40 shadow-lg">
-          <ul className="space-y-4 text-left text-lg">
-            <li>
-              <a href="#home" className="block hover:text-purple-400 transition">Home</a>
-            </li>
-            <li>
-              <a href="#pricing" className="block hover:text-purple-400 transition">Pricing</a>
-            </li>
-            <li>
-              <a href="#feature" className="block hover:text-purple-400 transition">Features</a>
-            </li>
-            <li>
-              <a href="#about" className="block hover:text-purple-400 transition">About</a>
-            </li>
-          </ul>
-          {/* <button className="text-gray-300 hover:text-white transition">
-              Sign In
-            </button> */}
-          <button
-            onClick={() => loginWithRedirect()}
-            className="bg-gradient-to-br from-[#43295ebf] to-[#220b29] text-white text-lg font-medium px-2 py-1
-  rounded-[8px] border border-[#9174a7]  
-  transition-all duration-300 ease-in-out 
-  hover:bg-[#1a0122
-  flex items-center gap-2 text-[15px]"
-          >
-            Sign Up →
-          </button>
-        </div>
-      )}
-    </nav>
+      </nav>
     </>
   );
 };

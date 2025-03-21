@@ -3,10 +3,6 @@ import { ArrowRight, Play } from "lucide-react";
 
 const NavDown = () => {
   return (
-
-
-    
-    
     <section className="container mx-auto px-6 pt-20 pb-32 text-center">
       {/* Heading with Exact Font, Gradient, and Size */}
       <h1
@@ -26,13 +22,17 @@ const NavDown = () => {
 
       {/* Buttons Styled  */}
       <div className="flex justify-center gap-36 mt-1">
-        <button className="px-4 py-2 bg-white text-gray-900 rounded-lg text-[20px] font-medium 
-          hover:bg-gray-200 transition-all flex items-center shadow-md">
+        <button
+          className="px-4 py-2 bg-white text-gray-900 rounded-lg text-[20px] font-medium 
+          hover:bg-gray-200 transition-all flex items-center shadow-md"
+        >
           Get Started
         </button>
 
-        <button className="px-4 py-2 bg-white text-black rounded-lg text-[20px] font-medium
-          border border-gray-400 hover:border-white transition-all flex items-center shadow">
+        <button
+          className="px-4 py-2 bg-white text-black rounded-lg text-[20px] font-medium
+          border border-gray-400 hover:border-white transition-all flex items-center shadow"
+        >
           View Demo
         </button>
       </div>
