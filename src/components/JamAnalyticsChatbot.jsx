@@ -1,5 +1,9 @@
 import { useState, useEffect, useRef } from "react";
-import { MessageCircle, Send } from 'lucide-react';
+import { MessageCircle, Send, ThumbsUp, ThumbsDown } from 'lucide-react';
+import { botResponses, suggestionsByTopic } from './chatbotData';
+
+// This would typically be stored in a database
+const LOCAL_STORAGE_KEY = "jam_analytics_chatbot_training";
 
 export default function JamAnalyticsChatbot() {
   const [messages, setMessages] = useState([
@@ -7,6 +11,12 @@ export default function JamAnalyticsChatbot() {
   ]);
   const [input, setInput] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [trainedResponses, setTrainedResponses] = useState(() => {
+    // Load trained responses from localStorage
+    const savedData = localStorage.getItem(LOCAL_STORAGE_KEY);
+    return savedData ? JSON.parse(savedData) : {};
+  });
+  const [feedbackMode, setFeedbackMode] = useState(null);
   const messagesEndRef = useRef(null);
 
   // Initial suggested questions
@@ -18,283 +28,260 @@ export default function JamAnalyticsChatbot() {
     "Do you offer a free trial?"
   ];
 
-  // Follow-up suggestions based on the last bot response
-  const getFollowUpSuggestions = (lastBotMessage) => {
-    const msg = lastBotMessage.toLowerCase();
-    
-    // Pricing follow-ups
-    if (msg.includes("plan") || msg.includes("pricing") || msg.includes("basic") || msg.includes("pro") || msg.includes("enterprise")) {
-      return [
-        "Tell me about the Pro plan",
-        "What's included in Enterprise?",
-        "Is there a free trial?",
-        "How many team members can I add?"
-      ];
-    }
-    
-    // Features follow-ups
-    else if (msg.includes("feature") || msg.includes("offers")) {
-      return [
-        "Tell me about workflows",
-        "How do integrations work?",
-        "Explain analytics dashboards",
-        "What about security?"
-      ];
-    }
-    
-    // Workflow follow-ups
-    else if (msg.includes("workflow")) {
-      return [
-        "How customizable are workflows?",
-        "Can I integrate with my tools?",
-        "Show me an example",
-        "What about pricing?"
-      ];
-    }
-    
-    // Integration follow-ups
-    else if (msg.includes("integration") || msg.includes("connect")) {
-      return [
-        "Which tools can I integrate?",
-        "Is there an API?",
-        "How hard is setup?",
-        "Tell me about pricing"
-      ];
-    }
-    
-    // Analytics follow-ups
-    else if (msg.includes("analytic") || msg.includes("dashboard") || msg.includes("kpi")) {
-      return [
-        "Can I customize dashboards?",
-        "What metrics are available?",
-        "How does reporting work?",
-        "What plan includes analytics?"
-      ];
-    }
-    
-    // Launch follow-ups
-    else if (msg.includes("launch") || msg.includes("soon") || msg.includes("waitlist")) {
-      return [
-        "How do I join the waitlist?",
-        "Will there be early access?",
-        "What features at launch?",
-        "Tell me about pricing"
-      ];
-    }
-    
-    // Trial follow-ups
-    else if (msg.includes("trial") || msg.includes("14-day")) {
-      return [
-        "What's included in the trial?",
-        "Do I need a credit card?",
-        "Can I cancel anytime?",
-        "What happens after 14 days?"
-      ];
-    }
-    
-    // Team size follow-ups
-    else if (msg.includes("team") || msg.includes("member")) {
-      return [
-        "Pro plan details",
-        "Enterprise plan details",
-        "Can I add more members later?",
-        "How do roles work?"
-      ];
-    }
-    
-    // Storage follow-ups
-    else if (msg.includes("storage") || msg.includes("gb")) {
-      return [
-        "Can I upgrade storage?",
-        "What's the file size limit?",
-        "Tell me about pricing",
-        "Enterprise storage options"
-      ];
-    }
-    
-    // Support follow-ups
-    else if (msg.includes("support") || msg.includes("priority") || msg.includes("sla")) {
-      return [
-        "How quick is priority support?",
-        "What's included in SLA?",
-        "Community support details",
-        "Enterprise support options"
-      ];
-    }
-    
-    // How it works follow-ups
-    else if ((msg.includes("how") && msg.includes("work")) || msg.includes("simple")) {
-      return [
-        "Can I see a demo?",
-        "Tell me about pricing",
-        "What integrations are available?",
-        "Is there onboarding support?"
-      ];
-    }
-    
-    // Demo follow-ups
-    else if (msg.includes("demo")) {
-      return [
-        "How do I get started?",
-        "Tell me about pricing",
-        "Is there a free trial?",
-        "Book a personalized demo"
-      ];
-    }
-    
-    // Security follow-ups
-    else if (msg.includes("secur") || msg.includes("privacy") || msg.includes("encryption")) {
-      return [
-        "How is data stored?",
-        "Do you have certifications?",
-        "Role-based access details",
-        "Enterprise security options"
-      ];
-    }
-    
-    // Contact follow-ups
-    else if (msg.includes("contact") || msg.includes("sales")) {
-      return [
-        "What's your email?",
-        "Do you have phone support?",
-        "Book a demo",
-        "Tell me about pricing"
-      ];
-    }
-    
-    // Default follow-ups for welcome message or unclear context
-    else {
-      return [
-        "What pricing plans do you offer?",
-        "Tell me about your features",
-        "When are you launching?",
-        "How does it work?"
-      ];
-    }
-  };
+  // Save trained responses to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(trainedResponses));
+  }, [trainedResponses]);
 
   // Auto-scroll to the bottom when new messages arrive
   useEffect(() => {
-    if (messagesEndRef.current && isOpen) {
-      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-    }
+    const shouldScroll = messagesEndRef.current && isOpen;
+    shouldScroll && messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
   }, [messages, isOpen]);
 
+  // This function now uses the trainedResponses data first before falling back to predefined responses
   const getBotResponse = (message) => {
     const msg = message.toLowerCase();
     
-    // Pricing related questions
-    if (msg.includes("price") || msg.includes("cost") || msg.includes("billing") || msg.includes("plan")) {
-      return "We offer three plans: Basic (Free), Pro (up to $12/month), and Enterprise (custom pricing). The Pro plan includes advanced analytics, 3 team members, and 10GB storage. Would you like more details on a specific plan?";
+    // Check if we have a direct match in the trained responses
+    if (trainedResponses[msg]) {
+      return trainedResponses[msg];
     }
     
-    // Features related questions
-    else if (msg.includes("feature") || msg.includes("what can")) {
-      return "Jam Analytics offers smart workflow generation, seamless integrations, custom analytics dashboards, automated task management, role-based access control, and real-time collaboration. Which feature would you like to know more about?";
+    // Check if we have a semantic match in the trained responses
+    const semanticMatch = findSemanticMatch(msg, Object.keys(trainedResponses));
+    if (semanticMatch && trainedResponses[semanticMatch]) {
+      return trainedResponses[semanticMatch];
     }
     
-    // Workflow questions
-    else if (msg.includes("workflow")) {
-      return "Our AI-powered workflow generation helps you create and optimize business processes automatically. Just describe your needs, and our system will generate custom workflows for you!";
-    }
+    // Use the keyword mapping as a fallback
+    const keywordMap = {
+      "price": "pricing",
+      "cost": "pricing",
+      "billing": "pricing",
+      "plan": "pricing",
+      "feature": "features",
+      "what can": "features",
+      "workflow": "workflow",
+      "integrat": "integration",
+      "connect": "integration",
+      "analytic": "analytics",
+      "dashboard": "analytics",
+      "report": "analytics",
+      "launch": "launch",
+      "available": "launch",
+      "when": "launch",
+      "waitlist": "launch",
+      "trial": "trial",
+      "try": "trial",
+      "team": "team",
+      "member": "team",
+      "user": "team",
+      "storage": "storage",
+      "space": "storage",
+      "support": "support",
+      "help": "support",
+      "how": "howItWorks",
+      "work": "howItWorks",
+      "demo": "demo",
+      "secur": "security",
+      "privacy": "security",
+      "data": "security",
+      "contact": "contact",
+      "sales": "contact",
+      "talk to": "contact",
+      "hello": "greeting",
+      "hi": "greeting",
+      "hey": "greeting",
+      "thank": "thanks",
+      "thanks": "thanks"
+    };
     
-    // Integration questions
-    else if (msg.includes("integrat") || msg.includes("connect")) {
-      return "Our Seamless Integration Hub allows you to connect Jam Analytics with your existing tools and software. What specific integration are you interested in?";
-    }
+    // Find the first matching topic
+    const matchingTopic = Object.entries(keywordMap).find(([keyword]) => 
+      msg.includes(keyword)
+    );
     
-    // Analytics questions
-    else if (msg.includes("analytic") || msg.includes("dashboard") || msg.includes("report")) {
-      return "Our Custom Analytics Dashboard provides real-time insights and reporting. You can track KPIs, visualize data, and make data-driven decisions all in one place.";
-    }
+    // Return the appropriate response or the default
+    return botResponses[matchingTopic ? matchingTopic[1] : "default"];
+  };
+
+  // Simple semantic matching function - could be replaced with more sophisticated NLP in a real implementation
+  const findSemanticMatch = (userQuery, trainedQueries) => {
+    // Convert everything to lowercase and remove punctuation
+    const normalizedQuery = userQuery.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+    const queryWords = normalizedQuery.split(" ").filter(word => word.length > 3);
     
-    // Launch/availability questions
-    else if (msg.includes("launch") || msg.includes("available") || msg.includes("when") || msg.includes("waitlist")) {
-      return "We're launching soon! Join our waitlist on the homepage to be notified as soon as we go live and get early access.";
-    }
+    // Find the query with the most word matches
+    let bestMatch = null;
+    let highestMatchCount = 0;
     
-    // Trial questions
-    else if (msg.includes("trial") || msg.includes("try")) {
-      return "Both our Pro and Enterprise plans come with a 14-day free trial. No credit card required to start!";
-    }
+    trainedQueries.forEach(trainedQuery => {
+      const normalizedTrainedQuery = trainedQuery.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+      const trainedWords = normalizedTrainedQuery.split(" ");
+      
+      // Count matching words
+      const matchCount = queryWords.filter(word => 
+        trainedWords.some(trainedWord => trainedWord.includes(word) || word.includes(trainedWord))
+      ).length;
+      
+      // If this is a better match and we have at least 2 matching words or 50% coverage
+      if (matchCount > highestMatchCount && 
+          (matchCount >= 2 || matchCount / queryWords.length >= 0.5)) {
+        highestMatchCount = matchCount;
+        bestMatch = trainedQuery;
+      }
+    });
     
-    // Team size questions
-    else if (msg.includes("team") || msg.includes("member") || msg.includes("user")) {
-      return "The Basic plan includes 1 team member, Pro includes 3 team members, and Enterprise offers custom team sizes. Need more seats? The Enterprise plan is perfect for larger teams.";
-    }
-    
-    // Storage questions
-    else if (msg.includes("storage") || msg.includes("space")) {
-      return "The Basic plan includes 500MB storage, Pro includes 10GB, and Enterprise offers custom storage options based on your needs.";
-    }
-    
-    // Support questions
-    else if (msg.includes("support") || msg.includes("help")) {
-      return "Basic users get community support, Pro users receive priority support, and Enterprise clients enjoy dedicated support with SLA guarantees. How else can I assist you?";
-    }
-    
-    // How it works questions
-    else if (msg.includes("how") && msg.includes("work")) {
-      return "It's simple! 1) Describe your business needs, 2) Our AI generates a custom solution, and 3) You launch and customize in real-time. Would you like a demo?";
-    }
-    
-    // Demo questions
-    else if (msg.includes("demo")) {
-      return "You can watch our product demo directly from the homepage. It shows how Jam Analytics works in action!";
-    }
-    
-    // Security questions
-    else if (msg.includes("secur") || msg.includes("privacy") || msg.includes("data")) {
-      return "We take security seriously with role-based access control, encryption, and regular security audits. Your data is safe with us!";
-    }
-    
-    // Contact questions
-    else if (msg.includes("contact") || msg.includes("sales") || msg.includes("talk to")) {
-      return "You can contact our sales team through the 'Contact Sales' button on the pricing page, or visit our Contact page in the footer.";
-    }
-    
-    // Greetings
-    else if (msg.includes("hello") || msg.includes("hi") || msg.includes("hey")) {
-      return "Hello! How can I help you learn more about Jam Analytics today?";
-    }
-    
-    // Thank you responses
-    else if (msg.includes("thank") || msg.includes("thanks")) {
-      return "You're welcome! Feel free to ask if you have any other questions about Jam Analytics.";
-    }
-    
-    // Default response
-    else {
-      return "I'm not sure I understand. Would you like to know about our features, pricing, or how Jam Analytics works?";
-    }
+    return bestMatch;
   };
 
   const handleSend = (text = input) => {
-    if (!text.trim()) return;
+    const trimmedText = text.trim();
+    const shouldSend = trimmedText !== "";
     
-    const userMessage = { sender: "user", text: text };
-    setMessages((prev) => [...prev, userMessage]);
-    
-    // Simulate a small delay for the bot response
-    setTimeout(() => {
-      const botMessage = { sender: "bot", text: getBotResponse(text) };
-      setMessages((prev) => [...prev, botMessage]);
-    }, 600);
-    
-    setInput("");
+    if (shouldSend) {
+      const userMessage = { sender: "user", text: trimmedText };
+      setMessages((prev) => [...prev, userMessage]);
+      
+      // Reset feedback mode when sending a new message
+      setFeedbackMode(null);
+      
+      // Simulate a small delay for the bot response
+      setTimeout(() => {
+        const botResponse = getBotResponse(trimmedText);
+        const botMessage = { 
+          sender: "bot", 
+          text: botResponse,
+          forQuery: trimmedText // Store the query this response answers
+        };
+        setMessages((prev) => [...prev, botMessage]);
+      }, 600);
+      
+      setInput("");
+    }
   };
 
   const handleSuggestedQuestion = (question) => {
     handleSend(question);
   };
 
+  // Handle user feedback on responses
+  const handleFeedback = (isPositive, messageIndex) => {
+    const message = messages[messageIndex];
+    
+    if (message.sender !== "bot" || !message.forQuery) return;
+    
+    if (isPositive) {
+      // Positive feedback reinforces the current response
+      setTrainedResponses(prev => ({
+        ...prev,
+        [message.forQuery.toLowerCase()]: message.text
+      }));
+      setFeedbackMode("positive");
+    } else {
+      // Negative feedback prompts for correction
+      setFeedbackMode("negative");
+    }
+  };
+
+  // Handle the submission of corrected responses
+  const handleCorrection = (correctResponse) => {
+    const lastBotMessage = messages.filter(msg => msg.sender === "bot").pop();
+    
+    if (lastBotMessage && lastBotMessage.forQuery) {
+      // Update the trained responses with the correction
+      setTrainedResponses(prev => ({
+        ...prev,
+        [lastBotMessage.forQuery.toLowerCase()]: correctResponse
+      }));
+      
+      // Also update the visible message
+      setMessages(prev => 
+        prev.map((msg, i) => 
+          i === prev.length - 1 ? { ...msg, text: correctResponse } : msg
+        )
+      );
+      
+      setFeedbackMode(null);
+    }
+  };
+
+  // For developer training mode
+  const handleDeveloperTraining = () => {
+    const developerInput = prompt("Enter a question to train:");
+    if (!developerInput) return;
+    
+    const developerResponse = prompt("Enter the correct response:");
+    if (!developerResponse) return;
+    
+    setTrainedResponses(prev => ({
+      ...prev,
+      [developerInput.toLowerCase()]: developerResponse
+    }));
+    
+    alert("Training data added successfully!");
+  };
+
   // Get the appropriate suggestions based on conversation state
   const getCurrentSuggestions = () => {
-    if (messages.length === 1) {
+    const isFirstMessage = messages.length === 1;
+    
+    if (isFirstMessage) {
       return initialSuggestions;
-    } else {
-      const lastBotMessage = messages.filter(msg => msg.sender === "bot").pop().text;
-      return getFollowUpSuggestions(lastBotMessage);
+    }
+    
+    const lastBotMessage = messages.filter(msg => msg.sender === "bot").pop().text;
+    const lowerCaseMessage = lastBotMessage.toLowerCase();
+    
+    // Find matching suggestions using keywords
+    const suggestionsMappings = {
+      "plan": "pricing",
+      "pricing": "pricing",
+      "basic": "pricing",
+      "pro": "pricing", 
+      "enterprise": "pricing",
+      "feature": "features",
+      "offers": "features",
+      "workflow": "workflow",
+      "integration": "integration",
+      "connect": "integration",
+      "analytic": "analytics",
+      "dashboard": "analytics",
+      "kpi": "analytics",
+      "launch": "launch",
+      "soon": "launch",
+      "waitlist": "launch",
+      "trial": "trial",
+      "14-day": "trial",
+      "team": "team",
+      "member": "team",
+      "storage": "storage",
+      "gb": "storage",
+      "support": "support",
+      "priority": "support",
+      "sla": "support",
+      "demo": "demo",
+      "secur": "security",
+      "privacy": "security",
+      "encryption": "security",
+      "contact": "contact",
+      "sales": "contact"
+    };
+    
+    const matchingTopic = Object.entries(suggestionsMappings).find(([keyword]) => 
+      lowerCaseMessage.includes(keyword)
+    );
+    
+    return matchingTopic ? suggestionsByTopic[matchingTopic[1]] : suggestionsByTopic.default;
+  };
+
+  // Reset training data - for testing and development
+  const resetTraining = () => {
+    if (confirm("Are you sure you want to reset all training data?")) {
+      setTrainedResponses({});
+      localStorage.removeItem(LOCAL_STORAGE_KEY);
+      alert("Training data has been reset.");
     }
   };
 
@@ -312,7 +299,27 @@ export default function JamAnalyticsChatbot() {
       ) : (
         <div className="w-full max-w-md shadow-xl rounded-xl bg-white border">
           <div className="bg-blue-600 text-white p-4 rounded-t-xl flex justify-between items-center">
-            <h2 className="text-xl font-bold">Jam Analytics Assistant</h2>
+            <div className="flex items-center">
+              <h2 className="text-xl font-bold">Jam Analytics Assistant</h2>
+              {/* Developer menu - typically hidden in production */}
+              <div className="ml-2 relative group">
+                <button className="text-xs text-blue-300 px-1 rounded">⚙️</button>
+                <div className="hidden group-hover:block absolute bg-white text-black shadow-lg rounded p-2 z-10 right-0 min-w-32">
+                  <button 
+                    onClick={handleDeveloperTraining}
+                    className="w-full text-left p-1 hover:bg-gray-100 text-sm"
+                  >
+                    Add Training Data
+                  </button>
+                  <button 
+                    onClick={resetTraining}
+                    className="w-full text-left p-1 hover:bg-gray-100 text-sm text-red-500"
+                  >
+                    Reset Training
+                  </button>
+                </div>
+              </div>
+            </div>
             <button
               onClick={() => setIsOpen(false)}
               className="text-white hover:text-gray-200 transition"
@@ -326,24 +333,86 @@ export default function JamAnalyticsChatbot() {
             {messages.map((msg, index) => (
               <div
                 key={index}
-                className={`mb-3 flex ${
-                  msg.sender === "user" ? "justify-end" : "justify-start"
+                className={`mb-3 ${
+                  msg.sender === "user" ? "flex justify-end" : ""
                 }`}
               >
-                <span
-                  className={`inline-block px-4 py-2 rounded-xl shadow-sm max-w-xs break-words ${
-                    msg.sender === "user"
-                      ? "bg-blue-600 text-white"
-                      : "bg-white text-gray-800 border border-gray-200"
-                  }`}
-                >
-                  {msg.text}
-                </span>
+                {msg.sender === "bot" && (
+                  <div className="flex flex-col">
+                    <span
+                      className="inline-block px-4 py-2 rounded-xl shadow-sm max-w-xs break-words bg-white text-gray-800 border border-gray-200"
+                    >
+                      {msg.text}
+                    </span>
+                    
+                    {/* Only show feedback buttons on the last bot message */}
+                    {index === messages.length - 1 && (
+                      <div className="flex mt-1 ml-1 text-xs text-gray-500">
+                        <button 
+                          onClick={() => handleFeedback(true, index)}
+                          className="flex items-center mr-3 hover:text-blue-600"
+                        >
+                          <ThumbsUp size={14} className="mr-1" /> Helpful
+                        </button>
+                        <button 
+                          onClick={() => handleFeedback(false, index)}
+                          className="flex items-center hover:text-blue-600"
+                        >
+                          <ThumbsDown size={14} className="mr-1" /> Improve
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                )}
+                
+                {msg.sender === "user" && (
+                  <span
+                    className="inline-block px-4 py-2 rounded-xl shadow-sm max-w-xs break-words bg-blue-600 text-white"
+                  >
+                    {msg.text}
+                  </span>
+                )}
               </div>
             ))}
             
+            {/* Feedback correction input */}
+            {feedbackMode === "negative" && (
+              <div className="mb-4 p-3 bg-gray-100 rounded-lg border border-gray-300">
+                <p className="text-sm mb-2">How should I improve my response?</p>
+                <textarea 
+                  className="w-full p-2 border rounded text-sm mb-2"
+                  rows={3}
+                  placeholder="Provide a better response..."
+                  defaultValue={messages[messages.length - 1]?.text || ""}
+                />
+                <div className="flex justify-end gap-2">
+                  <button 
+                    onClick={() => setFeedbackMode(null)}
+                    className="px-3 py-1 text-sm rounded border hover:bg-gray-100"
+                  >
+                    Cancel
+                  </button>
+                  <button 
+                    onClick={(e) => {
+                      const textarea = e.target.parentNode.previousSibling;
+                      handleCorrection(textarea.value);
+                    }}
+                    className="px-3 py-1 text-sm bg-blue-600 text-white rounded hover:bg-blue-700"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+            )}
+            
+            {feedbackMode === "positive" && (
+              <div className="mb-4 p-3 bg-green-50 rounded-lg border border-green-200 text-green-700 text-sm">
+                Thanks for your feedback! I'll remember this response for similar questions.
+              </div>
+            )}
+            
             {/* Display suggested questions after every bot message */}
-            {messages.length > 0 && messages[messages.length - 1].sender === "bot" && (
+            {messages.length > 0 && messages[messages.length - 1].sender === "bot" && !feedbackMode && (
               <div className="mt-4 mb-2">
                 <div className="flex flex-wrap gap-2">
                   {getCurrentSuggestions().map((question, index) => (
@@ -381,7 +450,7 @@ export default function JamAnalyticsChatbot() {
           </div>
           
           <div className="px-3 pb-3 text-xs text-gray-500 text-center">
-            Powered by Jam Analytics AI
+            Powered by Jam Analytics AI • {Object.keys(trainedResponses).length} topics learned
           </div>
         </div>
       )}
