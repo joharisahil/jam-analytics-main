@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { User, X, Mail, Calendar } from "lucide-react";
+import { User, X, Mail, Calendar, Menu } from "lucide-react";
 
 const Navbar = () => {
   const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
   const [showProfile, setShowProfile] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Profile Modal Component
   const UserProfileModal = () => {
@@ -46,24 +47,6 @@ const Navbar = () => {
                 <p className="text-sm truncate max-w-xs">{user.sub}</p>
               </div>
             </div>
-
-            <div className="flex items-center">
-              <Calendar className="w-5 h-5 text-blue-600 mr-3" />
-              <div>
-                <p className="text-sm text-gray-500">Email Verified</p>
-                <p>{user.email_verified ? "Yes" : "No"}</p>
-              </div>
-            </div>
-
-            {user.updated_at && (
-              <div className="flex items-center">
-                <Calendar className="w-5 h-5 text-blue-600 mr-3" />
-                <div>
-                  <p className="text-sm text-gray-500">Last Updated</p>
-                  <p>{new Date(user.updated_at).toLocaleDateString()}</p>
-                </div>
-              </div>
-            )}
           </div>
 
           <div className="mt-8 pt-4 border-t border-gray-200">
@@ -71,7 +54,11 @@ const Navbar = () => {
               onClick={() =>
                 logout({ logoutParams: { returnTo: window.location.origin } })
               }
-              className="w-full px-4 py-2 bg-red-600 text-white rounded-full font-medium hover:bg-red-700 transition-colors"
+              className="bg-gradient-to-br from-[#43295ebf] to-[#220b29] text-white text-lg font-medium px-2 py-1
+  rounded-[8px] border border-[#9174a7]  
+  transition-all duration-300 ease-in-out 
+  hover:bg-[#1a0122
+  flex items-center gap-2 text-[15px]"
             >
               Logout
             </button>
@@ -85,53 +72,92 @@ const Navbar = () => {
     <>
       <UserProfileModal />
 
-      <nav className="fixed top-[10px] mx-4 md:mx-10 lg:mx-16 h-[55px] w-[calc(100%-2rem)] md:w-[calc(100%-5rem)] lg:w-[calc(100%-8rem)] max-w-[1600px] flex items-center justify-center bg-[#424040be] backdrop-blur-[319px] border border-white/20 shadow-[inset_-6px_-6px_12px_rgba(255,255,255,0.1),inset_6px_6px_12px_rgba(0,0,0,0.3)] py-2 px-6 z-50 rounded-[60px]">
-        {/* Logo Positioned to the Left */}
-        <div className="absolute left-6 md:left-12 text-xl md:text-2xl font-bold text-neutral-100 bg-clip-text hover:text-purple-500 transition duration-300">
+      <nav className="fixed top-0 left-0 w-full bg-[#0a0014] text-white py-4 px-10 flex items-center justify-between z-50 shadow-md">
+      {/* Logo & Branding */}
+      <div className="flex items-center left-14 px-20">
+        <img src="/logo.png" alt="Logo" className="w-10 h-10" />
+        <span className="text-2xl font-semibold tracking-wide hover:text-purple-400 transition">
           <a href="#home">Jam Analytics</a>
-        </div>
+        </span>
+      </div>
 
-        {/* Navigation Links with Embossed Pill Effect - Centered */}
-        <div>
-          <ul className="flex space-x-8 md:space-x-12 text-sm md:text-lg font-medium bg-[#201f1f] text-white px-6 md:px-10 py-1 rounded-full border border-white shadow-[inset_-4px_-4px_8px_rgba(255,255,255,0.1),inset_4px_4px_8px_rgba(0,0,0,0.4)]">
-            <li><a href="#home" className="hover:text-purple-400 transition duration-300">Home</a></li>
-            <li><a href="#feature" className="hover:text-purple-400 transition duration-300">Features</a></li>
-            <li><a href="#pricing" className="hover:text-purple-400 transition duration-300">Pricing</a></li>
-            <li><a href="#FooterDown" className="hover:text-purple-400 transition duration-300">About</a></li>
-          </ul>
-        </div>
+      {/* Desktop Navigation */}
+      <ul className="hidden md:flex space-x-14 text-gray-300 text-lg pr-64">
+        <li>
+          <a href="#home" className="hover:text-white transition">Home</a>
+        </li>
+        <li>
+          <a href="#pricing" className="hover:text-white transition">Pricing</a>
+        </li>
+        <li>
+          <a href="#feature" className="hover:text-white transition">Features</a>
+        </li>
+        <li>
+          <a href="#about" className="hover:text-white transition">About</a>
+        </li>
+      </ul>
 
-        {/* Auth Section - Right Side */}
-        <div className="absolute right-6 md:right-12 flex items-center">
-          {!isAuthenticated ? (
+      {/* Authentication Section */}
+      <div className="hidden md:flex items-center space-x-4">
+        {!isAuthenticated ? (
+          <>
+    
             <button
               onClick={() => loginWithRedirect()}
-              className="px-4 py-1.5 bg-[#201f1f] text-white rounded-full font-medium hover:bg-purple-600 transition-colors border border-white/30 shadow-[inset_-2px_-2px_4px_rgba(255,255,255,0.1),inset_2px_2px_4px_rgba(0,0,0,0.3)]"
+              className="bg-gradient-to-br from-[#43295ebf] to-[#220b29] text-white text-lg font-medium px-2 py-0  
+  rounded-[8px] border border-[#9174a7]  
+  transition-all duration-300 ease-in-out 
+  hover:bg-[#1a0122
+  flex items-center gap-2 text-[15px]"
             >
-              Login
+              Try now
             </button>
-          ) : (
-            <>
-              <span className="hidden md:inline text-white mr-3">
-                Welcome, {user?.name?.split(" ")[0] || "User"}
-              </span>
-              <button
-                onClick={() => setShowProfile(true)}
-                className="relative group"
-              >
-                <img
-                  src={user?.picture}
-                  alt={user?.name}
-                  className="w-8 h-8 rounded-full border-2 border-transparent group-hover:border-purple-400 transition-all"
-                />
-                <span className="absolute opacity-0 group-hover:opacity-100 -bottom-8 right-0 bg-zinc-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap transition-opacity">
-                  View Profile
-                </span>
-              </button>
-            </>
-          )}
+          </>
+        ) : (
+          <button onClick={() => logout()} className="text-gray-300 hover:text-white">
+            Logout
+          </button>
+        )}
+      </div>
+
+      {/* Mobile Menu Button */}
+      <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+      </button>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden fixed top-16 left-0 w-full bg-[#0a0014] text-white p-6 space-y-4 z-40 shadow-lg">
+          <ul className="space-y-4 text-left text-lg">
+            <li>
+              <a href="#home" className="block hover:text-purple-400 transition">Home</a>
+            </li>
+            <li>
+              <a href="#pricing" className="block hover:text-purple-400 transition">Pricing</a>
+            </li>
+            <li>
+              <a href="#feature" className="block hover:text-purple-400 transition">Features</a>
+            </li>
+            <li>
+              <a href="#about" className="block hover:text-purple-400 transition">About</a>
+            </li>
+          </ul>
+          {/* <button className="text-gray-300 hover:text-white transition">
+              Sign In
+            </button> */}
+          <button
+            onClick={() => loginWithRedirect()}
+            className="bg-gradient-to-br from-[#43295ebf] to-[#220b29] text-white text-lg font-medium px-2 py-1
+  rounded-[8px] border border-[#9174a7]  
+  transition-all duration-300 ease-in-out 
+  hover:bg-[#1a0122
+  flex items-center gap-2 text-[15px]"
+          >
+            Sign Up →
+          </button>
         </div>
-      </nav>
+      )}
+    </nav>
     </>
   );
 };

@@ -3,11 +3,15 @@ import { ArrowRight, Play } from "lucide-react";
 
 const NavDown = () => {
   return (
+
+
+    
+    
     <section className="container mx-auto px-6 pt-20 pb-32 text-center">
       {/* Heading with Exact Font, Gradient, and Size */}
       <h1
         className="text-[78px] font-[695] leading-[110%] text-center mx-auto
-        bg-gradient-to-b from-white to-[#A084CA] text-transparent bg-clip-text pb-3"
+        bg-gradient-to-b from-white to-[#664993] text-transparent bg-clip-text pb-3"
       >
         Transform Your Business <br />
         Operations with AI- <br />
@@ -20,7 +24,7 @@ const NavDown = () => {
         intelligent solutions.
       </p>
 
-      {/* Buttons Styled Exactly Like Image */}
+      {/* Buttons Styled  */}
       <div className="flex justify-center gap-36 mt-1">
         <button className="px-4 py-2 bg-white text-gray-900 rounded-lg text-[20px] font-medium 
           hover:bg-gray-200 transition-all flex items-center shadow-md">
