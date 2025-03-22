@@ -1,9 +1,7 @@
-import React from 'react';
 import { BrowserRouter } from "react-router-dom";
-import { createRoot } from 'react-dom/client';
 import ReactDOM from 'react-dom/client';
 import { Auth0Provider } from '@auth0/auth0-react';
-import App from './pages/App'; // Updated import path to match new structure
+import App from './pages/App.tsx'; // Updated import path to match new structure
 import './index.css';
 
 // Get the root DOM element where React will mount

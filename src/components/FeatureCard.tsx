@@ -1,6 +1,13 @@
 import React from "react";
+import { LucideIcon } from "lucide-react"
 
-const FeatureCard = ({ icon: Icon, title, description }) => {
+interface FeatureCardProps {
+  icon?: LucideIcon; // Ensure correct type for Lucide icons
+  title: string;
+  description: string;
+}
+
+const FeatureCard:React.FC<FeatureCardProps> = ({ icon: Icon, title, description }) => {
   return (
     <div className="p-6 rounded-xl border border-gray-200 hover:border-blue-500 transition-colors">
       {Icon && <Icon size={48} className="text-blue-600 mb-4" />} {/* Ensure Icon renders */}

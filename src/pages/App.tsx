@@ -1,7 +1,6 @@
-import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Home";
-import JamAnalyticsChatbot from "../components/JamAnalyticsChatbot"; // Import the chatbot component
+import JamAnalyticsChatbot from "../components/JamAnalyticsChatbot.tsx"; // Import the chatbot component
 
 function App() {
   return (

@@ -1,9 +1,7 @@
-import React from "react";
-
 const FooterDown = () => {
   return (
     <section id="FooterDown">
-    <div className="flex flex-col h-fit bg-[#131313f3] text-white">
+    <div className="flex flex-col h-fit bg-[#131313f3] text-white w-full overflow-hidden">
       {/* CTA Section */}
       <div className="bg-gradient-to-r from-blue-500 to-blue-700 text-white text-center py-16">
         <h1 className="text-3xl font-bold mb-2">Ready to Transform Your Business?</h1>

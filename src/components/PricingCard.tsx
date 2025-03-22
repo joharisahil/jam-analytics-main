@@ -1,7 +1,15 @@
-import React from "react";
 import { CheckSquare, Calculator } from "lucide-react";
 
-const PricingCard = ({ plan }) => {
+// Define the type for the plan prop
+type Plan = {
+  name: string;
+  price: number;
+  period: string;
+  features: string[];
+  popular: boolean;
+};
+
+const PricingCard: React.FC<{ plan: Plan }> = ({ plan }) => {
   const { name, price, period, features, popular } = plan;
 
   return (

@@ -1,13 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import { MessageCircle, Send } from 'lucide-react';
 
+
 export default function JamAnalyticsChatbot() {
   const [messages, setMessages] = useState([
     { sender: "bot", text: "👋 Hi there! I'm Jam's AI assistant. How can I help you today?" }
   ]);
   const [input, setInput] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const messagesEndRef = useRef(null);
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   // Initial suggested questions
   const initialSuggestions = [
@@ -19,7 +20,7 @@ export default function JamAnalyticsChatbot() {
   ];
 
   // Follow-up suggestions based on the last bot response
-  const getFollowUpSuggestions = (lastBotMessage) => {
+  const getFollowUpSuggestions = (lastBotMessage:string):string[] => {
     const msg = lastBotMessage.toLowerCase();
     
     // Pricing follow-ups
@@ -180,7 +181,7 @@ export default function JamAnalyticsChatbot() {
     }
   }, [messages, isOpen]);
 
-  const getBotResponse = (message) => {
+  const getBotResponse = (message:string):string => {
     const msg = message.toLowerCase();
     
     // Pricing related questions
@@ -284,16 +285,16 @@ export default function JamAnalyticsChatbot() {
     setInput("");
   };
 
-  const handleSuggestedQuestion = (question) => {
+  const handleSuggestedQuestion = (question:string) => {
     handleSend(question);
   };
 
   // Get the appropriate suggestions based on conversation state
-  const getCurrentSuggestions = () => {
+  const getCurrentSuggestions = ():string[] => {
     if (messages.length === 1) {
       return initialSuggestions;
     } else {
-      const lastBotMessage = messages.filter(msg => msg.sender === "bot").pop().text;
+      const lastBotMessage = messages.filter(msg => msg.sender === "bot").pop()?.text||"";
       return getFollowUpSuggestions(lastBotMessage);
     }
   };

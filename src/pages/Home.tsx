@@ -1,12 +1,10 @@
-import React from "react";
-import NavBar from "../components/NavBar"; // Import the NavBar
+import NavBar from "../components/NavBar.tsx"; 
 import FeatureCard from "../components/FeatureCard";
-import StepCard from "../components/StepCard";
+import StepCard from "../components/StepCard.tsx";
 import PricingCard from "../components/PricingCard";
-import { features } from "../data/features";
-import { steps } from "../data/steps";
+import { features } from "../data/features.tsx";
+import { steps } from "../data/steps.tsx";
 import { plans } from "../data/plans";
-import { Routes, Route } from "react-router-dom";
 import FooterDown from "../components/FooterDown";
 import NavDown from "../components/NavDown";
 
@@ -15,18 +13,11 @@ function Home() {
     <>
       <div className=" bg-gradient-to-b from-white to-gray-50">
         {/* Navigation */}
-        <NavBar />
 
-        <section id="home" className="bg-black py-20">
+          <NavBar />
+          <section id="home" className="bg-black py-20">
           <NavDown />
-        </section>
-
-        {/* <Routes>
-      <Route path="/" element={<NavDown/>}/>
-      <Route path="/feature" element={<FeatureCard/>}/>
-      <Route path="/pricing" element={<PricingCard/>}/>
-      <Route path="/about" element={<FooterDown/>}/>
-    </Routes> */}
+          </section>
 
         {/* Features */}
         <section id="feature" className="bg-white py-20">
