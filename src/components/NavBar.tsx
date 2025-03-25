@@ -97,10 +97,16 @@ const Navbar = () => {
           {!isAuthenticated ? (
             <button
               onClick={() => loginWithRedirect()}
-              className="bg-gradient-to-br from-[#43295ebf] to-[#220b29] text-white text-lg font-medium px-4 py-2
-              rounded-lg border border-[#9174a7] transition-all duration-300 ease-in-out hover:bg-[#1a0122] flex items-center gap-2"
-            >
-              Try now
+              className="relative px-6 py-3 text-white text-lg font-medium rounded-[30px] 
+              bg-gradient-to-b from-[#2d183b] to-[#0a0014] border border-[#9174a7] 
+              shadow-[inset_0_4px_8px_rgba(255,255,255,0.1),0_0_15px_rgba(145,116,167,0.5)] 
+              transition-all duration-300 ease-in-out hover:shadow-[inset_0_6px_12px_rgba(255,255,255,0.2),0_0_25px_rgba(145,116,167,0.7)] 
+              flex items-center justify-center gap-2"
+ >
+   <span>Sign up</span>
+ 
+   {/* Soft Inner Glow Effect */}
+   <span className="absolute inset-0 rounded-[30px] bg-white/10 blur-[12px] opacity-30"></span>
             </button>
           ) : (
             <button onClick={() => logout()} className="text-gray-300 hover:text-white">
