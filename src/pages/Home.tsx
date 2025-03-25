@@ -15,7 +15,7 @@ function Home() {
         {/* Navigation */}
 
           <NavBar />
-          <section id="home" className="bg-black py-20">
+          <section id="home" className="bg-black">
           <NavDown />
           </section>
 
