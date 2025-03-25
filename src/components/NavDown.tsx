@@ -33,7 +33,7 @@ const NavDown = () => {
       {/* Content Section */}
       <div className="container mx-auto px-6 pt-16 md:pt-28 pb-32 relative z-10">
         <div className="text-center">
-          <h1 className="text-[70px] font-[690px] leading-[110%] text-center mx-auto bg-gradient-to-b from-white to-[#664993] text-transparent bg-clip-text pb-3">
+          <h1 className="text-[80px] font-[690px] leading-[110%] text-center mx-auto bg-gradient-to-b from-white to-[#664993] text-transparent bg-clip-text pb-3">
             Transform Your Business <br />
             Operations with AI- <br />
             Powered Management
