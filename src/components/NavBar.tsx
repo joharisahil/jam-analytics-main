@@ -1,6 +1,7 @@
-import  { useState } from "react";
+import  { useState ,useEffect} from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { User, X, Mail, Menu } from "lucide-react";
+import logo from "./image.png";
 
 
 
@@ -9,6 +10,20 @@ const Navbar = () => {
   const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
   const [showProfile, setShowProfile] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  //navbar on sccrolling
+  const [scrolled, setScrolled] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   // Profile Modal Component
   const UserProfileModal = () => {
@@ -74,22 +89,25 @@ const Navbar = () => {
   return (
     <>
       <UserProfileModal />
+      <nav
+            className={`fixed top-0 left-0 w-full max-w-full bg-transparent opacity-100 text-white py-4 px-6 flex items-center justify-between z-50 shadow-md backdrop-blur-md overflow-hidden
+            ${scrolled ? "border-b border-gray-500/50 transition-all duration-300" : "border-b-0"}`}
+          >
 
-      <nav className="fixed top-0 left-0 w-full bg-[#0a0014] text-white py-4 px-6 flex items-center justify-between z-50 shadow-md overflow-x-hidden">
         {/* Logo & Branding */}
-        <div className="flex items-center">
-          <img src="/logo.png" alt="Logo" className="w-10 h-10" />
+        <div className="flex items-center pl-16">
+          <img src={logo} alt="Logo" className="w-10 h-10 rounded-full" />
           <span className="text-2xl font-semibold tracking-wide hover:text-purple-400 transition ml-3">
             <a href="#home">Jam Analytics</a>
           </span>
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-10 text-gray-300 text-lg pr-10">
+        <ul className="hidden md:flex space-x-16 text-gray-300 text-lg pr-[140px]">
           <li><a href="#home" className="hover:text-white transition">Home</a></li>
           <li><a href="#pricing" className="hover:text-white transition">Pricing</a></li>
           <li><a href="#feature" className="hover:text-white transition">Features</a></li>
-          <li><a href="#about" className="hover:text-white transition">About</a></li>
+          <li><a href="#FooterDown" className="hover:text-white transition">About</a></li>
         </ul>
 
         {/* Authentication Section */}
@@ -97,10 +115,10 @@ const Navbar = () => {
           {!isAuthenticated ? (
             <button
               onClick={() => loginWithRedirect()}
-              className="bg-gradient-to-br from-[#43295ebf] to-[#220b29] text-white text-lg font-medium px-4 py-2
-              rounded-lg border border-[#9174a7] transition-all duration-300 ease-in-out hover:bg-[#1a0122] flex items-center gap-2"
+              className="relative px-4 py-1 text-white text-lg font-medium rounded-[20px] bg-gradient-to-b from-[#24132f] to-[#0a0014] border border-[#57406f] shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl flex items-center right-20"
             >
-              Try now
+              <span>Try now </span>
+              <span className="absolute inset-0 rounded-[20px] border-[1px] border-[#9174a7] opacity-50"></span>
             </button>
           ) : (
             <button onClick={() => logout()} className="text-gray-300 hover:text-white">
@@ -151,16 +169,13 @@ const Navbar = () => {
                 </a>
               </li>
             </ul>
-            {/* <button className="text-gray-300 hover:text-white transition">
-              Sign In
-            </button> */}
+        
             <button
               onClick={() => loginWithRedirect()}
               className="bg-gradient-to-br from-[#43295ebf] to-[#220b29] text-white text-lg font-medium px-2 py-1
   rounded-[8px] border border-[#9174a7]  
   transition-all duration-300 ease-in-out 
-  hover:bg-[#1a0122
-  flex items-center gap-2 text-[15px]"
+  hover:bg-[#1a0122]  flex items-center gap-2 text-[15px]"
             >
               Sign Up →
             </button>
