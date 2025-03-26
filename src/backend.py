@@ -1,10 +1,13 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from components import JamAnalyticsChatbot
+# from components import JamAnalyticsChatbot
+
 import logging
-chatbot = JamAnalyticsChatbot("C:/Users/Vishal sharma/jam-analytics-main/src/data/knowledge_base.json")
-# Configure logging
+import os
+from src.components.chatbot import JamAnalyticsChatbot
+print(os.path.abspath("src/data/knowledge_base.json"))
+print(os.path.exists("src/data/knowledge_base.json"))
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
@@ -18,7 +21,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Initialize the chatbot with error handling
 try:
     chatbot = JamAnalyticsChatbot("src/data/knowledge_base.json")
     logger.info("Successfully initialized JamAnalyticsChatbot")
@@ -61,3 +63,13 @@ async def respond_to_message(request: MessageRequest):
     except Exception as e:
         logger.error(f"Error in respond_to_message: {e}")
         raise HTTPException(status_code=500, detail="Failed to process message")
+
+# Add this for debugging
+if __name__ == "__main__":
+    print("Testing JamAnalyticsChatbot directly...")
+    print("Greeting:", chatbot.get_greeting())
+    test_message = "How does it work?"
+    response = chatbot.respond(test_message)
+    response_time = chatbot.get_response_time(test_message)
+    print(f"Response to '{test_message}': {response}")
+    print(f"Response time: {response_time:.2f} microseconds")
