@@ -1,0 +1,69 @@
+{
+    "greeting": "Hi there! I'm Jam's AI assistant. How can I help you today?",
+    "features": {
+      "description": "Jam Analytics offers the following powerful features:",
+      "list": [
+        "Smart Workflow Generation: AI-powered workflow creation and optimization",
+        "Seamless Integration Hub: Connect with your existing tools effortlessly",
+        "Custom Analytics Dashboard: Real-time insights and reporting",
+        "Automated Task Management: Let AI handle your routine tasks",
+        "Role-Based Access Control: Secure and granular permissions",
+        "Real-Time Collaboration: Work together seamlessly"
+      ]
+    },
+    "how_it_works": {
+      "description": "Here's how Jam Analytics works:",
+      "steps": [
+        "Describe your business needs: Tell us about your business type and requirements",
+        "AI generates custom solution: Our AI analyzes and creates your perfect workflow",
+        "Launch and customize: Use and modify your application in real-time"
+      ]
+    },
+    "pricing": {
+      "description": "Jam Analytics offers simple, transparent pricing plans:",
+      "plans": [
+        {
+          "name": "Basic",
+          "cost": "Free/Forever",
+          "features": [
+            "1 workflow",
+            "Basic analytics",
+            "1 team member",
+            "500 MB storage",
+            "Limited customization",
+            "Community support"
+          ],
+          "cta": "Start Free"
+        },
+        {
+          "name": "Pro",
+          "cost": "Up to $12/per month",
+          "features": [
+            "All features from Basic",
+            "Pay per feature available",
+            "Advanced analytics",
+            "3 team members",
+            "10 GB storage",
+            "Additional customizations",
+            "Priority support",
+            "14-day free trial"
+          ],
+          "cta": "Calculate Your Bill"
+        },
+        {
+          "name": "Enterprise",
+          "cost": "Custom/contact us",
+          "features": [
+            "Custom workflows",
+            "Dedicated support",
+            "SLA guarantee",
+            "Custom integrations",
+            "14-day free trial"
+          ],
+          "cta": "Contact Sales"
+        }
+      ]
+    },
+    "launch": "Jam Analytics is launching soon! Join our waitlist to be notified when we launch.",
+    "free_trial": "Yes, we offer a 14-day free trial with our Pro and Enterprise plans."
+  }
