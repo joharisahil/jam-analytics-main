@@ -45,7 +45,7 @@ const NavDown = () => {
             intelligent solutions.
           </p>
 
-          <div className="flex justify-center gap-24 mt-1">
+          <div className="flex justify-center gap-14 mt-1">
             <button
               className="px-4 py-2 bg-white text-gray-900 rounded-lg text-[20px] font-medium 
               hover:bg-gray-200 transition-all flex items-center shadow-md"

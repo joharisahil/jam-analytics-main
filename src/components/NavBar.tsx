@@ -124,6 +124,14 @@ const Navbar = () => {
               About
             </a>
           </li>
+          <li>
+                <a
+                  href="#home"
+                  className="block hover:text-purple-400 transition"
+                >
+                  Career
+                </a>
+              </li>
         </ul>
 
         {/* Authentication Section */}
@@ -138,7 +146,7 @@ const Navbar = () => {
               </button>
               <button
                 onClick={() => loginWithRedirect()}
-                className="relative px-[3px] py-[3px] right-6 text-white rounded-[10px] bg-gradient-to-b from-[#24132f] to-[#0a0014] border border-[#57406f] shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl flex items-center "
+                className="relative px-[6px] py-[4px] right-6 text-white rounded-[10px] bg-gradient-to-b from-[#24132f] to-[#0a0014] border border-[#57406f] shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl flex items-center "
               >
                 <span>Try now →</span>
                 <span className="absolute inset-0 rounded-[10px] border-[1px] border-[#9174a7] opacity-50 "></span>
@@ -193,6 +201,14 @@ const Navbar = () => {
                   className="block hover:text-purple-400 transition"
                 >
                   About
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#home"
+                  className="block hover:text-purple-400 transition"
+                >
+                  Career
                 </a>
               </li>
             </ul>
