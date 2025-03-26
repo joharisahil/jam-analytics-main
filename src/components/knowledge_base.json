@@ -1,0 +1,159 @@
+{
+    "knowledge_base": [
+      {
+        "category": "General",
+        "questions": [
+          {
+            "q": "What is Jam Analytics?",
+            "a": "Jam Analytics helps transform your business operations with AI-powered management, automating workflows, boosting productivity, and scaling your business with intelligent solutions."
+          },
+          {
+            "q": "What does Jam Analytics offer?",
+            "a": "Jam Analytics offers AI-powered workflow automation, seamless tool integrations, custom analytics dashboards, automated task management, role-based access control, and real-time collaboration features."
+          }
+        ]
+      },
+      {
+        "category": "Features",
+        "questions": [
+          {
+            "q": "What is Smart Workflow Generation?",
+            "a": "Smart Workflow Generation uses AI to create and optimize workflows based on your business needs."
+          },
+          {
+            "q": "What is the Seamless Integration Hub?",
+            "a": "The Seamless Integration Hub allows you to effortlessly connect Jam Analytics with your existing tools."
+          },
+          {
+            "q": "What does the Custom Analytics Dashboard offer?",
+            "a": "It provides real-time insights and reporting tailored to your business."
+          },
+          {
+            "q": "What is Automated Task Management?",
+            "a": "It lets AI handle your routine and repetitive tasks so you can focus on more important activities."
+          },
+          {
+            "q": "How does Role-Based Access Control work?",
+            "a": "It allows for secure and granular permissions, ensuring the right team members have the appropriate access."
+          },
+          {
+            "q": "What is Real-Time Collaboration?",
+            "a": "Real-Time Collaboration allows your team to work together seamlessly within the platform."
+          }
+        ]
+      },
+      {
+        "category": "How It Works",
+        "questions": [
+          {
+            "q": "How does Jam Analytics work?",
+            "a": "Describe your business needs, and our AI will analyze and create a custom workflow solution. You can then launch and customize your application in real-time."
+          },
+          {
+            "q": "How do I get started with Jam Analytics?",
+            "a": "Start by describing your business needs, let the AI generate a solution, and then launch and customize your workflow in real time."
+          }
+        ]
+      },
+      {
+        "category": "Pricing",
+        "questions": [
+          {
+            "q": "What pricing plans are available?",
+            "a": "Jam Analytics offers three pricing plans: Basic (Free Forever), Pro (Up to $12/month), and Enterprise (Custom pricing)."
+          },
+          {
+            "q": "What is included in the Basic plan?",
+            "a": "The Basic plan includes 1 workflow, basic analytics, 1 team member, 500 MB storage, limited customization, and community support. It's free forever."
+          },
+          {
+            "q": "What is included in the Pro plan?",
+            "a": "The Pro plan includes everything from Basic plus advanced analytics, 3 team members, 10 GB storage, additional customizations, pay-per-feature options, priority support, and a 14-day free trial."
+          },
+          {
+            "q": "What is included in the Enterprise plan?",
+            "a": "The Enterprise plan includes custom workflows, dedicated support, SLA guarantee, custom integrations, and a 14-day free trial. Pricing is custom and requires contacting sales."
+          },
+          {
+            "q": "Is there a free trial?",
+            "a": "Yes, both Pro and Enterprise plans offer a 14-day free trial."
+          }
+        ]
+      },
+      {
+        "category": "Getting Started",
+        "questions": [
+          {
+            "q": "How do I join the waitlist?",
+            "a": "You can join the waitlist by visiting our website and clicking on 'Join Waitlist'."
+          },
+          {
+            "q": "Where can I watch the demo?",
+            "a": "The demo is available on our website. Click on 'Watch Demo' to view it."
+          }
+        ]
+      },
+      {
+        "category": "Company",
+        "questions": [
+          {
+            "q": "Where can I learn more about the company?",
+            "a": "You can learn more about us by visiting the 'About' section on our website."
+          },
+          {
+            "q": "Where can I find career opportunities?",
+            "a": "Visit our 'Careers' page to see current job openings."
+          },
+          {
+            "q": "How can I contact Jam Analytics?",
+            "a": "You can reach out to us via the 'Contact' page on our website."
+          }
+        ]
+      },
+      {
+        "category": "Resources",
+        "questions": [
+          {
+            "q": "Where can I find documentation?",
+            "a": "You can find documentation in the 'Documentation' section under Resources on our website."
+          },
+          {
+            "q": "Where is the Help Center?",
+            "a": "The Help Center is available under the 'Resources' section on our website."
+          },
+          {
+            "q": "Is there a blog?",
+            "a": "Yes, visit the 'Blog' under the Resources section to read the latest articles and updates."
+          }
+        ]
+      },
+      {
+        "category": "Support",
+        "questions": [
+          {
+            "q": "What support options are available?",
+            "a": "Basic plan users get community support, Pro plan users get priority support, and Enterprise users receive dedicated support with an SLA guarantee."
+          }
+        ]
+      },
+      {
+        "category": "Security",
+        "questions": [
+          {
+            "q": "How secure is Jam Analytics?",
+            "a": "We offer role-based access control and enterprise-grade security for all users."
+          }
+        ]
+      },
+      {
+        "category": "Newsletter",
+        "questions": [
+          {
+            "q": "How can I subscribe to updates?",
+            "a": "You can subscribe to our newsletter by entering your email on our website under the 'Subscribe' section."
+          }
+        ]
+      }
+    ]
+  }
+  
