@@ -33,7 +33,7 @@ const NavDown = () => {
       {/* Content Section */}
       <div className="container mx-auto px-6 pt-16 md:pt-28 pb-32 relative z-10">
         <div className="text-center">
-          <h1 className="text-[80px] font-[690px] leading-[110%] text-center mx-auto bg-gradient-to-b from-white to-[#664993] text-transparent bg-clip-text pb-3">
+          <h1 className="text-[75px]  font-semibold leading-[110%] text-center mx-auto bg-gradient-to-b from-white to-[#664993] text-transparent bg-clip-text pb-3">
             Transform Your Business <br />
             Operations with AI- <br />
             Powered Management
@@ -43,7 +43,7 @@ const NavDown = () => {
             Automate workflows, boost productivity, and scale your business with intelligent solutions.
           </p>
 
-          <div className="flex justify-center gap-36 mt-1">
+          <div className="flex justify-center gap-24 mt-1">
             <button className="px-4 py-2 bg-white text-gray-900 rounded-lg text-[20px] font-medium 
               hover:bg-gray-200 transition-all flex items-center shadow-md">
               Get Started
