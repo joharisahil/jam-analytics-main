@@ -4,7 +4,7 @@ const NavDown = () => {
       {/* <div className=""> */}
       {/* Background Circles */}
       <div
-        className="absolute w-[2200px] h-[2200px] md:w-[1500px] md:h-[1500px] rounded-full bottom-[-700px] md:bottom-[-1000px] opacity-95 border-8 border-black shadow-[0_0_120px_#000000] "
+        className="absolute w-[2200px] h-[2200px] md:w-[1500px] md:h-[1500px] rounded-full bottom-[-700px] md:bottom-[-1000px] opacity-95 border-8 border-black shadow-[#000000] "
         style={{
           background: "radial-gradient(circle, #361764 30%, #11081f 38%, #000000 90%)",
           boxShadow: "0 0 200px 150px #11081f",
