@@ -4,7 +4,7 @@ import {
   LayoutDashboard,
   CheckSquare,
   Shield,
-  Users
+  Users,
 } from "lucide-react";
 
 export const features = [

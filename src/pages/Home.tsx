@@ -1,4 +1,4 @@
-import NavBar from "../components/NavBar.tsx"; 
+import NavBar from "../components/NavBar.tsx";
 import FeatureCard from "../components/FeatureCard";
 import StepCard from "../components/StepCard.tsx";
 import PricingCard from "../components/PricingCard";
@@ -14,10 +14,10 @@ function Home() {
       <div className=" bg-gradient-to-b from-white to-gray-50">
         {/* Navigation */}
 
-          <NavBar />
-          <section id="home" className="bg-black">
+        <NavBar />
+        <section id="home" className="bg-black">
           <NavDown />
-          </section>
+        </section>
 
         {/* Features */}
         <section id="feature" className="bg-white py-20">

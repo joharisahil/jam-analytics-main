@@ -10,7 +10,7 @@ function App() {
         <Route path="/" element={<Home />} />
         {/* Add other routes as needed */}
       </Routes>
-      
+
       {/* The chatbot will be visible on all pages regardless of scrolling */}
       <JamAnalyticsChatbot />
     </>
