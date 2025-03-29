@@ -26,7 +26,7 @@ class JamAnalyticsChatbot:
         self.knowledge_base = {}
 
         # Detailed file path logging and verification
-        self.logger.debug(f"Attempting to load knowledge base from: {https://github.com/joharisahil/jam-analytics-main/blob/a4fa4bd448d8c75cffb01d9ab77347b9dd61eafe/src/data/knowledge_base.json}")
+        self.logger.debug(f"Attempting to load knowledge base from: {knowledge_base_path}")
         self.logger.debug(f"Absolute path: {os.path.abspath(knowledge_base_path)}")
         
         try:
@@ -101,4 +101,4 @@ class JamAnalyticsChatbot:
         start_time = time.time()
         self.respond(user_input)
         end_time = time.time()
-        return (end_time - start_time) * 1_000_000  # Convert to microseconds
+        return (end_time - start_time) * 1_000_000  

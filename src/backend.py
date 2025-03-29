@@ -1,7 +1,7 @@
-from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-# from components import JamAnalyticsChatbot
+from fastapi import FastAPI, HTTPException # type: ignore
+from fastapi.middleware.cors import CORSMiddleware # type: ignore
+from pydantic import BaseModel # type: ignore
+from components import JamAnalyticsChatbot
 
 import logging
 import os
