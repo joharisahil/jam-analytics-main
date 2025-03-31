@@ -7,6 +7,7 @@ import { steps } from "../data/steps.tsx";
 import { plans } from "../data/plans";
 import FooterDown from "../components/FooterDown";
 import NavDown from "../components/NavDown";
+import GridBackground from "../components/GridBackground.tsx";
 
 function Home() {
   return (
@@ -17,7 +18,9 @@ function Home() {
           <NavBar />
           <section id="home" className="bg-black">
           <NavDown />
-        </section>
+          </section>
+         
+         <GridBackground/>
 
         {/* Features */}
         <section id="feature" className="bg-white py-20">
