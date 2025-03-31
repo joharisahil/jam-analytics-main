@@ -1,6 +1,6 @@
 const NavDown = () => {
   return (
-    <div className="relative overflow-hidden flex items-center justify-center bg-[#0] ">
+    <div className="relative overflow-hidden flex items-center justify-center bg-[#0] p-1">
       {/* <div className=""> */}
       {/* Background Circles */}
       <div
