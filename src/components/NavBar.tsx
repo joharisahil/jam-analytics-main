@@ -103,7 +103,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-20 text-gray-300 text-lg pr-[70px]">
+        <ul className="hidden md:flex space-x-20 text-gray-300 text-lg">
           <li>
             <a href="#home" className="hover:text-white transition">
               Home
@@ -167,7 +167,7 @@ const Navbar = () => {
           {menuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
         </button>
 
-        {/* Mobile Menu
+         {/* Mobile Menu */}
         {menuOpen && (
           <div className="md:hidden fixed top-16 left-0 w-full bg-[#0a0014] text-white p-6 space-y-4 z-40 shadow-lg">
             <ul className="space-y-4 text-left text-lg">
@@ -229,7 +229,7 @@ const Navbar = () => {
               </button>
             </div>
           </div>
-        )} */}
+        )} 
       </nav>
     </>
   );
