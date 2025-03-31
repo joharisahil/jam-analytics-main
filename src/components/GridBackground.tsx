@@ -36,6 +36,14 @@ const GridBackground = () => {
             No insights from sales calls? <br />
             No insights from sales calls?
           </p>
+
+
+
+          
+          {/* jam-analytic-video */}
+          <div>
+
+          </div>
         </div>
       </div>
     </div>
