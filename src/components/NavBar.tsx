@@ -1,7 +1,7 @@
 import  { useState ,useEffect} from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { User, X, Mail, Menu } from "lucide-react";
-import logo from "./image.png";
+import logo from "../assets/image.png";
 
 
 
@@ -132,7 +132,7 @@ const Navbar = () => {
           {menuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
         </button>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu
         {menuOpen && (
           <div className="md:hidden fixed top-16 left-0 w-full bg-[#0a0014] text-white p-6 space-y-4 z-40 shadow-lg">
             <ul className="space-y-4 text-left text-lg">
@@ -180,7 +180,7 @@ const Navbar = () => {
               Sign Up →
             </button>
           </div>
-        )}
+        )} */}
       </nav>
     </>
   );
