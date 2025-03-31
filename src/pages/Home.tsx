@@ -1,4 +1,4 @@
-import NavBar from "../components/NavBar.tsx"; 
+import NavBar from "../components/NavBar.tsx";
 import FeatureCard from "../components/FeatureCard";
 import StepCard from "../components/StepCard.tsx";
 import PricingCard from "../components/PricingCard";

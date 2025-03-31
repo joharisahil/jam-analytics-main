@@ -31,25 +31,30 @@ const NavDown = () => {
 
 
       {/* Content Section */}
-      <div className="container mx-auto px-6 pt-20 md:pt-28 pb-32 relative z-10">
+      <div className="container mx-auto px-6 pt-16 md:pt-28 pb-32 relative z-10">
         <div className="text-center">
-          <h1 className="text-[78px] font-[695] leading-[110%] text-center mx-auto bg-gradient-to-b from-white to-[#664993] text-transparent bg-clip-text pb-3">
+          <h1 className="text-[75px]  font-semibold leading-[110%] text-center mx-auto bg-gradient-to-b from-white to-[#664993] text-transparent bg-clip-text pb-3">
             Transform Your Business <br />
             Operations with AI- <br />
             Powered Management
           </h1>
 
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto p-10 leading-relaxed">
-            Automate workflows, boost productivity, and scale your business with intelligent solutions.
+            Automate workflows, boost productivity, and scale your business with
+            intelligent solutions.
           </p>
 
-          <div className="flex justify-center gap-36 mt-1">
-            <button className="px-4 py-2 bg-white text-gray-900 rounded-lg text-[20px] font-medium 
-              hover:bg-gray-200 transition-all flex items-center shadow-md">
+          <div className="flex justify-center gap-14 mt-1">
+            <button
+              className="px-4 py-2 bg-white text-gray-900 rounded-lg text-[20px] font-medium 
+              hover:bg-gray-200 transition-all flex items-center shadow-md"
+            >
               Get Started
             </button>
-            <button className="px-4 py-2 bg-white text-black rounded-lg text-[20px] font-medium
-              border border-gray-400 hover:border-white transition-all flex items-center shadow">
+            <button
+              className="px-4 py-2 bg-white text-black rounded-lg text-[20px] font-medium
+              border border-gray-400 hover:border-white transition-all flex items-center shadow"
+            >
               View Demo
             </button>
           </div>

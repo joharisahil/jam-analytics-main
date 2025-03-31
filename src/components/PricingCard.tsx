@@ -13,9 +13,11 @@ const PricingCard: React.FC<{ plan: Plan }> = ({ plan }) => {
   const { name, price, period, features, popular } = plan;
 
   return (
-    <div className={`p-8 rounded-xl bg-white border-2 ${
-      popular ? "border-blue-500" : "border-gray-200"
-    }`}>
+    <div
+      className={`p-8 rounded-xl bg-white border-2 ${
+        popular ? "border-blue-500" : "border-gray-200"
+      }`}
+    >
       {popular && (
         <span className="px-3 py-1 text-sm text-blue-600 bg-blue-100 rounded-full">
           Most Popular
