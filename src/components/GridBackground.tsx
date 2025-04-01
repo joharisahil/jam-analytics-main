@@ -61,9 +61,7 @@ const GridBackground = () => {
               <p className="font-normal  text-white px-2 py-2">Jam AI</p>
             </div>
           
-            {/* Outer Div with Animated Border */}
-            <div className="relative  mx-auto max-w-3xl p-[5px]  rounded-[20px] overflow-hidden  before:absolute before:inset-2  before:left  before:bg-[conic-gradient(transparent,transparent,#815599)] before:animate-spin-slow ">
-              
+           
               {/* Inner Video Container */}
               <div className="relative w-full h-full rounded-[20px] overflow-hidden bg-[#240932e3]">
                 <video 
@@ -73,7 +71,7 @@ const GridBackground = () => {
                   muted 
                  
                 />
-              </div>
+              
             </div>
           </div>
 
