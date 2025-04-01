@@ -13,6 +13,9 @@
     @apply bg-gradient-to-r from-blue-600 to-indigo-600;
   }
 }
+
+
+
 html, body {
   overflow-x: hidden;
 }
