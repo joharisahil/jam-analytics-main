@@ -57,9 +57,24 @@ const GridBackground = () => {
           </p>
           {/* jam-analytic-video */}
          
-          <div className="relative flex items-center justify-center left-[23rem] w-[46%] h-[60%] pt-6">
-      <div className="relative rounded-xl  before:content-[''] before:absolute before:top-[-4px] before:left-[-4px] before:right-[-4px] before:bottom-[-4px] before:rounded-xl before:bg-[conic-gradient(#44335e,purple)] before:animate-spin-slow before:z-0">
+          <div className="relative flex items-center rounded-xl justify-center left-[23rem] w-[46%] h-[60%] pt-6">
+         
+
+
+      <div className="relative mx-auto max-w-6xl rounded-xl-blur-md animate-spin-slow"
+        style={{
+          borderWidth: "3px",
+          borderRadius:"20px",
+          borderStyle: "rounded",
+          borderImage: "linear-gradient(0deg, purple, white) 1",
+          animation: "rotateBorder 4s linear infinite"
+        }}
+      >
+
+
         <div className="relative z-10 rounded-xl overflow-hidden bg-[#44335e]">
+
+
           <video src={video} autoPlay loop muted className="w-auto h-auto  rounded-xl shadow-lg" />
         </div>
       </div>
