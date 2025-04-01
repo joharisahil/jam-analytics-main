@@ -1,4 +1,5 @@
 import FloatingShape from "./FloatingShape";
+import image from "../assets/image.png";
 import video from "../assets/jam-analytics-video.mp4";
 
 const GridBackground = () => {
@@ -42,37 +43,39 @@ const GridBackground = () => {
         />
 
         {/* Text Section */}
-        <div className="absolute  left-1/2 transform -translate-x-1/2 w-[90%]  text-center top-12">
+        <div className="absolute  left-1/2 transform -translate-x-1/2 w-[90%]  text-center top-20">
           <h1
-            className="text-white text-4xl font-bold italic"
-            style={{ fontFamily: "Bona Nova, italic" }}
+           className="text-white text-[80px] font-medium  leading-none"
+           style={{ fontFamily: "Castoro" }}
           >
-            You’ve Been Doing It the Hard Way… It’s Time to Change That!
+            Ask Anything Related To Your Job
           </h1>
-          <p className="text-gray-500 text-lg mt-3 max-w-2xl mx-auto leading-tight">
-            Juggling between multiple software? <br />
-            Using spreadsheets & paper for critical processes? <br />
-            No insights from sales calls? <br />
-            What if AI could handle all of this—so you can focus on growing?
-          </p>
+          
           {/* jam-analytic-video */}
          
-          <div className="relative flex items-center justify-center left-[23rem] w-[46%] h-[60%] pt-6">
-  <div className="relative rounded-xl">
-    
-    {/* Rotating Border */}
-    <div className="absolute inset-0 w-full h-full rounded-xl p-[4px] 
-                    bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 
-                    animate-spin-slow">
-      {/* Masking Layer to Keep Only the Border Visible */}
-      <div className=" relative o shadow-lg z-10l bg-black rounded-xl"></div>
-    </div>
+          <div className="relative flex items-center justify-center left-[23rem] w-[46%] h-[60%] pt-16">
 
-    {/* Video */}
-    <video src={video} autoPlay loop muted className="relative w-auto h-auto rounded-xl shadow-lg z-10" />
-    
-  </div>
-</div>
+            {/*jam analytic logo*/}
+            <div className="absolute top-10 left-10 flex space-x-4  border-2 border-white rounded-3xl ">
+              <img src ={image} alt="jam-analytic-logo " className="rounded-full w-8 h-18 space-x-3" />
+              <p className="font-normal text-white">Jam AI</p>
+            </div>
+          
+            {/* Outer Div with Animated Border */}
+            <div className="relative  mx-auto max-w-3xl p-[5px]  rounded-[20px] overflow-hidden  before:absolute before:inset-2  before:left  before:bg-[conic-gradient(transparent,transparent,#815599)] before:animate-spin-slow ">
+              
+              {/* Inner Video Container */}
+              <div className="relative w-full h-full rounded-[20px] overflow-hidden bg-[#240932e3]">
+                <video 
+                  src={video} 
+                  autoPlay 
+                  loop 
+                  muted 
+                 
+                />
+              </div>
+            </div>
+          </div>
 
         </div>
       </div>

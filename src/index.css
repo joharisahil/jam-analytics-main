@@ -19,3 +19,21 @@
 html, body {
   overflow-x: hidden;
 }
+
+@keyframes rotateBorder {
+  0% {
+    border-image-source: linear-gradient(0deg, #8557b9, white);
+  }
+  25% {
+    border-image-source: linear-gradient(90deg, #7005eb, white);
+  }
+  50% {
+    border-image-source: linear-gradient(180deg, #7005eb, white);
+  }
+  75% {
+    border-image-source: linear-gradient(270deg, #7005eb, white);
+  }
+  100% {
+    border-image-source: linear-gradient(360deg, #7005eb, white);
+  }
+}
