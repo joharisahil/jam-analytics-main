@@ -1,4 +1,3 @@
-import React from "react";
 import FloatingShape from "./FloatingShape";
 import video from "../assets/jam-analytics-video.mp4";
 
@@ -8,7 +7,6 @@ const GridBackground = () => {
       {/* Grid Background */}
       <div
         className="w-full h-screen"
-        
         style={{
           backgroundColor: "#000000f2",
           backgroundImage: `
@@ -18,10 +16,30 @@ const GridBackground = () => {
           backgroundSize: "40px 40px",
         }}
       >
-        <FloatingShape color="bg-purple-800" size="w-64 h-64" top="15%" left="20%"  />
-        <FloatingShape color="bg-purple-900" size="w-48 h-48" top="15%" left="80%"  />
-        <FloatingShape color="bg-purple-900" size="w-40 h-40" top="70%" left="15%" />
-        <FloatingShape color="bg-purple-900" size="w-36 h-36" top="70%" left="75%" />
+        <FloatingShape
+          color="bg-purple-800"
+          size="w-64 h-64"
+          top="15%"
+          left="20%"
+        />
+        <FloatingShape
+          color="bg-purple-900"
+          size="w-48 h-48"
+          top="15%"
+          left="80%"
+        />
+        <FloatingShape
+          color="bg-purple-900"
+          size="w-40 h-40"
+          top="70%"
+          left="15%"
+        />
+        <FloatingShape
+          color="bg-purple-900"
+          size="w-36 h-36"
+          top="70%"
+          left="75%"
+        />
 
         {/* Text Section */}
         <div className="absolute  left-1/2 transform -translate-x-1/2 w-[90%]  text-center top-12">
@@ -37,21 +55,16 @@ const GridBackground = () => {
             No insights from sales calls? <br />
             What if AI could handle all of this—so you can focus on growing?
           </p>
-
-
-
-
           {/* jam-analytic-video */}
-          <div className ="relative items-center justify-center left-[23rem]  w-[46%] h-[60%] pt-6">
-            <div className="relative rounded-xl shadow-[20px_20px_24px_#0000008c]  before:absolute before:top-[50%] before:left-[50%] before:bottom-[50%] before:right-[50%] before:bg-[conic-gradient(transparent,transparent,)]before:animate-spin-slow">
+         
+          <div className="relative flex items-center justify-center left-[23rem] w-[46%] h-[60%] pt-6">
+      <div className="relative rounded-xl  before:content-[''] before:absolute before:top-[-4px] before:left-[-4px] before:right-[-4px] before:bottom-[-4px] before:rounded-xl before:bg-[conic-gradient(#44335e,purple)] before:animate-spin-slow before:z-0">
+        <div className="relative z-10 rounded-xl overflow-hidden bg-[#44335e]">
+          <video src={video} autoPlay loop muted className="w-auto h-auto  rounded-xl shadow-lg" />
+        </div>
+      </div>
+    </div>
 
-            <div>  
-            <video src={video} autoPlay loop muted className="w-auto h-auto mt-8 rounded-xl shadow-lg" />
-            </div>
-            </div>
-            
-              
-          </div>
         </div>
       </div>
     </div>
