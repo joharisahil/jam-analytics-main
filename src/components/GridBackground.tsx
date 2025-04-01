@@ -53,10 +53,10 @@ const GridBackground = () => {
           
           {/* jam-analytic-video */}
          
-          <div className="relative flex items-center justify-center left-[23rem] w-[46%] h-[60%] pt-16">
+          <div className="relative flex items-center justify-center left-[23rem] w-[46%] h-[60%] pt-20">
 
             {/*jam analytic logo*/}
-            <div className="absolute top-10 left-10 flex space-x-4  border-2 border-white rounded-3xl ">
+            <div className="absolute top-10 left-10 flex space-x-4  border-2 border-white rounded-3xl mb-14 ">
               <img src ={image} alt="jam-analytic-logo " className="rounded-full w-8 h-18 space-x-3" />
               <p className="font-normal text-white">Jam AI</p>
             </div>
