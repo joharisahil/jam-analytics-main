@@ -56,9 +56,9 @@ const GridBackground = () => {
           <div className="relative flex items-center justify-center left-[23rem] w-[46%] h-[60%] pt-20">
 
             {/*jam analytic logo*/}
-            <div className="absolute top-10 left-10 flex space-x-4  border-2 border-white rounded-3xl mb-14 ">
-              <img src ={image} alt="jam-analytic-logo " className="rounded-full w-8 h-18 space-x-3" />
-              <p className="font-normal text-white">Jam AI</p>
+            <div className="absolute top-10 left-2 flex space-x-4  border-2 border-white rounded-3xl mb-20 ">
+              <img src ={image} alt="jam-analytic-logo " className="rounded-full w-10 h-10 space-x-3 px-2 py-2" />
+              <p className="font-normal  text-white px-2 py-2">Jam AI</p>
             </div>
           
             {/* Outer Div with Animated Border */}
