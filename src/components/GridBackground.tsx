@@ -45,36 +45,37 @@ const GridBackground = () => {
         {/* Text Section */}
         <div className="absolute  left-1/2 transform -translate-x-1/2 w-[90%]  text-center top-20">
           <h1
-           className="text-white text-[80px] font-medium  leading-none"
-           style={{ fontFamily: "Castoro" }}
+            className="text-white text-[78px] font-medium  leading-none"
+            style={{ fontFamily: "Castoro" }}
           >
             Ask Anything Related To Your Job
           </h1>
-          
-          {/* jam-analytic-video */}
-         
-          <div className="relative flex items-center justify-center left-[23rem] w-[46%] h-[60%] pt-20">
 
-            {/*jam analytic logo*/}
-            <div className="absolute top-10 left-2 flex space-x-4  border-2 border-white rounded-3xl mb-20 ">
-              <img src ={image} alt="jam-analytic-logo " className="rounded-full w-10 h-10 space-x-3 px-2 py-2" />
-              <p className="font-normal  text-white px-2 py-2">Jam AI</p>
+          {/* jam-analytic-video */}
+
+          <div className="relative flex items-center justify-center left-[23rem] w-[46%] h-[60%] pt-24 transition-transform duration-300 ease-in-out hover:scale-125">
+            {/* "Jam AI" Logo Div */}
+            <div className="absolute top-12 left-2 flex items-center space-x-2 px-2 border border-white/50 text-white bg-transparent rounded-3xl">
+              <img
+                src={image}
+                alt="jam-analytic-logo"
+                className="rounded-full w-5 h-5 border-2 border-white"
+              />
+              <p className="font-inter text-white text-[19px]">Jam AI</p>
             </div>
-          
-           
-              {/* Inner Video Container */}
-              <div className="relative w-full h-full rounded-[20px] overflow-hidden bg-[#240932e3]">
-                <video 
-                  src={video} 
-                  autoPlay 
-                  loop 
-                  muted 
-                 
-                />
-              
+
+            {/* Outer Video Container */}
+            <div className="relative w-full h-full rounded-[20px] overflow-hidden">
+              {/* Inner Video */}
+              <video
+                src={video}
+                autoPlay
+                loop
+                muted
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
-
         </div>
       </div>
     </div>

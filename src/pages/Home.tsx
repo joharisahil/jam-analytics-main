@@ -37,12 +37,12 @@ function Home() {
         </section>
 
         {/* Steps (New Section) */}
-        <section className="bg-gray-50 py-20">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center mb-16">
+        <section className=" bg-black p-32">
+          <div className="container mx-auto px-6 w-[78%] h-[80%]">
+            <h2 className="text-3xl text-white font-bold text-center mb-16">
               How It Works
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-8    ">    
               {steps.map((step, index) => (
                 <StepCard key={index} {...step} />
               ))}
