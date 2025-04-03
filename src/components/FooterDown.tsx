@@ -2,7 +2,7 @@ const FooterDown = () => {
   return (
     <section id="FooterDown">
       <div className="flex flex-col h-fit bg-[#131313f3] text-white w-full overflow-hidden">
-        {/* CTA Section */}
+        {/* CTA Section
         <div className="bg-gradient-to-r from-blue-500 to-blue-700 text-white text-center py-16">
           <h1 className="text-3xl font-bold mb-2">
             Ready to Transform Your Business?
@@ -13,7 +13,7 @@ const FooterDown = () => {
           <button className="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold">
             Join Waitlist
           </button>
-        </div>
+        </div> */}
 
         {/* Footer Section */}
         <footer className="bg-[#1a1a1a] text-gray-300 py-10 ">

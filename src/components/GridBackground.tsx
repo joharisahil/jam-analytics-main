@@ -53,7 +53,7 @@ const GridBackground = () => {
 
           {/* jam-analytic-video */}
 
-          <div className="relative flex items-center justify-center left-[23rem] w-[46%] h-[60%] pt-24 transition-transform duration-300 ease-in-out hover:scale-125">
+          <div className="relative flex items-center justify-center left-[23rem] w-[46%] h-[60%]  pt-24 transition-transform duration-300 ease-in-out hover:scale-125">
             {/* "Jam AI" Logo Div */}
             <div className="absolute top-12 left-2 flex items-center space-x-2 px-2 border border-white/50 text-white bg-transparent rounded-3xl">
               <img

@@ -21,12 +21,12 @@ const StepCard: React.FC<StepCardProps> = ({
         boxShadow: `0px 10px 74px 10px #4E00BF69`,
       }}
     >
-      {/* Icon Section */}
-      <div
+      {/* Icon Section */}<div
         className="w-16 h-16 mx-auto mt-6 mb-8 rounded-3xl  flex items-center justify-center"
         style={{
           background: `linear-gradient(215.15deg, rgba(52, 41, 66, 0.53) -171.85%, rgba(151, 71, 255, 0.53) 85.28%, rgba(140, 69, 255, 0.212) 122.51%)`,
         }}
+      
       >
         {Icon && <Icon className="w-8 h-8 text-white" />}
       </div>
@@ -38,8 +38,7 @@ const StepCard: React.FC<StepCardProps> = ({
           background: "#3D3D3D66",
           border: "1px solid #FFFFFF26",
           boxShadow: `0px 0px 6px 3px #FFFFFF40 inset`,
-          backdropFilter: "blur(14px)", 
-         
+          backdropFilter: "blur(14px)",
         }}
       >
         {stepNumber}
