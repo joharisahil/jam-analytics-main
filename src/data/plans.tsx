@@ -8,8 +8,8 @@ export const plans = [
       "Basic analytics",
       "1 team member",
       "500 mb storage",
-      // "Limited customization",
-      // "Community support",
+       "Limited customization",
+      "Community support",
     ],
   },
   {

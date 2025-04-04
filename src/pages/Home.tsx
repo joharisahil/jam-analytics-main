@@ -72,14 +72,13 @@ function Home() {
               <div
                 className="text-center mt-2 m-20 "
                 style={{
-                  background:
-                    "linear-gradient(285.26deg, #000000 -18.24%, #1B0F2E 124.22%)",
+                  background:"linear-gradient(285.26deg, #000000 -18.24%, #1B0F2E 124.22%)",
                   border: "1px solid transparent",
-                  borderImageSource:
-                    "linear-gradient(109.98deg, rgba(0, 0, 0, 0.55) 40.2%, #FFFFFF 100%)",
+                  borderImageSource: "linear-gradient(109.98deg, rgba(0, 0, 0, 0.55) 40.2%, #FFFFFF 100%)",
+                    
                 }}
               >
-                <div className="grid md:grid-cols-3 mx-auto">
+                <div className="grid md:grid-cols-3 gap-0 ">
                   {plans.map((plan, index) => (
                     <PricingCard key={index} plan={plan} />
                   ))}
