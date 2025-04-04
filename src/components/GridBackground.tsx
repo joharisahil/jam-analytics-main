@@ -65,14 +65,14 @@ const GridBackground = () => {
             </div>
 
             {/* Outer Video Container */}
-            <div className="relative w-full h-full rounded-[20px] overflow-hidden">
+            <div className=" w-full h-full rounded-[20px] overflow-hidden">
               {/* Inner Video */}
               <video
                 src={video}
                 autoPlay
                 loop
                 muted
-                className="w-full h-full object-cover"
+                className=" w-full h-full object-cover"
               />
             </div>
           </div>
