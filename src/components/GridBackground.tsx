@@ -9,38 +9,18 @@ const GridBackground = () => {
       <div
         className="w-full h-screen"
         style={{
-          backgroundColor: "#000000f2",
+          backgroundColor: "#0f0614",
           backgroundImage: `
         linear-gradient(0deg, #1A1A1A 1px, transparent 1px),
         linear-gradient(90deg, #1A1A1A 1px, transparent 1px)
       `,
-          backgroundSize: "40px 40px",
+          backgroundSize: "60px 60px",
         }}
       >
-        <FloatingShape
-          color="bg-purple-800"
-          size="w-64 h-64"
-          top="15%"
-          left="20%"
-        />
-        <FloatingShape
-          color="bg-purple-900"
-          size="w-48 h-48"
-          top="15%"
-          left="80%"
-        />
-        <FloatingShape
-          color="bg-purple-900"
-          size="w-40 h-40"
-          top="70%"
-          left="15%"
-        />
-        <FloatingShape
-          color="bg-purple-900"
-          size="w-36 h-36"
-          top="70%"
-          left="75%"
-        />
+        <FloatingShape color="bg-[#4B227B]" size="w-64 h-64" top="15%" left="20%"  />
+        <FloatingShape color="bg-[#4B227B]" size="w-48 h-48" top="15%" left="80%"  />
+        <FloatingShape color="bg-[#4B227B]" size="w-40 h-40" top="70%" left="15%" />
+        <FloatingShape color="bg-[#4B227B]" size="w-36 h-36" top="70%" left="75%" />
 
         {/* Text Section */}
         <div className="absolute  left-1/2 transform -translate-x-1/2 w-[90%]  text-center top-20">

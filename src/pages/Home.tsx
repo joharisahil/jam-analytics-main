@@ -19,19 +19,49 @@ function Home() {
         <section id="home" className="bg-black">
           <NavDown />
         </section>
+        <div
+          className="relative z-30  overflow-hidden"
+          style={{
+            boxShadow: "6px 0 40px 30px #0C0318",
+          }}
+        ></div>
+
+        {/* 0 0 30px 25px rgba(112,5,235,0.5) */}
 
         <GridBackground />
+        <div
+          className="relative z-30  overflow-hidden"
+          style={{
+            boxShadow: "6px 0 40px 30px #0C0318",
+          }}
+        ></div>
 
-        {/* Features */}
-        <section id="feature" className="bg-white py-20">
+        <section
+          id="feature"
+          className="relative bg-black py-20 overflow-hidden"
+        >
+          {/* Background Grid */}
+          <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
+
           <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center mb-16">
+            <h2 className="text-3xl font-bold text-center text-white mb-16">
               Powerful Features
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map((feature, index) => (
-                <FeatureCard key={index} {...feature} />
-              ))}
+
+            {/* Feature Container with Glow */}
+            <div
+              className="relative mx-auto max-w-6xl p-10 rounded-xl bg-black/50 backdrop-blur-md shadow-[0_0_60px_10px_rgba(112,5,235,0.5)]"
+              style={{
+                borderWidth: "3px",
+                borderStyle: "solid",
+                borderImage: "linear-gradient(to right, #7005eb, white) 1",
+              }}
+            >
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 ">
+                {features.map((feature, index) => (
+                  <FeatureCard key={index} {...feature} />
+                ))}
+              </div>
             </div>
           </div>
         </section>
