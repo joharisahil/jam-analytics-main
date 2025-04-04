@@ -50,11 +50,11 @@ function Home() {
 
             {/* Feature Container with Glow */}
             <div
-              className="relative mx-auto max-w-6xl p-10 rounded-xl bg-black/50 backdrop-blur-md shadow-[0_0_60px_10px_rgba(112,5,235,0.5)]"
+              className="relative mx-auto max-w-6xl p-10 rounded-xl bg-black/50 backdrop-blur-md ]"
               style={{
                 borderWidth: "3px",
                 borderStyle: "solid",
-                borderImage: "linear-gradient(to right, #7005eb, white) 1",
+                borderImage: "linear-gradient(to right,#3b1a52, white)1 ",
               }}
             >
               <div className="grid md:grid-cols-2 lg:grid-cols-3 ">
@@ -83,7 +83,7 @@ function Home() {
         {/* Pricing */}
         <section id="pricing" className="py-20 bg-black">
           <section className=" bg-black">
-            <div className=" items-center container mx-auto px-6">
+            <div className=" items-center container mx-auto ">
               <h2 className=" mx-auto text-lg w-20 font-medium text-center mb-4 text-gray-500 border-2 border-gray-500 font-inter">
                 Pricing
               </h2>
@@ -102,10 +102,11 @@ function Home() {
               <div
                 className="text-center mt-2 m-20 "
                 style={{
-                  background:"linear-gradient(285.26deg, #000000 -18.24%, #1B0F2E 124.22%)",
+                  background:
+                    "linear-gradient(285.26deg, #000000 -18.24%, #1B0F2E 124.22%)",
                   border: "1px solid transparent",
-                  borderImageSource: "linear-gradient(109.98deg, rgba(0, 0, 0, 0.55) 40.2%, #FFFFFF 100%)",
-                    
+                  borderImageSource:
+                    "linear-gradient(109.98deg, rgba(0, 0, 0, 0.55) 40.2%, #FFFFFF 100%)",
                 }}
               >
                 <div className="grid md:grid-cols-3 gap-0 ">
