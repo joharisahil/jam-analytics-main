@@ -15,6 +15,11 @@ const PricingCard: React.FC<{ plan: Plan }> = ({ plan }) => {
       style={{
         boxShadow:
           "7px 6px 14.6px 0px #FFFFFF40 inset, 0px 2px 20.4px 0px #FFFFFF40, 0px 10px 74px 10px #4E00BF69",
+          backgroundImage: `
+          linear-gradient(0deg, #1A1A1A 1px, transparent 1/2px),
+          linear-gradient(90deg, #1A1A1A 1px, transparent 1/2px)
+        `,
+            backgroundSize: "60px 60px",
         background:
           "linear-gradient(180deg, #000000 24%, rgba(0, 0, 0, 0) 100%), linear-gradient(180deg, #010002 0%, #361764 100%)",
       }}

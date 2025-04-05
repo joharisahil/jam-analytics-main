@@ -36,7 +36,7 @@ function Home() {
           }}
         ></div>
 
-        <section
+<section
           id="feature"
           className="relative bg-black py-20 overflow-hidden"
         >
@@ -65,7 +65,6 @@ function Home() {
             </div>
           </div>
         </section>
-
         {/* Steps (New Section) */}
         <section className=" bg-black py-36">
           <div className="container mx-auto px-6 w-[78%] h-[80%]">
@@ -102,8 +101,7 @@ function Home() {
               <div
                 className="text-center mt-2 m-20 "
                 style={{
-                  background:
-                    "linear-gradient(285.26deg, #000000 -18.24%, #1B0F2E 124.22%)",
+                  background:"linear-gradient(285.26deg, #000000 -18.24%, #000000 124.22%)",
                   border: "1px solid transparent",
                   borderImageSource:
                     "linear-gradient(109.98deg, rgba(0, 0, 0, 0.55) 40.2%, #FFFFFF 100%)",
