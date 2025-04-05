@@ -36,7 +36,7 @@ function Home() {
           }}
         ></div>
 
-        <section
+<section
           id="feature"
           className="relative bg-black py-20 overflow-hidden"
         >
@@ -50,11 +50,11 @@ function Home() {
 
             {/* Feature Container with Glow */}
             <div
-              className="relative mx-auto max-w-6xl p-10 rounded-xl bg-black/50 backdrop-blur-md shadow-[0_0_60px_10px_rgba(112,5,235,0.5)]"
+              className="relative mx-auto max-w-6xl p-10 rounded-xl bg-black/50 backdrop-blur-md ]"
               style={{
                 borderWidth: "3px",
                 borderStyle: "solid",
-                borderImage: "linear-gradient(to right, #7005eb, white) 1",
+                borderImage: "linear-gradient(to right,#3b1a52, white)1 ",
               }}
             >
               <div className="grid md:grid-cols-2 lg:grid-cols-3 ">
@@ -65,7 +65,6 @@ function Home() {
             </div>
           </div>
         </section>
-
         {/* Steps (New Section) */}
         <section className=" bg-black py-36">
           <div className="container mx-auto px-6 w-[78%] h-[80%]">
@@ -102,7 +101,7 @@ function Home() {
               <div
                 className="text-center mt-2 m-20 "
                 style={{
-                  background:"linear-gradient(285.26deg, #000000 -18.24%, #1B0F2E 124.22%)",
+                  background:"linear-gradient(285.26deg, #000000 -18.24%, #000000 124.22%)",
                   border: "1px solid transparent",
                   borderImageSource: "linear-gradient(109.98deg, rgba(0, 0, 0, 0.55) 40.2%, #FFFFFF 100%)",
                     
