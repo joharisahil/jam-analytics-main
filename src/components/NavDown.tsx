@@ -4,33 +4,34 @@ const NavDown = () => {
       {/* <div className=""> */}
       {/* Background Circles */}
       <div
-  className="absolute w-[2200px] h-[2200px] md:w-[1500px] md:h-[1500px] rounded-full bottom-[-700px] md:bottom-[-1000px] opacity-95 border-8 border-black"
-  style={{
-    background: "radial-gradient(circle, #361764 25%, #11081f 40%, #000000 85%)",
-    boxShadow: "inset 4px 4px 250px 80px #000000, 0 0 250px 100px #11081f",
-  }}
-></div>
+        className="absolute w-[2200px] h-[2200px] md:w-[1500px] md:h-[1500px] rounded-full bottom-[-700px] md:bottom-[-1000px] opacity-95 border-8 border-black"
+        style={{
+          background:
+            "radial-gradient(circle, #361764 25%, #11081f 40%, #000000 85%)",
+          boxShadow:
+            "inset 4px 4px 250px 80px #000000, 0 0 250px 100px #11081f",
+        }}
+      ></div>
 
+      <div
+        className="absolute w-[1100px] h-[1100px] md:w-[1100px] md:h-[1150px] rounded-full bottom-[-800px] md:bottom-[-800px] opacity-90 border-8 border-black"
+        style={{
+          background:
+            "radial-gradient(circle, #2C1251 30%, #0C0318 50%, #000000 85%)",
+          boxShadow: "inset 0 0 150px 70px #000000, 0 0 150px 50px #11081f",
+        }}
+      ></div>
 
- <div
-  className="absolute w-[1100px] h-[1100px] md:w-[1100px] md:h-[1150px] rounded-full bottom-[-800px] md:bottom-[-800px] opacity-90 border-8 border-black"
-  style={{
-    background: "radial-gradient(circle, #2C1251 30%, #0C0318 50%, #000000 85%)",
-    boxShadow: "inset 0 0 150px 70px #000000, 0 0 150px 50px #11081f",
-  }}
-></div>
-
-
-<div
-  className="absolute w-[700px] h-[700px] rounded-full bottom-[-200px] md:bottom-[-500px] opacity-85 border-8 border-black"
-  style={{
-    background: "radial-gradient(circle, #2C1251 10%, #0C0318 40%, #000000 90%)",
-    boxShadow: "inset 0 0 140px 45px #000000, 0 0 100px 50px #130d1f",
-  }}
-></div>
+      <div
+        className="absolute w-[700px] h-[700px] rounded-full bottom-[-200px] md:bottom-[-500px] opacity-85 border-8 border-black"
+        style={{
+          background:
+            "radial-gradient(circle, #2C1251 10%, #0C0318 40%, #000000 90%)",
+          boxShadow: "inset 0 0 140px 45px #000000, 0 0 100px 50px #130d1f",
+        }}
+      ></div>
 
       {/* </div> */}
-
 
       {/* Content Section */}
       <div className="container mx-auto px-6 pt-16 md:pt-28 pb-32 relative z-10">
@@ -62,7 +63,6 @@ const NavDown = () => {
           </div>
         </div>
       </div>
-      
     </div>
   );
 };
