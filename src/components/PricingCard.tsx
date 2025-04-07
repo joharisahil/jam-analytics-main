@@ -43,7 +43,6 @@ const PricingCard: React.FC<PricingCardProps> = ({
         backgroundSize: "60px 60px",
         background:
           "linear-gradient(180deg, #000000 24%, rgba(0, 0, 0, 0) 100%), linear-gradient(180deg, #010002 0%, #361764 100%)",
-         
       }
     : {
         background:
@@ -100,7 +99,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
       <button
         className="relative z-10 py-3 rounded-lg font-medium transition text-white"
         style={{
-          background: "#8C45FF66",
+          background: showHighlight ? "#8C45FF66" : "#3D3D3D66",
           border: "1px solid #FFFFFF26",
           boxShadow: "0px 0px 6px 3px #FFFFFF40 inset",
           backdropFilter: "blur(14px)",

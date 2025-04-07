@@ -7,7 +7,7 @@ const GridBackground = () => {
     <div className="relative w-full h-screen overflow-hidden">
       {/* Grid Background */}
       <div
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0"
         style={{
           backgroundColor: "#0f0614",
           backgroundImage: `

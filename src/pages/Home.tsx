@@ -55,11 +55,10 @@ function Home() {
             <div
                    className=" mx-auto max-w-6xl p-10 rounded-xl "
               style={{
-                background: `conic-gradient(from 195.41deg at 0% 100%, #9747FF -115.1deg, #9747FF 47.27deg, rgba(0, 0, 0, 0.12) 206.78deg, #9747FF 244.9deg, #9747FF 407.27deg)`,
-                border: "1px ",
-                borderStyle: "solid",
+                background: `linear-gradient(360deg, #9747FF -100%,  rgba(0, 0.12,1.0, 1)  100%, #9747FF 100%)`,
+               
 
-                borderImageSource: `linear-gradient(86.04deg, #000000 1.44%, #F8F8F8 113.17%)`,
+                borderImageSource: `linear-gradient(100.04deg, #000000 1.44%, #F8F8F8 113.17%)`,
                 boxShadow:" 5px 10px 20px 0px #FFFFFF40 inset, 8px 5px 18.6px 0px #CFCFCF40"
 
 
