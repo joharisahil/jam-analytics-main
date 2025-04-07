@@ -43,6 +43,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
         backgroundSize: "60px 60px",
         background:
           "linear-gradient(180deg, #000000 24%, rgba(0, 0, 0, 0) 100%), linear-gradient(180deg, #010002 0%, #361764 100%)",
+         
       }
     : {
         background:
@@ -53,7 +54,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
     <div
       onMouseEnter={onHoverStart}
       onMouseLeave={onHoverEnd}
-      className={`relative flex flex-col justify-between m-6 p-6 rounded-xl text-white text-left w-full max-w-sm min-h-[500px] overflow-hidden transition-all duration-300 ${
+      className={`relative flex flex-col justify-between m-6 p-6 rounded-xl text-white text-left w-full max-w-sm min-h-[500px] overflow-hidden transition-all duration-100 ,transition-transform ease-in-out hover:scale-110 ${
         isPopular ? "bg-[#8C45FF66]" : "border-transparent"
       }`}
       style={cardStyle}

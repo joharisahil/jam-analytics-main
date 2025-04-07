@@ -16,7 +16,7 @@ const FooterDown = () => {
         </div> */}
 
         {/* Footer Section */}
-        <footer className="bg-[#1a1a1a] text-gray-300 py-10 ">
+        <footer className="bg-black text-gray-300 py-10 ">
           <div className="container mx-auto flex flex-col md:flex-row gap-8 px-8">
             {/* Left Section - Navigation */}
             <div className="bg-[#121212] p-6 rounded-xl w-full md:w-3/4 grid grid-cols-2 md:grid-cols-4 gap-6 border border-gray-700">
