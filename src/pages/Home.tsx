@@ -53,11 +53,18 @@ function Home() {
 
             {/* Feature Container with Glow */}
             <div
-              className="relative mx-auto max-w-6xl p-10 rounded-xl bg-black/50 backdrop-blur-md ]"
+                   className=" mx-auto max-w-6xl p-10 rounded-xl "
               style={{
-                borderWidth: "3px",
+                background: `conic-gradient(from 195.41deg at 0% 100%, #9747FF -115.1deg, #9747FF 47.27deg, rgba(0, 0, 0, 0.12) 206.78deg, #9747FF 244.9deg, #9747FF 407.27deg)`,
+                border: "1px ",
                 borderStyle: "solid",
-                borderImage: "linear-gradient(to right,#3b1a52, white)1 ",
+
+                borderImageSource: `linear-gradient(86.04deg, #000000 1.44%, #F8F8F8 113.17%)`,
+                boxShadow:" 5px 10px 20px 0px #FFFFFF40 inset, 8px 5px 18.6px 0px #CFCFCF40"
+
+
+
+
               }}
             >
               <div className="grid md:grid-cols-2 lg:grid-cols-3 ">
