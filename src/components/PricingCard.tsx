@@ -41,19 +41,17 @@ const PricingCard: React.FC<PricingCardProps> = ({
           linear-gradient(90deg, #1A1A1A 1px, transparent 1px)
         `,
         backgroundSize: "60px 60px",
-        background:
-          "linear-gradient(180deg, #000000 24%, rgba(0, 0, 0, 0) 100%), linear-gradient(180deg, #010002 0%, #361764 100%)",
+        background: "linear-gradient(180deg, #000000 24%, rgba(0, 0, 0, 0) 100%), linear-gradient(180deg, #010002 0%, #361764 100%)",
       }
     : {
-        background:
-          "linear-gradient(285.26deg, #000000 -18.24%, #361764 124.22%)",
+        background:"linear-gradient(180deg, #010002 24%, #361764 100%),linear-gradient(180deg, #000000 24%, rgba(0, 0, 0, 0) 100%)",
       };
 
   return (
     <div
       onMouseEnter={onHoverStart}
       onMouseLeave={onHoverEnd}
-      className={`relative flex flex-col justify-between m-6 p-6 rounded-xl text-white text-left w-full max-w-sm min-h-[500px] overflow-hidden transition-all duration-100 ,transition-transform ease-in-out hover:scale-110 ${
+      className={`relative flex flex-col justify-between m-6 p-6 rounded-3xl text-white text-left w-full max-w-sm min-h-[500px] overflow-hidden transition-all duration-100 ,transition-transform ease-in-out hover:scale-110 ${
         isPopular ? "bg-[#8C45FF66]" : "border-transparent"
       }`}
       style={cardStyle}
@@ -99,7 +97,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
       <button
         className="relative z-10 py-3 rounded-lg font-medium transition text-white"
         style={{
-          background: showHighlight ? "#8C45FF66" : "#3D3D3D66",
+          background: "#8C45FF66",
           border: "1px solid #FFFFFF26",
           boxShadow: "0px 0px 6px 3px #FFFFFF40 inset",
           backdropFilter: "blur(14px)",

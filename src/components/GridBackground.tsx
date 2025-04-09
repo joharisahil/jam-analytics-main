@@ -18,40 +18,63 @@ const GridBackground = () => {
           backgroundAttachment: "fixed", // Keeps it from expanding
         }}
       >
-        <FloatingShape color="bg-[#4B227B]" size="w-64 h-64" top="15%" left="20%" />
-        <FloatingShape color="bg-[#4B227B]" size="w-48 h-48" top="15%" left="80%" />
-        <FloatingShape color="bg-[#4B227B]" size="w-40 h-40" top="70%" left="15%" />
-        <FloatingShape color="bg-[#4B227B]" size="w-36 h-36" top="70%" left="75%" />
+        <FloatingShape
+          color="bg-[#4B227B]"
+          size="w-64 h-64"
+          top="15%"
+          left="20%"
+        />
+        <FloatingShape
+          color="bg-[#4B227B]"
+          size="w-48 h-48"
+          top="15%"
+          left="80%"
+        />
+        <FloatingShape
+          color="bg-[#4B227B]"
+          size="w-40 h-40"
+          top="70%"
+          left="15%"
+        />
+        <FloatingShape
+          color="bg-[#4B227B]"
+          size="w-36 h-36"
+          top="70%"
+          left="75%"
+        />
 
         {/* Text Section */}
         <div className="absolute left-1/2 transform -translate-x-1/2 w-[90%] text-center top-20">
           <h1
-            className="text-white text-[78px] font-medium leading-none"
+            className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-[60px] xl:text-[75px] font-medium leading-none"
             style={{ fontFamily: "Castoro" }}
           >
             Ask Anything Related To Your Job
           </h1>
 
           {/* jam-analytic-video */}
-          <div className="relative flex items-center justify-center left-1/2 transform -translate-x-1/2 w-[46%] h-[60%] pt-24 transition-transform duration-300 ease-in-out hover:scale-125">
+          <div className="relative flex items-center justify-center w-full sm:w-[60%] md:w-[60%] lg:w-[46%] h-auto pt-24 mx-auto transition-transform duration-300 ease-in-out hover:scale-125">
             {/* "Jam AI" Logo Div */}
-            <div className="absolute top-12 left-2 flex items-center space-x-2 px-2 border border-white/50 text-white bg-transparent rounded-3xl">
+            <div className="absolute top-12 left-2 flex items-center space-x-2 px-2 py-1 border border-white/50 text-white bg-transparent rounded-3xl">
               <img
                 src={image}
                 alt="jam-analytic-logo"
                 className="rounded-full w-5 h-5 border-2 border-white"
               />
-              <p className="font-inter text-white text-[19px]">Jam AI</p>
+              <p className="font-inter text-white text-sm sm:text-base md:text-lg">
+                Jam AI
+              </p>
             </div>
 
             {/* Outer Video Container */}
-            <div className="rounded-[20px] overflow-hidden">
+            <div className="w-full rounded-[20px] overflow-hidden shadow-lg">
               {/* Inner Video */}
               <video
                 src={video}
                 autoPlay
                 loop
                 muted
+                className="w-full h-auto object-cover"
               />
             </div>
           </div>
@@ -62,4 +85,3 @@ const GridBackground = () => {
 };
 
 export default GridBackground;
-

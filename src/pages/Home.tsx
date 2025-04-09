@@ -77,7 +77,7 @@ function Home() {
         {/* Steps (New Section) */}
         <section className=" bg-black py-36">
           <div className="container mx-auto px-6 w-[78%] h-[80%]">
-            <h2 className="mx-auto text-center text-3xl text-gray-500 border-2  w-48 border-gray-500 font-inter  mb-16">
+            <h2 className="mx-auto text-center text-3xl text-gray-500  font-inter  mb-16">
               How It Works
             </h2>
             <div className="grid md:grid-cols-3 gap-8    ">
@@ -96,18 +96,6 @@ function Home() {
             <h2 className=" mx-auto text-lg w-20 font-medium text-center mb-4 text-gray-500 border-2 border-gray-500 font-inter">
               Pricing
             </h2>
-            <p
-              className="text-center text-2xl  text-gray-500 mb-8"
-              style={{
-                fontFamily: "Microsoft Sans Serif",
-                lineHeight: "100%",
-                letterSpacing: "0%",
-                textAlign: "center",
-              }}
-            >
-              Choose the right plan to meet your SEO <br></br>needs and start
-              optimizing today.
-            </p>
             <div
               className="text-center mt-2 m-20"
               style={{

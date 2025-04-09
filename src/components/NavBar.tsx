@@ -87,7 +87,7 @@ const Navbar = () => {
     <>
       <UserProfileModal />
       <nav
-        className={`fixed top-0 left-0 w-full max-w-full bg-transparent opacity-100 text-white py-4 px-6 flex items-center justify-between z-50 shadow-md backdrop-blur-md overflow-hidden
+        className={`fixed top-0 left-0 w-full max-w-full bg-transparent opacity-100 text-white py-4 px-6 flex items-center justify-between z-40 shadow-md backdrop-blur-md 
   ${
     scrolled
       ? "border-b border-gray-500/50 transition-all duration-300"
@@ -95,9 +95,9 @@ const Navbar = () => {
   }`}
       >
         {/* Logo & Branding */}
-        <div className="flex items-center pl-16">
+        <div className="flex items-center px-auto">
           <img src={logo} alt="Logo" className="w-10 h-10 rounded-full" />
-          <span className="text-2xl font-semibold tracking-wide hover:text-purple-400 transition ml-3">
+          <span className="text-2xl font-semibold tracking-wide hover:text-purple-400 transition mx-auto">
             <a href="#home">Jam Analytics</a>
           </span>
         </div>
@@ -125,13 +125,10 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-                <a
-                  href="#home"
-                  className="block hover:text-purple-400 transition"
-                >
-                  Career
-                </a>
-              </li>
+            <a href="#home" className="block hover:text-purple-400 transition">
+              Career
+            </a>
+          </li>
         </ul>
 
         {/* Authentication Section */}
@@ -167,10 +164,10 @@ const Navbar = () => {
           {menuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
         </button>
 
-         {/* Mobile Menu */}
+        {/* Mobile Menu */}
         {menuOpen && (
-          <div className="md:hidden fixed top-16 left-0 w-full bg-[#0a0014] text-white p-6 space-y-4 z-40 shadow-lg">
-            <ul className="space-y-4 text-left text-lg">
+          <div className="md:hidden fixed top-16 left-0 w-full bg-[#0a0014] text-white p-2 space-y-4 z-50 shadow-lg">
+            <ul className="space-y-4 text-left px-6 text-lg">
               <li>
                 <a
                   href="#home"
@@ -214,10 +211,10 @@ const Navbar = () => {
             </ul>
 
             {/* Mobile Authentication Buttons */}
-            <div className="flex flex-col space-y-4">
+            <div className="flex gap-4 justify-start px-6 ">
               <button
                 onClick={() => loginWithRedirect()}
-                className="text-white text-lg font-medium px-4 py-2 rounded-lg border border-[#9174a7] transition-all duration-300 hover:bg-[#1a0122]"
+                className="bg-gradient-to-br from-[#43295ebf] to-[#220b29] text-white text-lg font-medium px-4 py-2 rounded-lg border border-[#9174a7] transition-all duration-300 hover:bg-[#1a0122]"
               >
                 Sign In
               </button>
@@ -225,11 +222,11 @@ const Navbar = () => {
                 onClick={() => loginWithRedirect()}
                 className="bg-gradient-to-br from-[#43295ebf] to-[#220b29] text-white text-lg font-medium px-4 py-2 rounded-lg border border-[#9174a7] transition-all duration-300 hover:bg-[#1a0122]"
               >
-                Sign Up →
+                Try now →
               </button>
             </div>
           </div>
-        )} 
+        )}
       </nav>
     </>
   );

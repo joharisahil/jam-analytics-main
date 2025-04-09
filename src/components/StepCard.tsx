@@ -16,10 +16,10 @@ const StepCard: React.FC<StepCardProps> = ({
 }) => {
   return (
     <div
-      className="relative text-center items-center border-2 border-gray-800 bg-gradient-to-b from-black via-[#1a0127] to-[#240137] rounded-xl p-6 shadow-lg transition-transform duration-300 hover:scale-110"
+      className="relative text-center items-center border-2 border-gray-800 bg-gradient-to-b from-black via-[#1a0127] to-[#240137] rounded-xl p-6 shadow-lg transition-transform duration-300 hover:scale-110 hover:shadow-[0px_10px_74px_10px_#4E00BF69]"
       style={{
         background: `linear-gradient(180deg, #010002 0%, #361764 100%)`,
-        boxShadow: `0px 10px 74px 10px #4E00BF69`,
+       // boxShadow: `0px 10px 74px 10px #4E00BF69`,
       }}
     >
       {/* Icon Section */}
