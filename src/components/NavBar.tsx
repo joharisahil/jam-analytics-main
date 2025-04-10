@@ -103,7 +103,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-20 text-gray-300 text-lg">
+        <ul className="hidden lg:flex space-x-20 text-gray-300 text-lg">
           <li>
             <a href="#home" className="hover:text-white transition">
               Home
@@ -132,7 +132,7 @@ const Navbar = () => {
         </ul>
 
         {/* Authentication Section */}
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden lg:flex lg:px-4 items-center space-x-6">
           {!isAuthenticated ? (
             <>
               <button
@@ -160,13 +160,13 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
+        <button className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
         </button>
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="md:hidden fixed top-16 left-0 w-full bg-[#0a0014] text-white p-2 space-y-4 z-50 shadow-lg">
+          <div className="lg:hidden fixed top-16 left-0 w-full bg-[#0a0014] text-white p-2 space-y-4 z-50 shadow-lg">
             <ul className="space-y-4 text-left px-6 text-lg">
               <li>
                 <a

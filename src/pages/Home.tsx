@@ -53,20 +53,20 @@ function Home() {
 
             {/* Feature Container with Glow */}
             <div
-                   className=" mx-auto max-w-6xl p-10 rounded-xl "
+                   className=" mx-auto max-w-6xl p-10 rounded-xl  "
               style={{
-                background: `linear-gradient(360deg, #9747FF -100%,  rgba(0, 0.12,1.0, 1)  100%, #9747FF 100%)`,
+                // background: `linear-gradient(360deg, #9747FF -100%,  rgba(0, 0.12,1.0, 1)  100%, #9747FF 100%)`,
                
 
-                borderImageSource: `linear-gradient(100.04deg, #000000 1.44%, #F8F8F8 113.17%)`,
-                boxShadow:" 5px 10px 20px 0px #FFFFFF40 inset, 8px 5px 18.6px 0px #CFCFCF40"
+                // borderImageSource: `linear-gradient(100.04deg, #000000 1.44%, #F8F8F8 113.17%)`,
+                // boxShadow:" 5px 10px 20px 0px #FFFFFF40 inset, 8px 5px 18.6px 0px #CFCFCF40"
 
 
 
 
               }}
             >
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 ">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 ">
                 {features.map((feature, index) => (
                   <FeatureCard key={index} {...feature} />
                 ))}
@@ -93,7 +93,7 @@ function Home() {
         <section id="pricing" className="py-20 bg-black">
           <div className="items-center container mx-auto">
             {/* ...titles... */}
-            <h2 className=" mx-auto text-lg w-20 font-medium text-center mb-4 text-gray-500 border-2 border-gray-500 font-inter">
+            <h2 className=" mx-auto text-lg w-20 font-medium text-center mb-4 text-gray-500  font-inter">
               Pricing
             </h2>
             <div
