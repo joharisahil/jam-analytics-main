@@ -30,8 +30,10 @@ function Home() {
         ></div>
 
         {/* 0 0 30px 25px rgba(112,5,235,0.5) */}
-
+        <section>
         <GridBackground />
+        </section>
+
         <div
           className="relative z-30  overflow-hidden"
           style={{
@@ -55,7 +57,14 @@ function Home() {
             <div
                    className=" mx-auto max-w-6xl p-10 rounded-xl "
               style={{
-                background: `conic-gradient(from 195.41deg at 0% 100%, #9747FF -115.1deg, #9747FF 47.27deg, rgba(0, 0, 0, 0.12) 206.78deg, #9747FF 244.9deg, #9747FF 407.27deg)`,
+                background: `linear-gradient(
+                  135deg,
+                  #9747FF 0%,
+                  #9747FF 45%,
+                  rgba(0, 0, 0, 0.12) 55%,
+                  #9747FF 65%,
+                  #9747FF 100%
+                )`,
                 border: "1px ",
                 borderStyle: "solid",
 

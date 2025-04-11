@@ -1,10 +1,10 @@
 const NavDown = () => {
   return (
-    <div className="relative overflow-hidden flex items-center justify-center bg-[#0] p-1">
+    <div className="relative overflow-hidden flex items-center justify-center bg-[#0]">
       {/* <div className=""> */}
       {/* Background Circles */}
       <div
-        className="absolute w-[2200px] h-[2200px] md:w-[1500px] md:h-[1500px] rounded-full bottom-[-700px] md:bottom-[-1000px] opacity-95 border-8 border-black"
+        className="absolute w-[1000px] h-[1100px]  md:w-[1500px] md:h-[1500px] xl:w-[1500px] xl:h-[1500px] sm:w-[1500px] sm:h-[1500px] lg:w-[1200px] lg:h-[1400px] rounded-full bottom-[-700px] md:bottom-[-1000px] sm:bottom-[-1000px] opacity-95 border-8 border-black lg:bottom-[-1050px]"
         style={{
           background:
             "radial-gradient(circle, #361764 25%, #11081f 40%, #000000 85%)",
@@ -14,7 +14,7 @@ const NavDown = () => {
       ></div>
 
       <div
-        className="absolute w-[1100px] h-[1100px] md:w-[1100px] md:h-[1150px] rounded-full bottom-[-800px] md:bottom-[-800px] opacity-90 border-8 border-black"
+        className="absolute w-[680px] h-[680px] bottom-[-400px] md:w-[1300px] md:h-[1300px] xl:w-[1200px] xl:h-[1250px] lg:w-[950px] lg:h[950px] rounded-full lg:bottom-[-1050px] md:bottom-[-950px] sm:bottom-[-1200px] xl:bottom-[-950px] opacity-90 border-8 border-black"
         style={{
           background:
             "radial-gradient(circle, #2C1251 30%, #0C0318 50%, #000000 85%)",
@@ -23,7 +23,7 @@ const NavDown = () => {
       ></div>
 
       <div
-        className="absolute w-[700px] h-[700px] rounded-full bottom-[-200px] md:bottom-[-500px] opacity-85 border-8 border-black"
+        className="absolute  w-[400px] h-[400px]  bottom-[-250px] md:w-[700px] md:h-[650px] lg:h-[650px] lg:w-[700px] rounded-full  md:bottom-[-500px] lg:bottom-[-500px] sm:bottom-[-500px] sm:w-[700px] sm:h-[700px] opacity-85 border-8 border-black"
         style={{
           background:
             "radial-gradient(circle, #2C1251 10%, #0C0318 40%, #000000 90%)",
@@ -34,35 +34,36 @@ const NavDown = () => {
       {/* </div> */}
 
       {/* Content Section */}
-      <div className="container mx-auto px-6 pt-16 md:pt-28 pb-32 relative z-10">
-        <div className="text-center">
-          <h1 className="text-[75px]  font-semibold leading-[110%] text-center mx-auto bg-gradient-to-b from-white to-[#664993] text-transparent bg-clip-text pb-3">
-            Transform Your Business <br />
-            Operations with AI- <br />
-            Powered Management
-          </h1>
+      <div className="container mx-auto px-4 sm:px-6 pt-16 md:pt-28 pb-32 relative z-10">
+  <div className="text-center">
+    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[75px] font-semibold leading-tight md:leading-[110%] text-center mx-auto bg-gradient-to-b from-white to-[#664993] text-transparent bg-clip-text pb-6">
+      Transform Your Business <br className="hidden md:block" />
+      Operations with AI- <br className="hidden md:block" />
+      Powered Management
+    </h1>
 
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto p-10 leading-relaxed">
-            Automate workflows, boost productivity, and scale your business with
-            intelligent solutions.
-          </p>
+    <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4 sm:px-8 md:px-10 leading-relaxed mt-6">
+      Automate workflows, boost productivity, and scale your business with
+      intelligent solutions.
+    </p>
 
-          <div className="flex justify-center gap-14 mt-1">
-            <button
-              className="px-4 py-2 bg-white text-gray-900 rounded-lg text-[20px] font-medium 
-              hover:bg-gray-200 transition-all flex items-center shadow-md"
-            >
-              Get Started
-            </button>
-            <button
-              className="px-4 py-2 bg-white text-black rounded-lg text-[20px] font-medium
-              border border-gray-400 hover:border-white transition-all flex items-center shadow"
-            >
-              View Demo
-            </button>
-          </div>
-        </div>
-      </div>
+    <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10 mt-10">
+      <button
+        className="px-6 py-3 bg-white text-gray-900 rounded-lg text-lg sm:text-xl font-medium 
+        hover:bg-gray-200 transition-all flex items-center shadow-md"
+      >
+        Get Started
+      </button>
+      <button
+        className="px-6 py-3 bg-white text-black rounded-lg text-lg sm:text-xl font-medium
+        border border-gray-400 hover:border-white transition-all flex items-center shadow"
+      >
+        View Demo
+      </button>
+    </div>
+  </div>
+</div>
+
     </div>
   );
 };

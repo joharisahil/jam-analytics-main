@@ -4,10 +4,11 @@ import video from "../assets/jam-analytics-video.mp4";
 
 const GridBackground = () => {
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+  
+    <div className="relative h-[100vh] overflow-hidden">
       {/* Grid Background */}
       <div
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 h-[100vh]"
         style={{
           backgroundColor: "#0f0614",
           backgroundImage: `
@@ -15,7 +16,7 @@ const GridBackground = () => {
         linear-gradient(90deg, #1A1A1A 1px, transparent 1px)
       `,
           backgroundSize: "60px 60px",
-          backgroundAttachment: "fixed", // Keeps it from expanding
+        //  backgroundAttachment: "fixed", // Keeps it from expanding
         }}
       >
         <FloatingShape color="bg-[#4B227B]" size="w-64 h-64" top="15%" left="20%" />
@@ -58,6 +59,8 @@ const GridBackground = () => {
         </div>
       </div>
     </div>
+
+
   );
 };
 
