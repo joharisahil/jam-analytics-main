@@ -5,10 +5,11 @@ import { motion } from "framer-motion";
 
 const GridBackground = () => {
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+  
+    <div className="relative h-[100vh] overflow-hidden">
       {/* Grid Background */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 h-[100vh]"
         style={{
           backgroundColor: "#0a040f",
           backgroundImage: `
@@ -16,7 +17,7 @@ const GridBackground = () => {
         linear-gradient(90deg, #1A1A1A 1px, transparent 1px)
       `,
           backgroundSize: "60px 60px",
-          backgroundAttachment: "fixed", // Keeps it from expanding
+        //  backgroundAttachment: "fixed", // Keeps it from expanding
         }}
       >
         <FloatingShape
@@ -86,6 +87,8 @@ const GridBackground = () => {
         </div>
       </div>
     </div>
+
+
   );
 };
 

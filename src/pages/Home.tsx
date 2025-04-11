@@ -30,8 +30,10 @@ function Home() {
         ></div>
 
         {/* 0 0 30px 25px rgba(112,5,235,0.5) */}
-
+        <section>
         <GridBackground />
+        </section>
+
         <div
           className="relative z-30  overflow-hidden"
           style={{
@@ -55,8 +57,16 @@ function Home() {
             <div
                    className=" mx-auto max-w-6xl p-10 rounded-xl  "
               style={{
-                // background: `linear-gradient(360deg, #9747FF -100%,  rgba(0, 0.12,1.0, 1)  100%, #9747FF 100%)`,
-               
+                background: `linear-gradient(
+                  135deg,
+                  #9747FF 0%,
+                  #9747FF 45%,
+                  rgba(0, 0, 0, 0.12) 55%,
+                  #9747FF 65%,
+                  #9747FF 100%
+                )`,
+                border: "1px ",
+                borderStyle: "solid",
 
                 // borderImageSource: `linear-gradient(100.04deg, #000000 1.44%, #F8F8F8 113.17%)`,
                 // boxShadow:" 5px 10px 20px 0px #FFFFFF40 inset, 8px 5px 18.6px 0px #CFCFCF40"
