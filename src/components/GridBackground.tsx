@@ -1,6 +1,7 @@
 import FloatingShape from "./FloatingShape";
 import image from "../assets/image.png";
-import video from "../assets/jam-analytics-video.mp4";
+import videoDesktop from "../assets/jam-analytics-video.mp4";
+import videoMobile from "../assets/jam-analytics-video-mobile.mp4";
 import { motion } from "framer-motion";
 
 const GridBackground = () => {
@@ -76,11 +77,20 @@ const GridBackground = () => {
         className="w-full rounded-[20px] overflow-hidden shadow-lg"
       >
         <video
-          src={video}
-          autoPlay
-          loop
-          muted
-          className="w-full h-auto object-cover"
+    src={videoDesktop}
+    autoPlay
+    loop
+    muted
+    className="hidden sm:block w-full h-auto object-cover"
+  />
+
+  {/* Mobile Video */}
+  <video
+    src={videoMobile}
+    autoPlay
+    loop
+    muted
+    className="block sm:hidden w-full h-auto object-cover"  
         />
       </motion.div>
     </div>

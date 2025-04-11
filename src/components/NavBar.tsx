@@ -96,7 +96,7 @@ const Navbar = () => {
       >
         {/* Logo & Branding */}
         <div className="flex items-center px-auto">
-          <img src={logo} alt="Logo" className="w-10 h-10 rounded-full" />
+          <img src={logo} alt="Logo" className="w-10 h-10 rounded-full ml-4" />
           <span className="text-2xl font-semibold tracking-wide hover:text-purple-400 transition mx-auto">
             <a href="#home">Jam Analytics</a>
           </span>
