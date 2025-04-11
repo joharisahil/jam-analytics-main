@@ -54,7 +54,7 @@ const GridBackground = () => {
             Ask Anything Related To Your Job
           </h1>
 
-          <div className="relative flex items-center justify-center w-[80%] sm:w-[60%] md:w-[60%] lg:w-[46%] h-auto pt-24 mx-auto transition-transform duration-300 ease-in-out hover:scale-125">
+          <div className="relative flex items-center justify-center w-[80%] sm:w-[60%] md:w-[60%] lg:w-[46%] h-[100%] pt-24 mx-auto transition-transform duration-300 ease-in-out hover:scale-125">
       {/* "Jam AI" Logo Div */}
       <div className="absolute top-12 left-2 flex items-center space-x-2 px-2 py-1 border border-white/50 text-white bg-transparent rounded-3xl">
         <img
