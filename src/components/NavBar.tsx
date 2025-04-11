@@ -135,12 +135,7 @@ const Navbar = () => {
         <div className="hidden lg:flex lg:px-4 items-center space-x-6">
           {!isAuthenticated ? (
             <>
-              <button
-                onClick={() => loginWithRedirect()}
-                className="text-gray-300 hover:text-white transition pr-14"
-              >
-                Sign In
-              </button>
+              
               <button
                 onClick={() => loginWithRedirect()}
                 className="relative px-[6px] py-[4px] right-6 text-white rounded-[10px] bg-gradient-to-b from-[#24132f] to-[#0a0014] border border-[#57406f] shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl flex items-center "
@@ -212,12 +207,7 @@ const Navbar = () => {
 
             {/* Mobile Authentication Buttons */}
             <div className="flex gap-4 justify-start px-6 ">
-              <button
-                onClick={() => loginWithRedirect()}
-                className="bg-gradient-to-br from-[#43295ebf] to-[#220b29] text-white text-lg font-medium px-4 py-2 rounded-lg border border-[#9174a7] transition-all duration-300 hover:bg-[#1a0122]"
-              >
-                Sign In
-              </button>
+             
               <button
                 onClick={() => loginWithRedirect()}
                 className="bg-gradient-to-br from-[#43295ebf] to-[#220b29] text-white text-lg font-medium px-4 py-2 rounded-lg border border-[#9174a7] transition-all duration-300 hover:bg-[#1a0122]"

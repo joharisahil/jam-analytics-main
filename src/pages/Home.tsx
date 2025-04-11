@@ -56,25 +56,7 @@ function Home() {
             {/* Feature Container with Glow */}
             <div
                    className=" mx-auto max-w-6xl p-10 rounded-xl  "
-              style={{
-                background: `linear-gradient(
-                  135deg,
-                  #9747FF 0%,
-                  #9747FF 45%,
-                  rgba(0, 0, 0, 0.12) 55%,
-                  #9747FF 65%,
-                  #9747FF 100%
-                )`,
-                border: "1px ",
-                borderStyle: "solid",
-
-                // borderImageSource: `linear-gradient(100.04deg, #000000 1.44%, #F8F8F8 113.17%)`,
-                // boxShadow:" 5px 10px 20px 0px #FFFFFF40 inset, 8px 5px 18.6px 0px #CFCFCF40"
-
-
-
-
-              }}
+             
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 ">
                 {features.map((feature, index) => (
@@ -103,7 +85,7 @@ function Home() {
         <section id="pricing" className="py-20 bg-black">
           <div className="items-center container mx-auto">
             {/* ...titles... */}
-            <h2 className=" mx-auto text-lg w-20 font-medium text-center mb-4 text-gray-500  font-inter">
+            <h2 className=" mx-auto text-4xl w-20 font-medium text-center mb-4 text-gray-500  font-inter">
               Pricing
             </h2>
             <div
@@ -116,7 +98,8 @@ function Home() {
                   "linear-gradient(109.98deg, rgba(0, 0, 0, 0.55) 40.2%, #FFFFFF 100%)",
               }}
             >
-              <div className="grid md:grid-cols-3 gap-0 ">
+               <section className="w-full px-1 sm:px-4 lg:px-8 py-10">
+               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 justify-items-center">
                 {plans.map((plan, index) => (
                   <PricingCard
                     plan={plan}
@@ -127,6 +110,7 @@ function Home() {
                   />
                 ))}
               </div>
+              </section>
             </div>
           </div>
         </section>

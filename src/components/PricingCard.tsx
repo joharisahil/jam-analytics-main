@@ -41,17 +41,19 @@ const PricingCard: React.FC<PricingCardProps> = ({
           linear-gradient(90deg, #1A1A1A 1px, transparent 1px)
         `,
         backgroundSize: "60px 60px",
-        background: "linear-gradient(180deg, #000000 24%, rgba(0, 0, 0, 0) 100%), linear-gradient(180deg, #010002 0%, #361764 100%)",
+        background:
+          "linear-gradient(180deg, #000000 24%, rgba(0, 0, 0, 0) 100%), linear-gradient(180deg, #010002 0%, #361764 100%)",
       }
     : {
-        background:"linear-gradient(180deg, #010002 24%, #361764 100%),linear-gradient(180deg, #000000 24%, rgba(0, 0, 0, 0) 100%)",
+        background:
+          "linear-gradient(180deg, #010002 24%, #361764 100%),linear-gradient(180deg, #000000 24%, rgba(0, 0, 0, 0) 100%)",
       };
 
   return (
     <div
       onMouseEnter={onHoverStart}
       onMouseLeave={onHoverEnd}
-      className={`relative flex flex-col justify-between m-6 p-6 rounded-3xl text-white text-left w-full max-w-sm min-h-[500px] overflow-hidden transition-all duration-100 ,transition-transform ease-in-out hover:scale-110 ${
+      className={`relative flex flex-col justify-between m-4 sm:mx-auto p-4 sm:p-4 rounded-3xl text-white text-left w-full max-w-sm min-h-[500px] overflow-hidden transition-all duration-100 ease-in-out transform hover:scale-105 ${
         isPopular ? "bg-[#8C45FF66]" : "border-transparent"
       }`}
       style={cardStyle}
@@ -70,7 +72,9 @@ const PricingCard: React.FC<PricingCardProps> = ({
 
       {/* Content */}
       <div className="relative z-10">
-        <h3 className="text-2xl font-Inter font-semibold">{plan.name}</h3>
+        <h3 className="text-2xl font-Inter font-semibold break-words">
+          {plan.name}
+        </h3>
 
         {plan.price ? (
           <p className="text-xl mt-2 text-gray-400">
@@ -95,7 +99,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
 
       {/* CTA Button */}
       <button
-        className="relative z-10 py-3 rounded-lg font-medium transition text-white"
+        className="relative z-10 py-3 mt-8 rounded-lg font-medium transition text-white w-full"
         style={{
           background: "#8C45FF66",
           border: "1px solid #FFFFFF26",
