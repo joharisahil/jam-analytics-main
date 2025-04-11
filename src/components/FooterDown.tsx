@@ -88,10 +88,10 @@ const FooterDown = () => {
 
               {/* Language & Theme Toggle */}
               <div className=" flex-col ">
-                <button className="flex justify-items-end gap-2 px-4 m-10 py-2 border border-gray-600 rounded-md text-gray-400">
+                <button className="flex justify-items-end gap-2  m-10 py-2 border border-gray-600 rounded-md text-gray-400">
                   English
                 </button>
-                <button className="flex justify-items-end gap-2 px-4 py-2 m-10 border border-gray-600 rounded-md text-gray-400">
+                <button className="flex justify-items-end gap-2  py-2 m-10 border border-gray-600 rounded-md text-gray-400">
                   Toggle
                 </button>
               </div>

@@ -34,36 +34,35 @@ const NavDown = () => {
       {/* </div> */}
 
       {/* Content Section */}
-      <div className="container mx-auto px-4 sm:px-6 pt-16 md:pt-28 pb-32 relative z-10">
-  <div className="text-center">
-    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[75px] font-semibold leading-tight md:leading-[110%] text-center mx-auto bg-gradient-to-b from-white to-[#664993] text-transparent bg-clip-text pb-6">
-      Transform Your Business <br className="hidden md:block" />
-      Operations with AI- <br className="hidden md:block" />
-      Powered Management
-    </h1>
+      <div className="container  px-4 pt-32 sm:mt-16 md:mt-16 lg:mt-16 xl:mt-16 pb-32 relative z-10">
+        <div className="text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[60px] xl:text-[75px] font-semibold leading-[110%] text-center mx-auto bg-gradient-to-b from-white to-[#664993] text-transparent bg-clip-text pb-3">
+            Transform Your Business <br className="hidden md:block" />
+            Operations with AI- <br className="hidden md:block" />
+            Powered Management
+          </h1>
 
-    <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4 sm:px-8 md:px-10 leading-relaxed mt-6">
-      Automate workflows, boost productivity, and scale your business with
-      intelligent solutions.
-    </p>
+          <p className="text-base sm:text-lg md:text-xl mt-6 px-4 text-gray-300 max-w-3xl mx-auto  leading-relaxed">
+            Automate workflows, boost productivity, and scale your business with
+            intelligent solutions.
+          </p>
 
-    <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10 mt-10">
-      <button
-        className="px-6 py-3 bg-white text-gray-900 rounded-lg text-lg sm:text-xl font-medium 
-        hover:bg-gray-200 transition-all flex items-center shadow-md"
-      >
-        Get Started
-      </button>
-      <button
-        className="px-6 py-3 bg-white text-black rounded-lg text-lg sm:text-xl font-medium
-        border border-gray-400 hover:border-white transition-all flex items-center shadow"
-      >
-        View Demo
-      </button>
-    </div>
-  </div>
-</div>
-
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 mt-8">
+            <button
+              className="px-4 py-2 bg-white text-gray-900 rounded-lg text-[20px] font-medium 
+              hover:bg-gray-200 transition-all flex items-center shadow-md"
+            >
+              Get Started
+            </button>
+            <button
+              className="px-4 py-2 bg-white text-black rounded-lg text-[20px] font-medium
+              border border-gray-400 hover:border-white transition-all flex items-center shadow"
+            >
+              View Demo
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

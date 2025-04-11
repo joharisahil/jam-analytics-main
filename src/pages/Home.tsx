@@ -55,7 +55,7 @@ function Home() {
 
             {/* Feature Container with Glow */}
             <div
-                   className=" mx-auto max-w-6xl p-10 rounded-xl "
+                   className=" mx-auto max-w-6xl p-10 rounded-xl  "
               style={{
                 background: `linear-gradient(
                   135deg,
@@ -68,15 +68,15 @@ function Home() {
                 border: "1px ",
                 borderStyle: "solid",
 
-                borderImageSource: `linear-gradient(86.04deg, #000000 1.44%, #F8F8F8 113.17%)`,
-                boxShadow:" 5px 10px 20px 0px #FFFFFF40 inset, 8px 5px 18.6px 0px #CFCFCF40"
+                // borderImageSource: `linear-gradient(100.04deg, #000000 1.44%, #F8F8F8 113.17%)`,
+                // boxShadow:" 5px 10px 20px 0px #FFFFFF40 inset, 8px 5px 18.6px 0px #CFCFCF40"
 
 
 
 
               }}
             >
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 ">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 ">
                 {features.map((feature, index) => (
                   <FeatureCard key={index} {...feature} />
                 ))}
@@ -87,7 +87,7 @@ function Home() {
         {/* Steps (New Section) */}
         <section className=" bg-black py-36">
           <div className="container mx-auto px-6 w-[78%] h-[80%]">
-            <h2 className="mx-auto text-center text-3xl text-gray-500 border-2  w-48 border-gray-500 font-inter  mb-16">
+            <h2 className="mx-auto text-center text-3xl text-gray-500  font-inter  mb-16">
               How It Works
             </h2>
             <div className="grid md:grid-cols-3 gap-8    ">
@@ -103,21 +103,9 @@ function Home() {
         <section id="pricing" className="py-20 bg-black">
           <div className="items-center container mx-auto">
             {/* ...titles... */}
-            <h2 className=" mx-auto text-lg w-20 font-medium text-center mb-4 text-gray-500 border-2 border-gray-500 font-inter">
+            <h2 className=" mx-auto text-lg w-20 font-medium text-center mb-4 text-gray-500  font-inter">
               Pricing
             </h2>
-            <p
-              className="text-center text-2xl  text-gray-500 mb-8"
-              style={{
-                fontFamily: "Microsoft Sans Serif",
-                lineHeight: "100%",
-                letterSpacing: "0%",
-                textAlign: "center",
-              }}
-            >
-              Choose the right plan to meet your SEO <br></br>needs and start
-              optimizing today.
-            </p>
             <div
               className="text-center mt-2 m-20"
               style={{
