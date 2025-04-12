@@ -5,17 +5,24 @@ import { motion } from "framer-motion";
 
 const GridBackground = () => {
   return (
-    <div className="relative w-full overflow-hidden bg-[#0a040f]">
+    <div className="relative w-full overflow-hidden bg-[#030307]">
       {/* Grid Section only till the video */}
       <div
-        className="relative  pt-20 pb-32"
-        style={{
-          backgroundImage: `
-            linear-gradient(0deg, #1A1A1A 1px, transparent 1px),
-            linear-gradient(90deg, #1A1A1A 1px, transparent 1px)
-          `,
-          backgroundSize: "60px 60px",
-        }}
+  className="
+    relative pt-20 pb-32
+    bg-[length:25px_25px]
+    sm:bg-[length:45px_45px]
+    md:bg-[length:45px_45px]
+    lg:bg-[length:45px_45px]
+    xl:bg-[length:45px_45px]
+    2xl:bg-[length:45px_45px]
+  "
+  style={{
+    backgroundImage: `
+      linear-gradient(0deg, #1A1A1A 1px, transparent 1px),
+      linear-gradient(90deg, #1A1A1A 1px, transparent 1px)
+    `
+  }}
       >
         {/* Floating Shapes */}
         <FloatingShape color="bg-[#361764]" size="w-64 h-64" top="15%" left="20%" />
