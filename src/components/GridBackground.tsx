@@ -6,49 +6,26 @@ import { motion } from "framer-motion";
 
 const GridBackground = () => {
   return (
-  
-    <div className="relative h-[100vh] overflow-hidden">
-      {/* Grid Background */}
+    <div className="relative w-full overflow-hidden bg-[#0a040f]">
+      {/* Grid Section only till the video */}
       <div
-        className="absolute inset-0 h-[100vh]"
+        className="relative  pt-20 pb-32"
         style={{
-          backgroundColor: "#0a040f",
           backgroundImage: `
-        linear-gradient(0deg, #1A1A1A 1px, transparent 1px),
-        linear-gradient(90deg, #1A1A1A 1px, transparent 1px)
-      `,
+            linear-gradient(0deg, #1A1A1A 1px, transparent 1px),
+            linear-gradient(90deg, #1A1A1A 1px, transparent 1px)
+          `,
           backgroundSize: "60px 60px",
-        //  backgroundAttachment: "fixed", // Keeps it from expanding
         }}
       >
-        <FloatingShape
-          color="bg-[#361764]"
-          size="w-64 h-64"
-          top="15%"
-          left="20%"
-        />
-        <FloatingShape
-          color="bg-[#361764]
-]"
-          size="w-48 h-48"
-          top="15%"
-          left="80%"
-        />
-        <FloatingShape
-          color="bg-[#361764]"
-          size="w-40 h-40"
-          top="70%"
-          left="15%"
-        />
-        <FloatingShape
-          color="bg-[#361764]"
-          size="w-36 h-36"
-          top="70%"
-          left="75%"
-        />
+        {/* Floating Shapes */}
+        <FloatingShape color="bg-[#361764]" size="w-64 h-64" top="15%" left="20%" />
+        <FloatingShape color="bg-[#361764]" size="w-48 h-48" top="15%" left="80%" />
+        <FloatingShape color="bg-[#361764]" size="w-40 h-40" top="70%" left="15%" />
+        <FloatingShape color="bg-[#361764]" size="w-36 h-36" top="70%" left="75%" />
 
-        {/* Text Section */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-[90%] text-center top-20">
+        {/* Heading + Video Section */}
+        <div className="relative w-[90%] mx-auto text-center">
           <h1
             className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-[60px] xl:text-[75px] font-medium leading-none"
             style={{ fontFamily: "Castoro" }}
@@ -97,8 +74,6 @@ const GridBackground = () => {
         </div>
       </div>
     </div>
-
-
   );
 };
 
