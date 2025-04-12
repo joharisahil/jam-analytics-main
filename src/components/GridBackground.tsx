@@ -6,40 +6,54 @@ import { motion } from "framer-motion";
 const GridBackground = () => {
   return (
     <div className="relative w-full overflow-hidden bg-[#030307]">
-      {/* Grid Section only till the video */}
+      {/* === Main Grid Background (bold) === */}
       <div
-  className="
-    relative pt-20 pb-32
-    bg-[length:25px_25px]
-    sm:bg-[length:45px_45px]
-    md:bg-[length:45px_45px]
-    lg:bg-[length:45px_45px]
-    xl:bg-[length:45px_45px]
-    2xl:bg-[length:45px_45px]
-  "
-  style={{
-    backgroundImage: `
-      linear-gradient(0deg, #1A1A1A 1px, transparent 1px),
-      linear-gradient(90deg, #1A1A1A 1px, transparent 1px)
-    `
-  }}
-      >
+        className="
+          absolute inset-0 z-0
+          bg-[length:30px_30px]
+          sm:bg-[length:45px_45px]
+        "
+        style={{
+          backgroundImage: `
+            linear-gradient(0deg, rgba(255,255,255,0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+          `
+        }}
+      />
+
+      {/* === Tilted Fine Grid Layer === */}
+      {/* <div
+        className="
+          absolute inset-[-50%] z-10 rotate-[30deg] origin-center pointer-events-none
+          bg-[length:2px_2px]
+          sm:bg-[length:8px_8px]
+        "
+        style={{
+          backgroundImage: `
+            linear-gradient(0deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)
+          `
+        }}
+      /> */}
+
+      {/* === Content Layer === */}
+      <div className="relative pt-20 pb-32 z-20">
         {/* Floating Shapes */}
-        <FloatingShape color="bg-[#361764]" size="w-64 h-64" top="15%" left="20%" />
-        <FloatingShape color="bg-[#361764]" size="w-48 h-48" top="15%" left="80%" />
-        <FloatingShape color="bg-[#361764]" size="w-40 h-40" top="70%" left="15%" />
-        <FloatingShape color="bg-[#361764]" size="w-36 h-36" top="70%" left="75%" />
+        {/* <FloatingShape color="bg-[#361764]" size="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64" top="15%" left="20%" />
+        <FloatingShape color="bg-[#361764]" size="w-24 h-24 sm:w-40 sm:h-40 lg:w-48 lg:h-48" top="15%" left="80%" />
+        <FloatingShape color="bg-[#361764]" size="w-20 h-20 sm:w-32 sm:h-32 lg:w-40 lg:h-40" top="70%" left="15%" />
+        <FloatingShape color="bg-[#361764]" size="w-20 h-20 sm:w-28 sm:h-28 lg:w-36 lg:h-36" top="70%" left="75%" /> */}
 
         {/* Heading + Video Section */}
-        <div className="relative w-[90%] mx-auto text-center">
+        <div className="relative w-[92%] sm:w-[88%] md:w-[85%] mx-auto text-center">
           <h1
-            className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-[60px] xl:text-[75px] font-medium leading-none"
+            className="text-white font-medium leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-[60px] xl:text-[72px]"
             style={{ fontFamily: "Castoro" }}
           >
             Ask Anything Related To Your Job
           </h1>
 
-          <div className="relative flex items-center justify-center w-[80%] sm:w-[60%] md:w-[60%] lg:w-[46%] h-auto pt-24 mx-auto transition-transform duration-300 ease-in-out hover:scale-125">
+          <div className="relative flex items-center justify-center w-[90%] sm:w-[70%] md:w-[60%] lg:w-[48%] xl:w-[42%] pt-20 mx-auto transition-transform duration-300 ease-in-out hover:scale-110">
             {/* Jam AI Logo */}
             <div className="absolute top-12 left-2 flex items-center space-x-2 px-2 py-1 border border-white/50 text-white bg-transparent rounded-3xl">
               <img
@@ -57,14 +71,14 @@ const GridBackground = () => {
               initial={{ scale: 1.25, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              className=" rounded-[20px] overflow-hidden shadow-lg"
+              className="rounded-[20px] overflow-hidden shadow-lg"
             >
               <video
                 src={video}
                 autoPlay
                 loop
                 muted
-                className=" object-cover"
+                className="w-full h-full object-cover"
               />
             </motion.div>
           </div>
