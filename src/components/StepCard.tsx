@@ -16,7 +16,8 @@ const StepCard: React.FC<StepCardProps> = ({
 }) => {
   return (
     <div
-      className="relative text-center items-center border-2 border-gray-800 bg-gradient-to-b from-black via-[#1a0127] to-[#240137] rounded-xl p-6 shadow-lg transition-transform duration-300 hover:scale-110 hover:shadow-[0px_10px_74px_10px_#4E00BF69]"
+      className="relative md:w-full md:h-auto  md:mx-0 text-center items-center border-2 border-gray-800 bg-gradient-to-b from-black via-[#1a0127] to-[#240137] rounded-3xl p-4 transition-transform duration-300 hover:scale-110  shadow-[4px_4px_16px_#f4dfff,2px_2px_10px_#f4dfff,inset_2px_2px_6px_#f4dfff]
+      hover:shadow-[0_12px_30px_0_#f4dfff,0_0_25px_#f4dfff]"
       style={{
         background: `linear-gradient(180deg, #010002 0%, #361764 100%)`,
        // boxShadow: `0px 10px 74px 10px #4E00BF69`,
@@ -51,7 +52,7 @@ const StepCard: React.FC<StepCardProps> = ({
       </h3>
 
       {/* Description */}
-      <p className="text-slate-300 mt-6 text-center pr-6 pl-6">{description}</p>
+      <p className="text-slate-300 mt-6 text-center  ">{description}</p>
     </div>
   );
 };

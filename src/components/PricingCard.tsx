@@ -53,7 +53,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
     <div
       onMouseEnter={onHoverStart}
       onMouseLeave={onHoverEnd}
-      className={`relative flex flex-col justify-between m-4 sm:mx-auto p-4 sm:p-4 rounded-3xl text-white text-left w-full max-w-sm min-h-[500px] overflow-hidden transition-all duration-100 ease-in-out transform hover:scale-105 ${
+      className={`relative flex flex-col justify-between m-4 sm:mx-auto p-4 sm:p-4 rounded-3xl text-white text-left w-full max-w-sm min-h-[500px] overflow-hidden transition-all duration-100 ease-in-out transform hover:scale-110 ${
         isPopular ? "bg-[#8C45FF66]" : "border-transparent"
       }`}
       style={cardStyle}

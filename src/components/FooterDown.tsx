@@ -1,6 +1,6 @@
 const FooterDown = () => {
   return (
-    <section id="FooterDown ">
+   
       <div className="flex flex-col bg-[#212020] text-white w-full overflow-hidden">
         {/* Footer Section */}
         <footer className="bg-[#222121] text-gray-400 py-8  ">
@@ -73,7 +73,7 @@ const FooterDown = () => {
           </div>
         </footer>
       </div>
-    </section>
+   
   );
 };
 

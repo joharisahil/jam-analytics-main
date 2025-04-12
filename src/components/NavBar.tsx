@@ -103,30 +103,41 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden lg:flex space-x-20 text-gray-300 text-lg">
+        <ul className="hidden lg:flex space-x-16 text-gray-300 text-lg lg:space-x-8 lg:text-base xl:text-lg xl:space-x-16">
           <li>
             <a href="#home" className="hover:text-white transition">
               Home
             </a>
           </li>
           <li>
-            <a href="#pricing" className="hover:text-white transition">
-              Pricing
+            <a href="#product" className="hover:text-white transition">
+              Product
             </a>
           </li>
+         
           <li>
             <a href="#feature" className="hover:text-white transition">
               Features
             </a>
           </li>
           <li>
-            <a href="#FooterDown" className="hover:text-white transition">
+            <a href="#pricing" className="hover:text-white transition">
+              Pricing
+            </a>
+          </li> 
+          <li>
+            <a href="#footer" className="hover:text-white transition">
               About
             </a>
           </li>
           <li>
             <a href="#home" className="block hover:text-purple-400 transition">
               Career
+            </a>
+          </li>
+          <li>
+            <a href="#home" className="hover:text-white transition">
+              Contact
             </a>
           </li>
         </ul>

@@ -30,8 +30,8 @@ function Home() {
         ></div>
 
         {/* 0 0 30px 25px rgba(112,5,235,0.5) */}
-        <section>
-        <GridBackground />
+        <section id="product">
+          <GridBackground />
         </section>
 
         <div
@@ -54,11 +54,8 @@ function Home() {
             </h2>
 
             {/* Feature Container with Glow */}
-            <div
-                   className=" mx-auto max-w-6xl p-10 rounded-xl  "
-             
-            >
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 ">
+            <div className=" mx-auto max-w-6xl p-10 rounded-xl  ">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14 ">
                 {features.map((feature, index) => (
                   <FeatureCard key={index} {...feature} />
                 ))}
@@ -72,7 +69,7 @@ function Home() {
             <h2 className="mx-auto text-center text-3xl text-gray-500  font-inter  mb-16">
               How It Works
             </h2>
-            <div className="grid md:grid-cols-3 gap-8    ">
+            <div className="grid md:grid-cols-1 lg:grid-cols-3 md:mx-28 lg:mx-20 gap-14    ">
               {steps.map((step, index) => (
                 <StepCard key={index} {...step} />
               ))}
@@ -98,25 +95,30 @@ function Home() {
                   "linear-gradient(109.98deg, rgba(0, 0, 0, 0.55) 40.2%, #FFFFFF 100%)",
               }}
             >
-               <section className="w-full px-1 sm:px-4 lg:px-8 py-10">
-               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 justify-items-center">
-                {plans.map((plan, index) => (
-                  <PricingCard
-                    plan={plan}
-                    isHovered={hoveredIndex === index}
-                    isAnyHovered={hoveredIndex !== null}
-                    onHoverStart={() => setHoveredIndex(index)}
-                    onHoverEnd={() => setHoveredIndex(null)}
-                  />
-                ))}
-              </div>
+              <section className="w-full px-1 sm:px-4 lg:px-8 py-10">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 justify-items-center">
+                  {plans.map((plan, index) => (
+                    <div className="w-[135%] sm:w-full md:w-full lg:w-full xl:w-full mr-5">
+                      <PricingCard
+                        key={index}
+                        plan={plan}
+                        isHovered={hoveredIndex === index}
+                        isAnyHovered={hoveredIndex !== null}
+                        onHoverStart={() => setHoveredIndex(index)}
+                        onHoverEnd={() => setHoveredIndex(null)}
+                      />
+                    </div>
+                  ))}
+                </div>
               </section>
             </div>
           </div>
         </section>
 
         {/* Footer */}
-        <FooterDown />
+        <section id="footer">
+          <FooterDown />
+        </section>
       </div>
     </>
   );
