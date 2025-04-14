@@ -1,84 +1,138 @@
-import FloatingShape from "./FloatingShape";
+import { useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import { useLocation } from "react-router-dom"; // Import useLocation for route change detection
 import image from "../assets/image.png";
 import videoDesktop from "../assets/jam-analytics-video.mp4";
 import videoMobile from "../assets/jam-analytics-video-mobile.mp4";
-import { motion } from "framer-motion";
+import FloatingShape from "./FloatingShape";
 
 const GridBackground = () => {
-  return (
-    
-    <div className="relative w-full overflow-hidden bg-[#0a040f]">
-      {/* Grid Section only till the video */}
-      <div
-  className="
-    relative pt-20 pb-32
-    bg-[length:25px_25px]
-    sm:bg-[length:45px_45px]
-    md:bg-[length:45px_45px]
-    lg:bg-[length:45px_45px]
-    xl:bg-[length:45px_45px]
-    2xl:bg-[length:45px_45px]
-  "
-  style={{
-    backgroundImage: `
-      linear-gradient(0deg, #1A1A1A 1px, transparent 1px),
-      linear-gradient(90deg, #1A1A1A 1px, transparent 1px)
-    `
- }}
-      >
-        {/* Floating Shapes */}
-        <FloatingShape color="bg-[#361764]" size="w-64 h-64" top="15%" left="20%" />
-        <FloatingShape color="bg-[#361764]" size="w-48 h-48" top="15%" left="80%" />
-        <FloatingShape color="bg-[#361764]" size="w-40 h-40" top="70%" left="15%" />
-        <FloatingShape color="bg-[#361764]" size="w-36 h-36" top="70%" left="75%" />
+  // Track scroll position and trigger animation on enter view
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    once: false, // Re-trigger the animation on subsequent scrolls or page re-visits
+    amount: 0.5,  // Trigger when 50% of the element is in the viewport
+    margin: "-100px 0px", // Optional offset for earlier triggering
+  });
 
-        {/* Heading + Video Section */}
+  // Track route changes using React Router's useLocation hook
+  const location = useLocation();
+
+  return (
+    <div className="relative w-full overflow-hidden bg-[#000000]">
+      <div className="relative pt-20 pb-32">
+        {/* Floating Shapes with Different Directions */}
+        <FloatingShape
+          color="bg-[#361764]"
+          size="w-60 h-60"
+          top="1%"
+          left="2%"
+          animation="float1 10s ease-in-out infinite"
+       // Ensures it stays in front of the video
+        />
+        <FloatingShape
+          color="bg-[#361764]"
+          size="w-48 h-48"
+          top="25%"
+          left="90%"
+          animation="float2 12s ease-in-out infinite"
+          
+        />
+        <FloatingShape
+          color="bg-[#361764]"
+          size="w-40 h-40"
+          top="70%"
+          left="65%"
+          animation="float3 14s ease-in-out infinite"
+          
+        />
+        <FloatingShape
+          color="bg-[#361764]"
+          size="w-36 h-36"
+          top="10%"
+          left="70%"
+          animation="float4 16s ease-in-out infinite"
+         
+        />
+        <FloatingShape
+          color="bg-[#361764]"
+          size="w-56 h-56"
+          top="35%"
+          left="15%"
+          animation="float5 8s ease-in-out infinite"
+          
+        />
+        <FloatingShape
+          color="bg-[#361764]"
+          size="w-52 h-52"
+          top="70%"
+          left="5%"
+          animation="float6 10s ease-in-out infinite"
+         
+        />
+        <FloatingShape
+          color="bg-[#361764]"
+          size="w-64 h-64"
+          top="50%"
+          left="80%"
+          animation="float7 12s ease-in-out infinite"
+       
+        />
+
+        {/* Heading + Video */}
         <div className="relative w-[90%] mx-auto text-center">
           <h1
-            className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-[60px] xl:text-[75px] font-medium leading-none"
+            className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-[60px] xl:text-[70px] font-medium leading-none"
             style={{ fontFamily: "Castoro" }}
           >
             Automate Your Job
           </h1>
 
-          <div className="relative flex items-center justify-center w-[80%] sm:w-[60%] md:w-[60%] lg:w-[46%] h-[100%] pt-24 mx-auto transition-transform duration-300 ease-in-out hover:scale-125">
-      {/* "Jam AI" Logo Div */}
-      <div className="absolute top-12 mt-4 left-2 flex items-center space-x-2 px-2 py-1 border border-white/50 text-white bg-transparent rounded-3xl">
-        <img
-          src={image}
-          alt="jam-analytic-logo"
-          className="rounded-full w-5 h-5 border-2 border-white"
-        />
-        <p className="font-inter  text-white text-sm sm:text-base md:text-lg">
-          Jam AI
-        </p>
-      </div>
+          <div
+            className="relative flex items-center justify-center w-[80%] sm:w-[60%] md:w-[60%] lg:w-[46%] h-[100%] pt-24 mx-auto transition-transform duration-300 ease-in-out"
+            ref={ref} // Attach the ref for scroll detection
+            style={{ zIndex: 1 }} // Lower z-index for the video
+          >
+            {/* Jam AI logo tag */}
+            <div className="absolute top-12 left-2 flex items-center space-x-2 px-3 py-1 border border-white/50 text-white bg-white/10 backdrop-blur-md rounded-3xl">
+              <img
+                src={image}
+                alt="Jam AI Logo"
+                className="w-6 h-6 rounded-full border-2 border-white"
+              />
+              <p className="font-inter text-sm sm:text-base md:text-lg">Jam AI</p>
+            </div>
 
-      {/* Outer Video Container with Framer Motion */}
-      <motion.div
-        initial={{ scale: 1.25, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-        className="w-full mt-6 rounded-[20px] overflow-hidden shadow-lg"
-      >
-        <video
-    src={videoDesktop}
-    autoPlay
-    loop
-    muted
-    className="hidden sm:block w-full h-auto object-cover"
-  />
-
-  {/* Mobile Video */}
-  <video
-    src={videoMobile}
-    autoPlay
-    loop
-    muted
-    className="block sm:hidden w-full h-auto object-cover"  
-        />
-      </motion.div>
-    </div>
+            {/* AnimatePresence + Motion for enter and exit animation */}
+            <AnimatePresence>
+              {isInView && (
+                <motion.div
+                  key={location.pathname} // Re-render on route change
+                  initial={{ scale: 1 }}
+                  animate={{ scale: 1.25 }}
+                  exit={{ scale: 1 }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
+                  className="w-full mt-6 rounded-[20px] overflow-hidden shadow-lg"
+                  style={{ zIndex: 0 }} // Ensure the video is below the floating shapes
+                >
+                  <video
+                    src={videoDesktop}
+                    autoPlay
+                    loop
+                    muted
+                    className="hidden sm:block w-full h-auto object-cover"
+                  />
+                  <video
+                    src={videoMobile}
+                    autoPlay
+                    loop
+                    muted
+                    className="block sm:hidden w-full h-auto object-cover"
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </div>

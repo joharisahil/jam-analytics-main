@@ -20,20 +20,131 @@ html, body {
   overflow-x: hidden;
 }
 
-@keyframes rotateBorder {
+@keyframes float1 {
   0% {
-    border-image-source: linear-gradient(0deg, #8557b9, white);
+    transform: translate(0%, 0%);
   }
   25% {
-    border-image-source: linear-gradient(90deg, #7005eb, white);
+    transform: translate(15%, -10%);
   }
   50% {
-    border-image-source: linear-gradient(180deg, #7005eb, white);
+    transform: translate(10%, 15%);
   }
   75% {
-    border-image-source: linear-gradient(270deg, #7005eb, white);
+    transform: translate(-15%, 5%);
   }
   100% {
-    border-image-source: linear-gradient(360deg, #7005eb, white);
+    transform: translate(0%, 0%);
   }
 }
+
+@keyframes float2 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  25% {
+    transform: translate(-10%, -15%);
+  }
+  50% {
+    transform: translate(15%, 10%);
+  }
+  75% {
+    transform: translate(10%, -10%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes float3 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  25% {
+    transform: translate(20%, 15%);
+  }
+  50% {
+    transform: translate(-20%, -10%);
+  }
+  75% {
+    transform: translate(10%, 5%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes float4 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  25% {
+    transform: translate(-5%, 20%);
+  }
+  50% {
+    transform: translate(15%, -5%);
+  }
+  75% {
+    transform: translate(-15%, 10%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes float5 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  25% {
+    transform: translate(-5%, 5%);
+  }
+  50% {
+    transform: translate(5%, -5%);
+  }
+  75% {
+    transform: translate(15%, 5%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes float6 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  25% {
+    transform: translate(-10%, -15%);
+  }
+  50% {
+    transform: translate(5%, 15%);
+  }
+  75% {
+    transform: translate(-10%, 10%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes float7 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  25% {
+    transform: translate(15%, -5%);
+  }
+  50% {
+    transform: translate(-5%, 20%);
+  }
+  75% {
+    transform: translate(10%, -10%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+
+

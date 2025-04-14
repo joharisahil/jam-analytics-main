@@ -16,11 +16,15 @@ const StepCard: React.FC<StepCardProps> = ({
 }) => {
   return (
     <div
-      className="relative md:w-full md:h-auto  md:mx-0 text-center items-center border-2 border-gray-800 bg-gradient-to-b from-black via-[#1a0127] to-[#240137] rounded-3xl p-4 transition-transform duration-300 hover:scale-110  shadow-[4px_4px_16px_#f4dfff,2px_2px_10px_#f4dfff,inset_2px_2px_6px_#f4dfff]
-      hover:shadow-[0_12px_30px_0_#f4dfff,0_0_25px_#f4dfff]"
+      className="relative md:w-full md:h-auto  md:px-0 text-center items-center rounded-[1.5rem] text-white transition-transform duration-500 transform-gpu
+      hover:scale-[1.05] hover:-translate-y-3 border border-[#3f3f3f]
+      bg-gradient-to-br from-[#0a0a0a] via-[#1b0031] to-[#2b0047]
+      shadow-[rgba(244,223,255,0.15)_inset_0_4px_8px,_rgba(0,0,0,0.9)_0_8px_30px]
+      hover:shadow-[rgba(244,223,255,0.35)_0_12px_35px_0,rgba(244,223,255,0.4)_0_0_40px] p-8 "
       style={{
-        background: `linear-gradient(180deg, #010002 0%, #361764 100%)`,
-       // boxShadow: `0px 10px 74px 10px #4E00BF69`,
+        perspective: "1000pxz",
+        //background: `linear-gradient(180deg, #010002 0%, #361764 100%)`,
+       //boxShadow: `0px 10px 74px 10px #4E00BF69`,
       }}
     >
       {/* Icon Section */}
@@ -28,6 +32,9 @@ const StepCard: React.FC<StepCardProps> = ({
         className="w-16 h-16 mx-auto mt-6 mb-8 rounded-3xl flex items-center justify-center"
         style={{
           background: `linear-gradient(215.15deg, rgba(52, 41, 66, 0.53) -171.85%, rgba(151, 71, 255, 0.53) 85.28%, rgba(140, 69, 255, 0.212) 122.51%)`,
+          boxShadow:
+              "inset 2px 2px 8px rgba(255,255,255,0.15), 0 6px 14px rgba(151,71,255,0.5), 0 2px 3px rgba(0,0,0,0.8)",
+            transform: "rotateX(10deg) rotateY(-10deg)"
         }}
       >
         {Icon && <Icon className="w-8 h-8 text-white" />}

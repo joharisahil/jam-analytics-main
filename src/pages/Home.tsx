@@ -34,12 +34,7 @@ function Home() {
           <GridBackground />
         </section>
 
-        <div
-          className="relative z-30  overflow-hidden"
-          style={{
-            boxShadow: "6px 0 40px 30px #0C0318",
-          }}
-        ></div>
+       
 
         <section
           id="feature"
@@ -69,7 +64,7 @@ function Home() {
             <h2 className="mx-auto text-center text-3xl text-gray-500  font-inter  mb-16">
               How It Works
             </h2>
-            <div className="grid md:grid-cols-1 lg:grid-cols-3 md:mx-28 lg:mx-20 gap-14    ">
+            <div className="grid md:grid-cols-1 lg:grid-cols-3 md:mx-28 lg:mx-20 gap-14  ">
               {steps.map((step, index) => (
                 <StepCard key={index} {...step} />
               ))}
