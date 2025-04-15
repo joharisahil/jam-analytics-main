@@ -23,9 +23,9 @@ function Home() {
           <NavDown />
         </section>
         <div
-          className="relative z-30  overflow-hidden"
+          className="relative z-30  overflow-hidden "
           style={{
-            boxShadow: "6px 0 30px 20px #0C0318",
+            boxShadow: "6px 20px 30px 20px #0C0318",
           }}
         ></div>
 
@@ -37,7 +37,7 @@ function Home() {
         <div
           className="relative z-30  overflow-hidden"
           style={{
-            boxShadow: "6px 0 40px 30px #0C0318",
+            boxShadow: "6px 10px 40px 30px #030307",
           }}
         ></div>
 

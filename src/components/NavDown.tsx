@@ -14,7 +14,7 @@ const NavDown = () => {
       ></div>
 
       <div
-        className="absolute w-[800px] h-[950px] bottom-[-680px] md:w-[1300px] md:h-[1300px] xl:w-[1200px] xl:h-[1250px] lg:w-[950px] lg:h[950px] rounded-full lg:bottom-[-1050px] md:bottom-[-950px] sm:bottom-[-1200px] xl:bottom-[-950px] opacity-90 border-8 border-black"
+        className="absolute w-[800px] h-[950px] bottom-[-680px] md:w-[1300px] md:h-[1300px] xl:w-[1200px] xl:h-[1250px] lg:w-[950px] lg:h[950px] rounded-full lg:bottom-[-1050px] md:bottom-[-950px] sm:w-[1200px] sm:h-[1530px] sm:bottom-[-1200px] xl:bottom-[-950px] opacity-90 border-8 border-black"
         style={{
           background:
             "radial-gradient(circle, #2C1251 30%, #0C0318 50%, #000000 85%)",

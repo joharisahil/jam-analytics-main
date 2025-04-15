@@ -7,7 +7,7 @@ const GridBackground = () => {
   return (
     <div className="relative w-full overflow-hidden bg-[#030307]">
       {/* === Main Grid Background (bold) === */}
-      <div
+      {/* <div
         className="
           absolute inset-0 z-0
           bg-[length:30px_30px]
@@ -19,7 +19,7 @@ const GridBackground = () => {
             linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
           `
         }}
-      />
+      /> */}
 
       {/* === Tilted Fine Grid Layer === */}
       {/* <div
@@ -39,10 +39,10 @@ const GridBackground = () => {
       {/* === Content Layer === */}
       <div className="relative pt-20 pb-32 z-20">
         {/* Floating Shapes */}
-        {/* <FloatingShape color="bg-[#361764]" size="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64" top="15%" left="20%" />
-        <FloatingShape color="bg-[#361764]" size="w-24 h-24 sm:w-40 sm:h-40 lg:w-48 lg:h-48" top="15%" left="80%" />
-        <FloatingShape color="bg-[#361764]" size="w-20 h-20 sm:w-32 sm:h-32 lg:w-40 lg:h-40" top="70%" left="15%" />
-        <FloatingShape color="bg-[#361764]" size="w-20 h-20 sm:w-28 sm:h-28 lg:w-36 lg:h-36" top="70%" left="75%" /> */}
+        <FloatingShape color="bg-[#3c1a64]" size="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64" top="15%" left="20%" />
+        <FloatingShape color="bg-[#4B227B]" size="w-24 h-24 sm:w-40 sm:h-40 lg:w-48 lg:h-48" top="15%" left="80%" />
+        <FloatingShape color="bg-[#4B227B]" size="w-20 h-20 sm:w-32 sm:h-32 lg:w-40 lg:h-40" top="70%" left="15%" />
+        <FloatingShape color="bg-[#4B227B]" size="w-20 h-20 sm:w-28 sm:h-28 lg:w-36 lg:h-36" top="70%" left="75%" />
 
         {/* Heading + Video Section */}
         <div className="relative w-[92%] sm:w-[88%] md:w-[85%] mx-auto text-center">
@@ -55,7 +55,7 @@ const GridBackground = () => {
 
           <div className="relative flex items-center justify-center w-[90%] sm:w-[70%] md:w-[60%] lg:w-[48%] xl:w-[42%] pt-20 mx-auto transition-transform duration-300 ease-in-out hover:scale-110">
             {/* Jam AI Logo */}
-            <div className="absolute top-12 left-2 flex items-center space-x-2 px-2 py-1 border border-white/50 text-white bg-transparent rounded-3xl">
+            <div className="absolute top-9 left-2 flex items-center space-x-2 px-2 py-1 border border-white/50 text-white bg-transparent rounded-3xl">
               <img
                 src={image}
                 alt="jam-analytic-logo"
