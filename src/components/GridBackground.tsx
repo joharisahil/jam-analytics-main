@@ -11,8 +11,8 @@ const GridBackground = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: false, // Re-trigger the animation on subsequent scrolls or page re-visits
-    amount: 0.5,  // Trigger when 50% of the element is in the viewport
-    margin: "-100px 0px", // Optional offset for earlier triggering
+    amount: 0.,  // Trigger when 50% of the element is in the viewport
+    margin: "-90px 0px", // Optional offset for earlier triggering
   });
 
   // Track route changes using React Router's useLocation hook
@@ -94,7 +94,7 @@ const GridBackground = () => {
             style={{ zIndex: 1 }} // Lower z-index for the video
           >
             {/* Jam AI logo tag */}
-            <div className="absolute top-12 left-2 flex items-center space-x-2 px-3 py-1 border border-white/50 text-white bg-white/10 backdrop-blur-md rounded-3xl">
+            <div className="absolute top-9 left-1 flex items-center space-x-2 px-3 py-1 border border-white/50 text-white bg-white/10 backdrop-blur-md rounded-3xl">
               <img
                 src={image}
                 alt="Jam AI Logo"
@@ -112,6 +112,7 @@ const GridBackground = () => {
                   animate={{ scale: 1.25 }}
                   exit={{ scale: 1 }}
                   transition={{ duration: 1.2, ease: "easeOut" }}
+                  
                   className="w-full mt-6 rounded-[20px] overflow-hidden shadow-lg"
                   style={{ zIndex: 0 }} // Ensure the video is below the floating shapes
                 >
