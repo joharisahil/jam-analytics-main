@@ -9,6 +9,8 @@ import FooterDown from "../components/FooterDown";
 import NavDown from "../components/NavDown";
 import { useState } from "react";
 import GridBackground from "../components/GridBackground.tsx";
+import ContactForm from "../components/ContactForm.tsx";
+
 
 function Home() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -22,11 +24,8 @@ function Home() {
         <section id="home" className="bg-black">
           <NavDown />
         </section>
-        <div
-          className="relative z-30  overflow-hidden"
-          style={{
-            boxShadow: "6px 0 40px 30px #0C0318",
-          }}
+        <div className="relative z-30  overflow-hidden"
+          style={{ boxShadow: "6px 0 40px 30px #0C0318",}}
         ></div>
 
         {/* 0 0 30px 25px rgba(112,5,235,0.5) */}
@@ -34,17 +33,15 @@ function Home() {
           <GridBackground />
         </section>
 
-       
-
         <section
           id="feature"
-          className="relative bg-black py-20 overflow-hidden"
+          className="relative bg-black py-16 overflow-hidden"
         >
           {/* Background Grid */}
           <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
 
           <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-white mb-16">
+            <h2 className="text-3xl font-bold text-center text-white mb-4 ">
               Powerful Features
             </h2>
 
@@ -59,9 +56,9 @@ function Home() {
           </div>
         </section>
         {/* Steps (New Section) */}
-        <section className=" bg-black py-36">
+        <section className=" bg-black py-10">
           <div className="container mx-auto px-6 w-[78%] h-[80%]">
-            <h2 className="mx-auto text-center text-3xl text-gray-500  font-inter  mb-16">
+            <h2 className="mx-auto text-center text-3xl text-gray-500  font-inter mb-14">
               How It Works
             </h2>
             <div className="grid md:grid-cols-1 lg:grid-cols-3 md:mx-28 lg:mx-20 gap-14  ">
@@ -73,15 +70,14 @@ function Home() {
         </section>
 
         {/* Pricing */}
-
-        <section id="pricing" className="py-20 bg-black">
+        <section id="pricing" className="py-14  bg-black">
           <div className="items-center container mx-auto">
             {/* ...titles... */}
-            <h2 className=" mx-auto text-4xl w-20 font-medium text-center mb-4 text-gray-500  font-inter">
+            <h2 className=" mx-auto text-4xl w-20 font-medium text-center mb-4 text-gray-500  font-inter pt-5">
               Pricing
             </h2>
             <div
-              className="text-center mt-2 m-20"
+              className="text-center mt-2 m-10"
               style={{
                 background:
                   "linear-gradient(285.26deg, #000000 -18.24%, #000000 124.22%)",
@@ -93,7 +89,7 @@ function Home() {
               <section className="w-full px-1 sm:px-4 lg:px-8 py-10">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 justify-items-center">
                   {plans.map((plan, index) => (
-                    <div className="w-[135%] sm:w-full md:w-full lg:w-full xl:w-full mr-5">
+                    <div className="w-full sm:w-full md:w-full lg:w-full xl:w-full">
                       <PricingCard
                         key={index}
                         plan={plan}
@@ -109,6 +105,13 @@ function Home() {
             </div>
           </div>
         </section>
+
+        {/* Contact */}
+        <section id="contact" className="bg-black">
+        <ContactForm />
+         
+        </section>
+     
 
         {/* Footer */}
         <section id="footer">

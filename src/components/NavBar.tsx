@@ -95,7 +95,7 @@ const Navbar = () => {
   }`}
       >
         {/* Logo & Branding */}
-        <div className="flex items-center px-auto">
+        <div className="flex items-center px-auto space-x-2">
           <img src={logo} alt="Logo" className="w-10 h-10 rounded-full ml-4" />
           <span className="text-2xl font-semibold tracking-wide hover:text-purple-400 transition mx-auto">
             <a href="#home">Jam Analytics</a>
@@ -106,7 +106,7 @@ const Navbar = () => {
         <ul className="hidden lg:flex space-x-16 text-gray-300 text-lg lg:space-x-8 lg:text-base xl:text-lg xl:space-x-16">
           <li>
             <a href="#home" className="hover:text-white transition">
-              Home
+              About
             </a>
           </li>
           <li>
@@ -125,18 +125,14 @@ const Navbar = () => {
               Pricing
             </a>
           </li> 
-          <li>
-            <a href="#footer" className="hover:text-white transition">
-              About
-            </a>
-          </li>
+          
           <li>
             <a href="#home" className="block hover:text-purple-400 transition">
               Career
             </a>
           </li>
           <li>
-            <a href="#home" className="hover:text-white transition">
+            <a href="#contact" className="hover:text-white transition">
               Contact
             </a>
           </li>
@@ -174,56 +170,49 @@ const Navbar = () => {
         {menuOpen && (
           <div className="lg:hidden fixed top-16 left-0 w-full bg-[#0a0014] text-white p-2 space-y-4 z-50 shadow-lg">
             <ul className="space-y-4 text-left px-6 text-lg">
-              <li>
-                <a
-                  href="#home"
-                  className="block hover:text-purple-400 transition"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#pricing"
-                  className="block hover:text-purple-400 transition"
-                >
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#feature"
-                  className="block hover:text-purple-400 transition"
-                >
-                  Features
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#about"
-                  className="block hover:text-purple-400 transition"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#home"
-                  className="block hover:text-purple-400 transition"
-                >
-                  Career
-                </a>
-              </li>
+            <li>
+            <a href="#home" className="hover:text-white transition">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#product" className="hover:text-white transition">
+              Product
+            </a>
+          </li>
+         
+          <li>
+            <a href="#feature" className="hover:text-white transition">
+              Features
+            </a>
+          </li>
+          <li>
+            <a href="#pricing" className="hover:text-white transition">
+              Pricing
+            </a>
+          </li> 
+          
+          <li>
+            <a href="#home" className="block hover:text-purple-400 transition">
+              Career
+            </a>
+          </li>
+          <li>
+            <a href="#contact" className="hover:text-white transition">
+              Contact
+            </a>
+          </li>
             </ul>
 
             {/* Mobile Authentication Buttons */}
             <div className="flex gap-4 justify-start px-6 ">
              
-              <button
+            <button
                 onClick={() => loginWithRedirect()}
-                className="bg-gradient-to-br from-[#43295ebf] to-[#220b29] text-white text-lg font-medium px-4 py-2 rounded-lg border border-[#9174a7] transition-all duration-300 hover:bg-[#1a0122]"
+                className="relative px-[6px] py-[4px] left text-white rounded-[10px] bg-gradient-to-b from-[#24132f] to-[#0a0014] border border-[#57406f] shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl flex items-center "
               >
-                Try now →
+                <span>Try now →</span>
+                <span className="absolute inset-0 rounded-[10px] border-[1px] border-[#9174a7] opacity-50 "></span>
               </button>
             </div>
           </div>

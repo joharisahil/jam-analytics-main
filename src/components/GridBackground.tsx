@@ -94,7 +94,8 @@ const GridBackground = () => {
             style={{ zIndex: 1 }} // Lower z-index for the video
           >
             {/* Jam AI logo tag */}
-            <div className="absolute top-9 left-1 flex items-center space-x-2 px-3 py-1 border border-white/50 text-white bg-white/10 backdrop-blur-md rounded-3xl">
+            <div className="absolute top-9 flex left-3 space-x-2 px-3 py-1 border border-white/50 text-white bg-white/10 backdrop-blur-md rounded-3xl"
+             style={{ transform: "translateX(-80%)" }}>
               <img
                 src={image}
                 alt="Jam AI Logo"
