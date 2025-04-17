@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import JamAnalyticsChatbot from "../components/JamAnalyticsChatbot.tsx"; // Import the chatbot component
+import { GetStarted } from "../components/GetStarted.tsx";
 
 function App() {
   return (
@@ -8,6 +9,8 @@ function App() {
       {/* Main content */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/getstarted" element={<GetStarted />} />
+
         {/* Add other routes as needed */}
       </Routes>
 

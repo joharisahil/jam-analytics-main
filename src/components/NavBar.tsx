@@ -3,10 +3,12 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { User, X, Mail, Menu } from "lucide-react";
 import logo from "../assets/image.png";
 
+
 const Navbar = () => {
   const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
   const [showProfile, setShowProfile] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  
 
   //navbar on sccrolling
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -127,11 +129,6 @@ const Navbar = () => {
           </li> 
           
           <li>
-            <a href="#home" className="block hover:text-purple-400 transition">
-              Career
-            </a>
-          </li>
-          <li>
             <a href="#contact" className="hover:text-white transition">
               Contact
             </a>
@@ -191,12 +188,6 @@ const Navbar = () => {
               Pricing
             </a>
           </li> 
-          
-          <li>
-            <a href="#home" className="block hover:text-purple-400 transition">
-              Career
-            </a>
-          </li>
           <li>
             <a href="#contact" className="hover:text-white transition">
               Contact

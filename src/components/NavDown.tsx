@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom"; 
+
+
 const NavDown = () => {
+  const navigate = useNavigate();
   return (
     <div className="relative overflow-hidden flex items-center justify-center bg-[#0]">
       {/* <div className=""> */}
@@ -48,18 +52,18 @@ const NavDown = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 mt-8">
-            <button
+            <button onClick={() => navigate("/GetStarted")}
               className="px-2 py-1 bg-white text-gray-900 rounded-lg text-[20px] font-medium 
               hover:bg-gray-200 transition-all flex items-center shadow-md"
             >
               Get Started
             </button>
-            <button
+            <a href="#product"
               className="px-2 py-1 bg-white text-black rounded-lg text-[20px] font-medium
               border border-gray-400 hover:border-white transition-all flex items-center shadow"
             >
               View Demo
-            </button>
+            </a>
           </div>
         </div>
       </div>
