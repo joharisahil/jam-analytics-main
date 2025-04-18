@@ -1,6 +1,13 @@
+import emailjs from "@emailjs/browser";
 
 
 const ContactForm = () => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {e.preventDefault(); 
+    alert("submitted!")
+    emailjs.sendForm(
+       'sservice_p0wj3nj', 'ttemplate_xpxhcom', e.target as HTMLFormElement, 'n0JEXyInvfPZZeSrc');
+
+  }
   return (
     <div className="min-h-[80vh] bg-black flex items-center justify-center text-white flex-col ">
       <h1 className="text-4xl font-inter mt-4 mb-4">Contact us</h1>
@@ -19,7 +26,7 @@ const ContactForm = () => {
             backgroundColor: "#10001f", // Deep purple or black base
           }}
       >
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={sendEmail}>
           <div className=" flex flex-col sm:flex-row gap-4">
             <div className="w-full">
               <label className="text-sm">First name</label>
@@ -39,7 +46,7 @@ const ContactForm = () => {
           <div>
             <label className="text-sm">Email</label>
             <input
-              type="email"
+              type="email" name="email" id="email"
               className="w-full mt-1 px-3 py-2 rounded-md bg-slate-300 text-black focus:outline-none"
             />
           </div>
@@ -50,7 +57,7 @@ const ContactForm = () => {
             ></textarea>
           </div>
           <button
-            type="submit"
+            type="submit" 
             className="w-full py-2 rounded-md bg-gradient-to-r from-[#a87fff] to-[#6a00ff] text-white font-medium shadow-md hover:opacity-90 transition"
           >
             Submit
