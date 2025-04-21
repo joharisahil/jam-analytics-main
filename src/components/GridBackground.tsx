@@ -11,7 +11,7 @@ const GridBackground = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: false, // Re-trigger the animation on subsequent scrolls or page re-visits
-    amount: 0.,  // Trigger when 50% of the element is in the viewport
+    amount: 0.45,  // Trigger when 50% of the element is in the viewport
     margin: "-90px 0px", // Optional offset for earlier triggering
   });
 
