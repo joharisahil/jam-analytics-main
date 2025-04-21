@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { User, X, Mail, Menu } from "lucide-react";
-import logo from "../assets/image.png";
+import logo from "../assets/logo.jpg";
 
 
 const Navbar = () => {

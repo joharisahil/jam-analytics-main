@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useLocation } from "react-router-dom"; // Import useLocation for route change detection
-import image from "../assets/image.png";
+import image from "../assets/logo.jpg";
 import videoDesktop from "../assets/jam-analytics-video.mp4";
 import videoMobile from "../assets/jam-analytics-video-mobile.mp4";
 import FloatingShape from "./FloatingShape";

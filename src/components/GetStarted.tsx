@@ -1,5 +1,5 @@
 
-import img from "../assets/sorryImage.png";
+import img from "../assets/cmng soon 1.png";
 export const GetStarted = () => {
   return (
     <div className="min-h-screen bg-black flex flex-col items-center justify-center text-white text-center px-4">
