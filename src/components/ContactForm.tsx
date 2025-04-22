@@ -72,7 +72,7 @@ const ContactForm = () => {
                 type="text"
                 name="last_name"
                 id="last_name"
-                required
+          
                 className="w-full mt-1 px-3 py-2 rounded-md bg-slate-300 text-black focus:outline-none"
               />
             </div>

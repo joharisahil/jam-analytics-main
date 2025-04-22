@@ -7,8 +7,10 @@ const NavDown = () => {
     <div className="relative overflow-hidden flex items-center justify-center bg-[#0]">
       {/* <div className=""> */}
       {/* Background Circles */}
+        
       <div
-        className="absolute w-[1200px] h-[1550px] bottom-[-1160px] md:w-[1500px] md:h-[1500px] xl:w-[1500px] xl:h-[1500px] sm:w-[1500px] sm:h-[1500px] lg:w-[1200px] lg:h-[1400px] rounded-full  md:bottom-[-1000px] sm:bottom-[-1000px] opacity-95 border-8 border-black lg:bottom-[-1050px]"
+
+      className="absolute w-[1200px] h-[1550px] bottom-[-1160px] md:w-[1500px] md:h-[1500px] xl:w-[1500px] xl:h-[1500px] sm:w-[1500px] sm:h-[1500px] lg:w-[1200px] lg:h-[1400px] rounded-full  md:bottom-[-1000px] sm:bottom-[-1000px] opacity-95 border-8 border-black lg:bottom-[-1050px]"
         style={{
           background:
             "radial-gradient(circle, #361764 25%, #11081f 40%, #000000 85%)",
@@ -18,7 +20,7 @@ const NavDown = () => {
       ></div>
 
       <div
-        className="absolute w-[800px] h-[950px] bottom-[-680px] md:w-[1300px] md:h-[1300px] xl:w-[1200px] xl:h-[1250px] lg:w-[950px] lg:h[950px] rounded-full lg:bottom-[-1050px] md:bottom-[-950px] sm:bottom-[-1200px] xl:bottom-[-950px] opacity-90 border-8 border-black"
+        className="absolute w-[800px] h-[950px] bottom-[-680px] md:w-[1300px] md:h-[1300px] xl:w-[1200px] xl:h-[1250px] lg:w-[950px] lg:h[950px] rounded-full lg:bottom-[-1050px] md:bottom-[-950px] sm:w-[1200px] sm:h-[1530px] sm:bottom-[-1200px] xl:bottom-[-950px] opacity-90 border-8 border-black"
         style={{
           background:
             "radial-gradient(circle, #2C1251 30%, #0C0318 50%, #000000 85%)",
@@ -27,13 +29,14 @@ const NavDown = () => {
       ></div>
 
       <div
-        className="absolute  w-[500px] h-[500px]  bottom-[-350px] md:w-[700px] md:h-[650px] lg:h-[650px] lg:w-[700px] rounded-full  md:bottom-[-500px] lg:bottom-[-500px] sm:bottom-[-500px] sm:w-[700px] sm:h-[700px] opacity-85 border-8 border-black"
+        className="absolute  w-[550px] h-[500px]  bottom-[-370px] md:w-[930px] md:h-[950px] lg:h-[650px] lg:w-[700px] rounded-full  md:bottom-[-740px] lg:bottom-[-500px] sm:bottom-[-500px] sm:w-[700px] sm:h-[700px] opacity-85 border-8 border-black"
         style={{
           background:
             "radial-gradient(circle, #2C1251 10%, #0C0318 40%, #000000 90%)",
           boxShadow: "inset 0 0 140px 45px #000000, 0 0 100px 50px #130d1f",
         }}
       ></div>
+
 
       {/* </div> */}
 
