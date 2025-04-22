@@ -20,8 +20,6 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       shadow-[inset_2.26px_4.53px_9.06px_#FFFFFF40,inset_3.62px_2.26px_8.42px_#CFCFCF40]
       hover:shadow-[0px_10px_74px_10px_#4E00BF69]"
 
-       
-        
     
     >
       {Icon && (
