@@ -44,14 +44,11 @@ const ContactForm = () => {
       <div
         className="max-w-2xl p-6 rounded-2xl w-[70%] sm:w-[50%] md:w-[40%] lg:w-full xl:w-full"
         style={{
-          boxShadow:
-            "7px 6px 14.6px 0px #FFFFFF40 inset, 0px 2px 20.4px 0px #FFFFFF40, 0px 10px 74px 10px #4E00BF69",
-          backgroundImage: `
-            linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px)
-          `,
-          backgroundSize: "50px 50px",
-          backgroundColor: "#10001f",
+              background: `linear-gradient(180deg, #010002 0%, #361764 100%)`,
+              boxShadow: "0px 7.55px 55.89px 7.55px #4E00BF69",
+              
+
+
         }}
       >
         <form ref={formRef} className="space-y-4" onSubmit={sendEmail}>
@@ -98,7 +95,16 @@ const ContactForm = () => {
           </div>
           <button
             type="submit"
-            className="w-full py-2 rounded-md bg-gradient-to-r from-[#a87fff] to-[#6a00ff] text-white font-medium shadow-md hover:opacity-90 transition"
+            className="w-full py-2 rounded-md "style={{
+              background: `#8C45FF66 `,
+              boxShadow: "0px 0px 4.53px 2.27px #FFFFFF40 inset",
+
+             backdropFilter: "blur(10.573298454284668px)",
+             borderStyle: "0.76px solid #FFFFFF26",
+              WebkitBackdropFilter: "blur(10.573298454284668px)",
+
+
+            }}
           >
             Submit
           </button>
