@@ -12,11 +12,14 @@
   "dependencies": {
     "@auth0/auth0-react": "^2.3.0",
     "@emailjs/browser": "^4.4.1",
+    "flag-icon-css": "^4.1.7",
     "framer-motion": "^12.6.3",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-phone-input-2": "^2.15.1",
     "react-router-dom": "^7.4.0",
+    "react-select": "^5.10.1",
     "tailwind": "^4.0.0"
   },
   "devDependencies": {
