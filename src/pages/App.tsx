@@ -3,6 +3,7 @@ import Home from "./Home";
 import JamAnalyticsChatbot from "../components/JamAnalyticsChatbot.tsx"; // Import the chatbot component
 import { GetStarted } from "../components/GetStarted.tsx";
 import Signup from "../components/Signup.tsx";
+import Welcome from "../components/Welcome.tsx";
 import Signin from "../components/Signin.tsx";
 
 function App() {
@@ -12,8 +13,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/getstarted" element={<GetStarted />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/signin" element={<Signin />} />
+        <Route path="/signup" element={<Signup/>} />
+        <Route path="/Welcome" element={<Welcome />} />
+        <Route path="/Signin" element={<Signin />} />
 
         {/* Add other routes as needed */}
       </Routes>

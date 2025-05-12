@@ -82,7 +82,7 @@ const Navbar = () => {
          
             <>
               
-              <button onClick={() => navigate("/Signup")}
+              <button onClick={() => navigate("/Welcome")}
                
                 className="relative px-[6px] py-[4px] right-6 text-white rounded-[10px] bg-gradient-to-b from-[#24132f] to-[#0a0014] border border-[#57406f] shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl flex items-center "
               >
@@ -90,12 +90,12 @@ const Navbar = () => {
                 <span className="absolute inset-0 rounded-[10px] border-[1px] border-[#9174a7] opacity-50 "></span>
               </button>
 
-              <button onClick={() => navigate("/Signin")}
+              {/* <button onClick={() => navigate("/Signin")}
                 className="relative px-[6px] py-[4px] text-white rounded-[10px] bg-gradient-to-b from-[#24132f] to-[#0a0014] border border-[#57406f] shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl flex items-center "
               >
                 <span>Sign in</span>
                 <span className="absolute inset-0 rounded-[10px] border-[1px] border-[#9174a7] opacity-50 "></span>
-              </button>
+              </button> */}
             </>
         
         </div>
@@ -140,7 +140,7 @@ const Navbar = () => {
             {/* Mobile Authentication Buttons */}
             <div className="flex gap-4 justify-start px-6 ">
              
-            <button onClick={() => navigate("/Signup")}
+            <button onClick={() => navigate("/Welcome")}
                
                 className="relative px-[6px] py-[4px] left text-white rounded-[10px] bg-gradient-to-b from-[#24132f] to-[#0a0014] border border-[#57406f] shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl flex items-center "
               >

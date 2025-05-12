@@ -1,43 +1,58 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-export default function Signin() {
+const Signin = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white px-6 py-12 relative overflow-hidden">
-      {/* Background Letters */}
-      <div className="absolute text-[500px] font-bold text-gray-100 left-0 top-40 select-none pointer-events-none">
-        A
-      </div>
-      <div className="absolute text-[500px] font-bold text-gray-100 right-0 bottom-28 select-none pointer-events-none">
+    <div className="relative min-h-screen flex items-center justify-center bg-white px-6 overflow-hidden">
+      {/* Back Arrow - Top Left */}
+      <button
+        onClick={() => navigate(-1)}
+        className="absolute top-6 left-6 flex items-center space-x-2 z-20"
+      >
+        <ArrowLeft className="w-6 h-6" />
+        <span className="text-black text-base font-medium">Back</span>
+      </button>
+
+      {/* Decorative Background Letters */}
+      {/* J - Top Right */}
+      <div className="absolute text-[30rem] font-bold text-gray-100 select-none -top-16 -right-10 pointer-events-none z-0">
         J
       </div>
 
-      {/* Welcome Content */}
-      <div className="z-10 text-center max-w-md w-full">
-        <h1 className="text-5xl font-bold text-blue-600 mb-4">Welcome</h1>
-        <p className="text-lg text-gray-800 mb-10">Let's get started</p>
+      {/* A - Bottom Left */}
+      <div className="absolute text-[30rem] font-bold text-gray-100 select-none -bottom-32 -left-32 pointer-events-none z-0">
+        A
+      </div>
 
-        {/* Existing customer section */}
-        <p className="text-md font-medium text-gray-800 mb-3">
-          Existing customer / Get started
-        </p>
-        <button
-          onClick={() => navigate('/signin')}
-          className="w-full py-3 text-white bg-blue-600 rounded-xl text-lg font-semibold hover:bg-blue-700 transition mb-6"
-        >
-          Sign in
-        </button>
+      {/* Form Container */}
+      <div className="relative z-10 max-w-xl w-full space-y-8">
+        <h2 className="text-3xl font-bold text-blue-600">Sign In</h2>
 
-        {/* New customer section */}
-        <p className="text-md text-gray-800">
-          New customer?{' '}
-          <Link to="/signup" className="text-blue-600 font-medium hover:underline">
-            Create new account
-          </Link>
-        </p>
+        <div className="space-y-6">
+          
+
+          <div>
+            <label className="block text-base font-medium text-gray-700">Phone</label>
+            <input
+              type="text"
+              placeholder="Enter your number…"
+              className="mt-2 w-full px-6 py-3 text-base border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <button
+            type="button"
+            className="w-full py-3 px-6 bg-blue-500 text-white text-base font-semibold rounded-md hover:bg-blue-600 transition"
+          >
+            Get OTP
+          </button>
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default Signin;
