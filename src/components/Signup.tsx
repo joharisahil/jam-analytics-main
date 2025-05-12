@@ -51,7 +51,7 @@ const SignupForm = () => {
           </div>
 
           <button
-            type="button"
+            type="button" onClick={() => navigate('/otp')}
             className="w-full py-3 px-6 bg-blue-500 text-white text-base font-semibold rounded-md hover:bg-blue-600 transition"
           >
             Get OTP

@@ -5,6 +5,7 @@ import { GetStarted } from "../components/GetStarted.tsx";
 import Signup from "../components/Signup.tsx";
 import Welcome from "../components/Welcome.tsx";
 import Signin from "../components/Signin.tsx";
+import Otp from "../components/Otp.tsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/signup" element={<Signup/>} />
         <Route path="/Welcome" element={<Welcome />} />
         <Route path="/Signin" element={<Signin />} />
+        <Route path="/otp" element={<Otp />} />
 
         {/* Add other routes as needed */}
       </Routes>
