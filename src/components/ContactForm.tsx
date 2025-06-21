@@ -20,12 +20,12 @@ const ContactForm = () => {
       )
       .then(
         () => {
-          setNotification("✅ Form submitted successfully!");
+          setNotification(" Form submitted successfully!");
           setTimeout(() => setNotification(""), 3000);
           formRef.current?.reset();
         },
         (error) => {
-          setNotification("❌ Something went wrong. Please try again.");
+          setNotification(" Something went wrong. Please try again.");
           setTimeout(() => setNotification(""), 3000);
           console.error("EmailJS Error:", error);
         }
