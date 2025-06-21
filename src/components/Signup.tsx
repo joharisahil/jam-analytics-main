@@ -18,13 +18,11 @@ const SignupForm = () => {
 
       {/* Decorative Background Letters */}
       {/* J - Top Right */}
-      <div className="absolute text-[30rem] font-bold text-gray-100 select-none -top-16 -right-10 pointer-events-none z-0">
-        J
-      </div>
-
-      {/* A - Bottom Left */}
-      <div className="absolute text-[30rem] font-bold text-gray-100 select-none -bottom-32 -left-32 pointer-events-none z-0">
+       <div className="absolute text-[600px] font-bold text-gray-100 -left-14 top-12 select-none pointer-events-none">
         A
+      </div>
+      <div className="absolute text-[500px] font-bold text-gray-100 right-0 bottom-44 select-none pointer-events-none">
+        J
       </div>
 
       {/* Form Container */}

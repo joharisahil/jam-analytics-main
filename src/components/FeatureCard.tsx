@@ -37,7 +37,9 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
           <Icon size={28} className="text-white" aria-hidden="true" />
         </div>
       )}
-      <h3 className="text-lg font-semibold mb-2 drop-shadow-[0_1px_1px_rgba(255,255,255,0.2)]">{title}</h3>
+      <h3 className="text-lg font-semibold mb-2 drop-shadow-[0_1px_1px_rgba(255,255,255,0.2)]">
+        {title}
+      </h3>
       <p className="text-gray-400 text-sm leading-snug tracking-wide">
         {description}
       </p>

@@ -7,10 +7,10 @@ export default function Welcome() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white px-6 py-12 relative overflow-hidden">
       {/* Background Letters */}
-      <div className="absolute text-[500px] font-bold text-gray-100 left-0 top-40 select-none pointer-events-none">
+      <div className="absolute text-[600px] font-bold text-gray-100 -left-14 top-12 select-none pointer-events-none">
         A
       </div>
-      <div className="absolute text-[500px] font-bold text-gray-100 right-0 bottom-28 select-none pointer-events-none">
+      <div className="absolute text-[500px] font-bold text-gray-100 right-0 bottom-44 select-none pointer-events-none">
         J
       </div>
 

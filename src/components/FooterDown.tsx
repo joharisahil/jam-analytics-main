@@ -12,8 +12,8 @@ const FooterDown = () => {
               <div>
                 <h4 className="text-gray-400 font-semibold mb-6">Product</h4>
                 <ul className="space-y-4">
-                  <li><a href="#" className="hover:text-gray-400">Features</a></li>
-                  <li><a href="#" className="hover:text-gray-400">Pricing</a></li>
+                  <li><a href="#feature" className="hover:text-gray-400">Features</a></li>
+                  <li><a href="#pricing" className="hover:text-gray-400">Pricing</a></li>
                   <li><a href="#" className="hover:text-gray-400">Security</a></li>
                 </ul>
               </div>
@@ -32,9 +32,9 @@ const FooterDown = () => {
               <div>
                 <h4 className="text-gray-400 font-semibold px-4 mb-6">Company</h4>
                 <ul className="space-y-4 px-4">
-                  <li><a href="#" className="hover:text-gray-400">About</a></li>
+                  <li><a href="#about" className="hover:text-gray-400">About</a></li>
                   <li><a href="#" className="hover:text-gray-400">Careers</a></li>
-                  <li><a href="#" className="hover:text-gray-400">Contact</a></li>
+                  <li><a href="#contact" className="hover:text-gray-400">Contact</a></li>
                 </ul>
               </div>
 
