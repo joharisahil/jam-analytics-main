@@ -5,12 +5,12 @@ import useAuthStore from "../Store/authStore";
 
 const Signin = () => {
   const navigate = useNavigate();
-  const { signup, error, isLoading } = useAuthStore();
+  const { login, error, isLoading } = useAuthStore();
 
   const [phone_no, setPhoneNo] = useState("");
   const [phoneError, setPhoneError] = useState("");
 
-  const handleSignup = async () => {
+  const handleLogin= async () => {
     if (!phone_no) {
       setPhoneError("Please enter your phone number");
       return;
@@ -24,7 +24,21 @@ const Signin = () => {
     setPhoneError(""); // clear previous error
 
     try {
-      await signup({ name: "User", phone_no }); // You can replace "User" if you want a name field
+      try {
+        // First attempt: login attempt without a name
+        await login(phone_no);
+      } catch (err: any) {
+        if (
+          err?.response?.data === "Name is required for new users" ||
+          err?.message === "Name is required for new users"
+        ) {
+          // Retry as signup if backend says name is required
+          await login(phone_no );
+        } else {
+          throw err; // other errors like rate limiting, server error, etc.
+        }
+      }
+
       navigate("/otp");
     } catch (err) {
       console.error("Signup failed", err);
@@ -55,7 +69,7 @@ const Signin = () => {
         className="relative z-10 max-w-xl w-full space-y-8"
         onSubmit={(e) => {
           e.preventDefault();
-          handleSignup();
+          handleLogin();
         }}
       >
         <h2 className="text-3xl font-bold text-blue-600">Sign In</h2>

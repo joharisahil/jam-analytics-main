@@ -13,6 +13,7 @@ type AuthStore = {
   isCheckingAuth: boolean;
   message: string | null;
   phone_no: string | null;
+  requiresName: boolean;
   signup: ({ name, phone_no }: { name: string; phone_no: string }) => Promise<void>;
   login: (phone_no: string) => Promise<void>;
   logout: () => Promise<void>;
@@ -27,17 +28,18 @@ const useAuthStore = create<AuthStore>((set, get) => ({
   isLoading: false,
   isCheckingAuth: true,
   message: null,
-  phone_no: null, // ✅ Save phone number
+  phone_no: null,
+  requiresName: true,
 
   signup: async ({ name, phone_no }: { name: string; phone_no: string }) => {
-    set({ isLoading: true, error: null });
+    set({ isLoading: true, error: null, requiresName: false });
     try {
       const response = await axios.post(`${API_URL}/signuplogin`, { name, phone_no });
       set({
         user: response.data.user,
         isAuthenticated: true,
         isLoading: false,
-        phone_no, // ✅ Save phone number for OTP
+        phone_no,
       });
     } catch (error) {
       let errorMessage = "Error signing up";
@@ -53,7 +55,7 @@ const useAuthStore = create<AuthStore>((set, get) => ({
   },
 
   login: async (phone_no: string) => {
-    set({ isLoading: true, error: null });
+    set({ isLoading: true, error: null, requiresName: false }); // 🧼 Reset old flags
     try {
       const response = await axios.post(`${API_URL}/signuplogin`, { phone_no });
       set({
@@ -61,16 +63,24 @@ const useAuthStore = create<AuthStore>((set, get) => ({
         user: response.data.user,
         isLoading: false,
         error: null,
-        phone_no, // ✅ Save phone number for OTP
+        phone_no,
       });
     } catch (error) {
       let errorMessage = "Error logging in";
-      if (axios.isAxiosError(error) && error.response?.data?.message) {
-        errorMessage = error.response.data.message;
+      if (axios.isAxiosError(error)) {
+        if (typeof error.response?.data === "string") {
+          errorMessage = "User does not exist";
+          if (errorMessage === "User does not exist") {
+            set({ requiresName: true });
+          }
+        } else if (error.response?.data?.message) {
+          errorMessage = error.response.data.message;
+        }
       }
       set({
         error: errorMessage,
         isLoading: false,
+        isAuthenticated: false, // 🛡️ Do NOT keep user as authenticated on failure
       });
       throw error;
     }
@@ -85,7 +95,7 @@ const useAuthStore = create<AuthStore>((set, get) => ({
         isAuthenticated: false,
         error: null,
         isLoading: false,
-        phone_no: null, // ✅ Clear phone number on logout
+        phone_no: null,
       });
     } catch (error) {
       set({ error: "Error logging out", isLoading: false });
@@ -96,8 +106,8 @@ const useAuthStore = create<AuthStore>((set, get) => ({
   verifyOtp: async (code: string) => {
     set({ isLoading: true, error: null });
     try {
-      const { phone_no } = get(); // ✅ Get saved phone number
-      const response = await axios.post(`${API_URL}/verify-otp`, { phone_no, otp_code:code });
+      const { phone_no } = get();
+      const response = await axios.post(`${API_URL}/verify-otp`, { phone_no, otp_code: code });
       set({
         user: response.data.user,
         isAuthenticated: true,
