@@ -1,7 +1,7 @@
-import { ArrowLeft } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import useAuthStore from '../Store/authStore'; // Adjust path as needed
+import { ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import useAuthStore from "../Store/authStore"; // Adjust path as needed
 
 type AuthStore = {
   signup: (params: { name: string; phone_no: string }) => Promise<void>;
@@ -13,15 +13,26 @@ const SignupForm = () => {
   const navigate = useNavigate();
   const { signup, error, isLoading } = useAuthStore() as AuthStore;
 
-  const [name, setName] = useState('');
-  const [phone_no, setPhoneNo] = useState('');
+  const [name, setName] = useState("");
+  const [phone_no, setPhoneNo] = useState("");
+  const [phoneError, setPhoneError] = useState("");
 
   const handleSignup = async () => {
+    if (!phone_no) {
+      setPhoneError("Please enter your phone number");
+      return;
+    }
+    if (phone_no.length !== 10) {
+      setPhoneError("Phone number must be exactly 10 digits");
+      return;
+    }
+
+    setPhoneError(""); // Clear error before proceeding
+
     try {
       await signup({ name, phone_no });
-      navigate('/otp');
+      navigate("/otp");
     } catch (err) {
-      // Error is already set in the store
       console.error("Signup failed", err);
     }
   };
@@ -46,59 +57,81 @@ const SignupForm = () => {
       </div>
 
       {/* Form Container */}
-     
-        <div className="relative z-10 max-w-xl w-full space-y-8">
-          <h2 className="text-3xl font-bold text-blue-600">Sign up</h2>
-           <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    handleSignup();
-                  }}
-                >
-
+      <div className="relative z-10 max-w-xl w-full space-y-8">
+        <h2 className="text-3xl font-bold text-blue-600">Sign up</h2>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSignup();
+          }}
+        >
           <div className="space-y-6">
+            {/* Name Input */}
             <div>
-              <label className="block text-base font-medium text-gray-700">Name</label>
+              <label className="block text-base font-medium text-gray-700">
+                Name
+              </label>
               <input
                 type="text"
                 placeholder="Enter your name…"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => {
+                  const onlyLetters = e.target.value.replace(/[^a-zA-Z]/g, "");
+                  setName(onlyLetters);
+                }}
                 className="mt-2 w-full px-6 py-3 text-base border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
             </div>
 
+            {/* Phone Input */}
             <div>
-              <label className="block text-base font-medium text-gray-700">Phone</label>
+              <label className="block text-base font-medium text-gray-700">
+                Phone
+              </label>
               <input
                 type="text"
                 placeholder="Enter your number…"
+                inputMode="numeric"
+                pattern="[0-9]*"
                 value={phone_no}
-                onChange={(e) => setPhoneNo(e.target.value)}
-                className="mt-2 w-full px-6 py-3 text-base border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                onChange={(e) => {
+                  const numericValue = e.target.value.replace(/\D/g, "");
+                  if (numericValue.length <= 10) {
+                    setPhoneNo(numericValue);
+                    if (phoneError) setPhoneError("");
+                  }
+                }}
+                className={`mt-2 w-full px-6 py-3 text-base border ${
+                  phoneError ? "border-red-500" : "border-gray-300"
+                } rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 ${
+                  phoneError ? "focus:ring-red-500" : "focus:ring-blue-500"
+                }`}
                 required
               />
+              {phoneError && (
+                <p className="text-red-500 text-sm mt-1">{phoneError}</p>
+              )}
             </div>
 
-            {error && (
-              <p className="text-red-500 text-sm">{error}</p>
-            )}
+            {/* Backend Error */}
+            {error && <p className="text-red-500 text-sm">{error}</p>}
 
+            {/* Submit Button */}
             <button
               type="submit"
               disabled={isLoading}
               className={`w-full py-3 px-6 text-white text-base font-semibold rounded-md transition ${
-                isLoading ? 'bg-blue-300 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'
+                isLoading
+                  ? "bg-blue-300 cursor-not-allowed"
+                  : "bg-blue-500 hover:bg-blue-600"
               }`}
             >
-              {isLoading ? 'Processing...' : 'Get OTP'}
+              {isLoading ? "Processing..." : "Get OTP"}
             </button>
           </div>
-          </form>
-
-        </div>
-     
+        </form>
+      </div>
     </div>
   );
 };

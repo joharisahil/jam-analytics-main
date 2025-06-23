@@ -1,23 +1,31 @@
-import { useState } from 'react';
-import { ArrowLeft } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import useAuthStore from '../Store/authStore';
+import { useState } from "react";
+import { ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import useAuthStore from "../Store/authStore";
 
 const Signin = () => {
   const navigate = useNavigate();
   const { signup, error, isLoading } = useAuthStore();
 
-  const [phone_no, setPhoneNo] = useState('');
+  const [phone_no, setPhoneNo] = useState("");
+  const [phoneError, setPhoneError] = useState("");
 
   const handleSignup = async () => {
     if (!phone_no) {
-      alert("Please enter your phone number");
+      setPhoneError("Please enter your phone number");
       return;
     }
 
+    if (phone_no.length !== 10) {
+      setPhoneError("Phone number must be exactly 10 digits");
+      return;
+    }
+
+    setPhoneError(""); // clear previous error
+
     try {
       await signup({ name: "User", phone_no }); // You can replace "User" if you want a name field
-      navigate('/otp');
+      navigate("/otp");
     } catch (err) {
       console.error("Signup failed", err);
     }
@@ -54,32 +62,47 @@ const Signin = () => {
 
         <div className="space-y-6">
           <div>
-            <label className="block text-base font-medium text-gray-700">Phone</label>
+            <label className="block text-base font-medium text-gray-700">
+              Phone
+            </label>
             <input
               type="text"
               placeholder="Enter your number…"
-              className="mt-2 w-full px-6 py-3 text-base border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              inputMode="numeric"
+              pattern="[0-9]*"
+              maxLength={10}
               value={phone_no}
-              onChange={(e) => setPhoneNo(e.target.value)}
+              onChange={(e) => {
+                const numericValue = e.target.value.replace(/\D/g, "");
+                setPhoneNo(numericValue);
+                if (phoneError) setPhoneError("");
+              }}
+              className={`mt-2 w-full px-6 py-3 text-base border ${
+                phoneError ? "border-red-500" : "border-gray-300"
+              } rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 ${
+                phoneError ? "focus:ring-red-500" : "focus:ring-blue-500"
+              }`}
+              required
             />
+            {phoneError && (
+              <p className="text-red-500 text-sm mt-1">{phoneError}</p>
+            )}
           </div>
 
           <button
             type="submit"
             disabled={isLoading}
             className={`w-full py-3 px-6 text-white text-base font-semibold rounded-md transition ${
-              isLoading ? 'bg-blue-300 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'
+              isLoading
+                ? "bg-blue-300 cursor-not-allowed"
+                : "bg-blue-500 hover:bg-blue-600"
             }`}
           >
-            {isLoading ? 'Processing...' : 'Get OTP'}
+            {isLoading ? "Processing..." : "Get OTP"}
           </button>
         </div>
 
-        {error && (
-          <p className="text-red-500 text-sm mt-2">
-            {error}
-          </p>
-        )}
+        {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
       </form>
     </div>
   );
