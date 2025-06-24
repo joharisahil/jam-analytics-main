@@ -3,7 +3,22 @@ import axios from "axios";
 
 const API_URL = "https://hr-automation-backend-wmeq.onrender.com/api/auth";
 
-axios.defaults.withCredentials = true;
+// 👉 Set up Axios interceptor to automatically add Authorization header
+axios.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem("jwt_token");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+// 👉 Optional: globally set Content-Type for POST, PUT, PATCH
+// axios.defaults.headers.post["Content-Type"] = "application/json";
+// axios.defaults.headers.put["Content-Type"] = "application/json";
+// axios.defaults.headers.patch["Content-Type"] = "application/json";
 
 type AuthStore = {
   user: any;
@@ -31,12 +46,19 @@ const useAuthStore = create<AuthStore>((set, get) => ({
   phone_no: null,
   requiresName: true,
 
-  signup: async ({ name, phone_no }: { name: string; phone_no: string }) => {
+  signup: async ({ name, phone_no }) => {
     set({ isLoading: true, error: null, requiresName: false });
     try {
       const response = await axios.post(`${API_URL}/signuplogin`, { name, phone_no });
+      const { user, token } = response.data;
+      // const token=response.data.token;
+
+      if (token) {
+        localStorage.setItem("jwt_token", token);  // ✅ Save token for future requests
+      }
+
       set({
-        user: response.data.user,
+        user,
         isAuthenticated: true,
         isLoading: false,
         phone_no,
@@ -46,21 +68,24 @@ const useAuthStore = create<AuthStore>((set, get) => ({
       if (axios.isAxiosError(error) && error.response?.data?.message) {
         errorMessage = error.response.data.message;
       }
-      set({
-        error: errorMessage,
-        isLoading: false,
-      });
+      set({ error: errorMessage, isLoading: false });
       throw error;
     }
   },
 
-  login: async (phone_no: string) => {
-    set({ isLoading: true, error: null, requiresName: false }); // 🧼 Reset old flags
+  login: async (phone_no) => {
+    set({ isLoading: true, error: null, requiresName: false });
     try {
       const response = await axios.post(`${API_URL}/signuplogin`, { phone_no });
+      const { user, token } = response.data;
+
+      if (token) {
+        localStorage.setItem("jwt_token", token);
+      }
+
       set({
         isAuthenticated: true,
-        user: response.data.user,
+        user,
         isLoading: false,
         error: null,
         phone_no,
@@ -70,17 +95,38 @@ const useAuthStore = create<AuthStore>((set, get) => ({
       if (axios.isAxiosError(error)) {
         if (typeof error.response?.data === "string") {
           errorMessage = "User does not exist";
-          if (errorMessage === "User does not exist") {
-            set({ requiresName: true });
-          }
+          set({ requiresName: true });
         } else if (error.response?.data?.message) {
           errorMessage = error.response.data.message;
         }
       }
+      set({ error: errorMessage, isLoading: false, isAuthenticated: false });
+      throw error;
+    }
+  },
+
+  verifyOtp: async (code) => {
+    set({ isLoading: true, error: null });
+    try {
+      const { phone_no } = get();
+      const response = await axios.post(`${API_URL}/verify-otp`, { phone_no, otp_code: code });
+      const { user, token } = response.data;
+
+      if (token) {
+        localStorage.setItem("jwt_token", token);
+      }
+
       set({
-        error: errorMessage,
+        user,
+        isAuthenticated: true,
         isLoading: false,
-        isAuthenticated: false, // 🛡️ Do NOT keep user as authenticated on failure
+      });
+
+      return response.data;
+    } catch (error: any) {
+      set({
+        error: error.response?.data?.message || "Error verifying OTP",
+        isLoading: false,
       });
       throw error;
     }
@@ -90,6 +136,7 @@ const useAuthStore = create<AuthStore>((set, get) => ({
     set({ isLoading: true, error: null });
     try {
       await axios.post(`${API_URL}/logout`);
+      localStorage.removeItem("jwt_token");
       set({
         user: null,
         isAuthenticated: false,
@@ -99,26 +146,6 @@ const useAuthStore = create<AuthStore>((set, get) => ({
       });
     } catch (error) {
       set({ error: "Error logging out", isLoading: false });
-      throw error;
-    }
-  },
-
-  verifyOtp: async (code: string) => {
-    set({ isLoading: true, error: null });
-    try {
-      const { phone_no } = get();
-      const response = await axios.post(`${API_URL}/verify-otp`, { phone_no, otp_code: code });
-      set({
-        user: response.data.user,
-        isAuthenticated: true,
-        isLoading: false,
-      });
-      return response.data;
-    } catch (error: any) {
-      set({
-        error: error.response?.data?.message || "Error verifying OTP",
-        isLoading: false,
-      });
       throw error;
     }
   },
@@ -139,7 +166,7 @@ const useAuthStore = create<AuthStore>((set, get) => ({
         isAuthenticated: false,
       });
     }
-  },
+  }
 }));
 
 export default useAuthStore;

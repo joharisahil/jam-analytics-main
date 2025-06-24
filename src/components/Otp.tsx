@@ -11,25 +11,39 @@ const OtpVerification: React.FC = () => {
 
   const { error, verifyOtp, isLoading } = useAuthStore() as {
     error: string | null;
-    verifyOtp: (otp: string) => Promise<void>;
+    verifyOtp: (otp: string) => Promise<any>; // Return full response data
     isLoading: boolean;
   };
 
   const handleChange = (index: number, value: string) => {
-    if (!/^\d?$/.test(value)) return; // Only allow digits or empty
-
+    if (!/^\d?$/.test(value)) return;
     const newCode = [...code];
     newCode[index] = value;
     setCode(newCode);
-
-    if (value && index < 5) {
-      inputRefs.current[index + 1]?.focus();
-    }
+    if (value && index < 5) inputRefs.current[index + 1]?.focus();
   };
 
   const handleBackspace = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Backspace" && !code[index] && index > 0) {
       inputRefs.current[index - 1]?.focus();
+    }
+  };
+
+  const handlePaste = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      if (/^\d{6}$/.test(text)) {
+        const newCode = text.split("");
+        setCode(newCode);
+        newCode.forEach((digit, i) => {
+          if (inputRefs.current[i]) inputRefs.current[i]!.value = digit;
+        });
+        inputRefs.current[5]?.focus();
+      } else {
+        toast.error("Clipboard does not contain a 6-digit code");
+      }
+    } catch {
+      toast.error("Failed to read from clipboard");
     }
   };
 
@@ -41,38 +55,24 @@ const OtpVerification: React.FC = () => {
     }
 
     try {
-      await verifyOtp(otp);
+      const data = await verifyOtp(otp);
       toast.success("OTP verified successfully");
-      navigate("/");
+
+      const token = data?.data?.token;
+      if (token) {
+        window.location.href = `http://localhost:8081/?token=${token}`;
+      } else {
+        toast.error("Token not received");
+      }
+
     } catch (err) {
       toast.error(error || "OTP verification failed");
       console.error("OTP verification failed", err);
     }
   };
 
-  const handlePaste = async () => {
-    try {
-      const text = await navigator.clipboard.readText();
-      if (/^\d{6}$/.test(text)) {
-        const newCode = text.split("");
-        setCode(newCode);
-        newCode.forEach((digit, i) => {
-          if (inputRefs.current[i]) {
-            inputRefs.current[i]!.value = digit;
-          }
-        });
-        inputRefs.current[5]?.focus();
-      } else {
-        toast.error("Clipboard does not contain a 6-digit code");
-      }
-    } catch {
-      toast.error("Failed to read from clipboard");
-    }
-  };
-
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-white px-4 overflow-hidden">
-      {/* Back Arrow */}
       <button
         onClick={() => navigate(-1)}
         className="absolute top-6 left-6 flex items-center space-x-2 z-20"
@@ -81,7 +81,6 @@ const OtpVerification: React.FC = () => {
         <span className="text-black text-base font-medium">Back</span>
       </button>
 
-      {/* Decorative Letters */}
       <div className="absolute text-[600px] font-bold text-gray-100 -left-14 top-12 select-none pointer-events-none">
         A
       </div>
@@ -89,7 +88,6 @@ const OtpVerification: React.FC = () => {
         J
       </div>
 
-      {/* OTP Form Box */}
       <div className="relative z-10 bg-white rounded-xl shadow-lg p-8 w-full max-w-sm text-center space-y-6">
         <div>
           <h2 className="text-lg font-semibold text-gray-800">
