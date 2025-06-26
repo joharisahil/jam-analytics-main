@@ -82,7 +82,7 @@ const Navbar = () => {
          
             <>
               
-              <button onClick={() => navigate("/Welcome")}
+              <button onClick={() => navigate("/welcome")}
                
                 className="relative px-[6px] py-[4px] right-6 text-white rounded-[10px] bg-gradient-to-b from-[#24132f] to-[#0a0014] border border-[#57406f] shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl flex items-center "
               >
@@ -135,7 +135,7 @@ const Navbar = () => {
             {/* Mobile Authentication Buttons */}
             <div className="flex gap-4 justify-start px-6 ">
              
-            <button onClick={() => navigate("/Welcome")}
+            <button onClick={() => navigate("/welcome")}
                
                 className="relative px-[6px] py-[4px] left text-white rounded-[10px] bg-gradient-to-b from-[#24132f] to-[#0a0014] border border-[#57406f] shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl flex items-center "
               >

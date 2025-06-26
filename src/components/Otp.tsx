@@ -60,7 +60,7 @@ const OtpVerification: React.FC = () => {
 
       const token = data?.data?.token;
       if (token) {
-        window.location.href = `http://localhost:8081/?token=${token}`;
+        window.location.href = `http://localhost:8081/PharmacySetupScreen/?token=${token}`;
       } else {
         toast.error("Token not received");
       }

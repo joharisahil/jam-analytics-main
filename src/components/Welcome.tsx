@@ -24,7 +24,7 @@ export default function Welcome() {
           Existing customer / Get started
         </p>
         <button
-          onClick={() => navigate('/Signin')}
+          onClick={() => navigate('/signin')}
           className="w-full py-3 text-white bg-blue-600 rounded-xl text-lg font-semibold hover:bg-blue-700 transition mb-6"
         >
           Sign In

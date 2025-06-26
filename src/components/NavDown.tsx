@@ -55,7 +55,7 @@ const NavDown = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 mt-8">
-            <button onClick={() => navigate("/GetStarted")}
+            <button onClick={() => navigate("/getStarted")}
               className="px-2 py-1 bg-white text-gray-900 rounded-lg text-[20px] font-medium 
               hover:bg-gray-200 transition-all flex items-center shadow-md"
             >
