@@ -6,12 +6,30 @@ export default function Welcome() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white px-6 py-12 relative overflow-hidden">
-      {/* Background Letters */}
-      <div className="absolute text-[600px] font-bold text-gray-100 -left-14 top-12 select-none pointer-events-none">
-        A
-      </div>
-      <div className="absolute text-[500px] font-bold text-gray-100 right-0 bottom-44 select-none pointer-events-none">
+      {/* Decorative Background Letters */}
+      {/* "J" at top-right */}
+      <div
+        className="absolute font-bold text-gray-100 select-none pointer-events-none 
+             text-[350px] -right-4 top-0 leading-none translate-y-[-80px]
+             md:text-[400px]
+             lg:text-[500px] lg:translate-y-[-140px]
+             xl:text-[600px] xl:translate-y-[-200px]
+             "
+      >
         J
+      </div>
+
+      {/* "A" at bottom-left */}
+
+      <div
+        className="absolute font-bold text-gray-100 select-none pointer-events-none 
+             text-[350px] -left-4 bottom-0 leading-none translate-y-[30px]
+             md:text-[400px] md:translate-y-[40px]
+             lg:text-[500px] lg:translate-y-[50px]
+             xl:text-[600px] xl:translate-y-[60px]
+             "
+      >
+        A
       </div>
 
       {/* Welcome Content */}
